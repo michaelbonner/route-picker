@@ -1,18 +1,7 @@
-# create-svelte
+# Route Picker
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+![Screenshot 2023-10-05 at 3 52 10 PM](https://github.com/michaelbonner/route-picker/assets/1122945/7d728d26-a7eb-4429-9b62-cd014d454a12)
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
 ## Developing
 
