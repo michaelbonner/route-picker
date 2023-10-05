@@ -1,6 +1,6 @@
 <script>
 	import { format } from 'date-fns';
-	import Timer from '$lib/timer.svelte';
+	import Timer from '$lib/components/Timer.svelte';
 
 	export let route;
 </script>

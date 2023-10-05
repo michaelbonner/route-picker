@@ -1,7 +1,5 @@
 <script>
 	import RouteCard from '$lib/components/RouteCard.svelte';
-	import Timer from '$lib/timer.svelte';
-	import { format } from 'date-fns';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
