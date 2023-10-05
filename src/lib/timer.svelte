@@ -26,6 +26,7 @@
 
 	const clear = () => {
 		stopTimer();
+		pendingSave = false;
 		elapsed = 0;
 	};
 
@@ -38,6 +39,8 @@
 		currentState === 'stopped'
 			? 'text-center text-slate-400 font-bold text-3xl'
 			: 'text-center text-emerald-400 font-bold text-3xl';
+
+	$: canSave = currentState === 'stopped' && elapsed;
 </script>
 
 <div class="grid gap-2">
@@ -62,21 +65,26 @@
 		{(elapsed / 1000).toFixed(1)}s
 	</div>
 
-	<div class="flex justify-center gap-8">
-		<form method="POST" action="?/postTrip" class={pendingSave ? '' : 'hidden'}>
+	<div class="flex justify-center gap-4 py-2 px-4 text-sm">
+		<form method="POST" action="?/postTrip">
 			<input type="text" name="startTime" value={startTime} hidden />
 			<input type="text" name="endTime" value={endTime} hidden />
 			<input type="text" name="routeId" value={routeId} hidden />
 			<button
-				class="border border-emerald-700 text-emerald-800 py-1 px-3 rounded-lg"
+				class={`border bg-emerald-50 border-emerald-600 text-emerald-700 py-1 px-3 rounded-md uppercase font-bold ${
+					canSave ? '' : 'opacity-50'
+				}`}
+				disabled={!canSave}
 				on:click={save}
 			>
 				Save
 			</button>
 		</form>
 		<button
-			disabled={currentState === 'stopped' && !elapsed}
-			class="border border-slate-700 text-slate-800 py-1 px-3 rounded-lg"
+			class={`border bg-slate-50 border-slate-600 text-slate-700 py-1 px-3 rounded-md uppercase font-bold ${
+				canSave ? '' : 'opacity-50'
+			}`}
+			disabled={!canSave}
 			on:click={clear}>Clear</button
 		>
 	</div>
