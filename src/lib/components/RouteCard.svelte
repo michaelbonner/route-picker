@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
 	import { format } from 'date-fns';
 	import Timer from '$lib/components/Timer.svelte';
+	import type { Route, Trip } from '@prisma/client';
 
-	export let route;
+	export let route: Route & {
+		trips: Trip[];
+	};
 </script>
 
 <div class="border py-4 px-4 rounded-lg grid gap-4">
@@ -18,10 +21,14 @@
 						{format(trip.startTime, 'yyyy-MM-dd HH:mm:ss')}
 					</div>
 					<div>
-						{format(trip.endTime, 'yyyy-MM-dd HH:mm:ss')}
+						{#if trip.endTime}
+							{format(trip.endTime, 'yyyy-MM-dd HH:mm:ss')}
+						{/if}
 					</div>
 					<div>
-						{((trip.endTime - trip.startTime) / 1000 / 60).toFixed(2)} minutes
+						{#if trip.endTime}
+							{((trip.endTime.getTime() - trip.startTime.getTime()) / 1000 / 60).toFixed(2)} minutes
+						{/if}
 					</div>
 					<div>
 						<form method="post" action={`?/deleteTrip`}>
@@ -35,7 +42,10 @@
 
 		<div class="text-sm">
 			Average: {(
-				route.trips.reduce((acc, trip) => acc + (trip.endTime - trip.startTime), 0) /
+				route.trips.reduce((acc, trip) => {
+					if (!trip.endTime) return acc;
+					return acc + (trip.endTime.getTime() - trip.startTime.getTime());
+				}, 0) /
 				route.trips.length /
 				1000 /
 				60
