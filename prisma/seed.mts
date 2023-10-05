@@ -13,7 +13,7 @@ async function main() {
 	console.log(`Start seeding ...`);
 
 	await prisma.route.createMany({
-		data: [{ name: 'Work left way' }, { name: 'Work right way' }]
+		data: [{ name: 'Work - left way' }, { name: 'Work - right way' }]
 	});
 	console.log(`Created routes.`);
 
