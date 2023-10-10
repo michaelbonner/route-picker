@@ -80,12 +80,14 @@
 				Save
 			</button>
 		</form>
-		<button
-			class={`border bg-slate-50 border-slate-600 text-slate-700 py-1 px-3 rounded-md uppercase font-bold ${
-				canSave ? '' : 'opacity-50'
-			}`}
-			disabled={!canSave}
-			on:click={clear}>Clear</button
-		>
+		<div>
+			<button
+				class={`border bg-slate-50 border-slate-600 text-slate-700 py-1 px-3 rounded-md uppercase font-bold ${
+					canSave ? '' : 'opacity-50'
+				}`}
+				disabled={!canSave}
+				on:click={clear}>Clear</button
+			>
+		</div>
 	</div>
 </div>
