@@ -5,19 +5,27 @@
 
 <p>
 	{#if $page.data.session}
-		{#if $page.data.session.user?.image}
-			<span style="background-image: url('{$page.data.session.user.image}')" class="avatar" />
-		{/if}
-		<span class="signedInText">
-			<small>Signed in as</small><br />
-			<strong>{$page.data.session.user?.name ?? 'User'}</strong>
-		</span>
-		<button on:click={() => signOut()} class="button">Sign out</button>
+		<div class="flex items-center gap-2">
+			{#if $page.data.session.user?.image}
+				<span style="background-image: url('{$page.data.session.user.image}')" class="avatar" />
+			{/if}
+			<span>
+				<small>Signed in as</small>
+				<strong>{$page.data.session.user?.name ?? 'User'}</strong>
+			</span>
+			<button
+				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors"
+				on:click={() => signOut()}
+				type="button">Sign out</button
+			>
+		</div>
 	{:else}
 		<div class="flex gap-2 items-center">
 			<span class="notSignedInText">You are not signed in</span>
-			<button class="py-1 px-3 border rounded-lg" on:click={() => signIn('github')}
-				>Sign In with GitHub</button
+			<button
+				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors"
+				on:click={() => signIn('github')}
+				type="button">Sign In with GitHub</button
 			>
 		</div>
 	{/if}
