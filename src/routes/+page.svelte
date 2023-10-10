@@ -1,5 +1,6 @@
 <script>
 	import RouteCard from '$lib/components/RouteCard.svelte';
+	import SignInOut from '$lib/components/SignInOut.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -7,6 +8,7 @@
 </script>
 
 <div>
+	<SignInOut />
 	<div class="grid lg:grid-cols-3 gap-4">
 		{#each routes as route}
 			<RouteCard {route} />
