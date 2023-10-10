@@ -8,7 +8,6 @@
 </script>
 
 <div>
-	<SignInOut />
 	<div class="grid lg:grid-cols-3 gap-4">
 		{#each routes as route}
 			<RouteCard {route} />
