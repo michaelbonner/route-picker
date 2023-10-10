@@ -46,9 +46,9 @@
 					if (!trip.endTime) return acc;
 					return acc + (trip.endTime.getTime() - trip.startTime.getTime());
 				}, 0) /
-				route.trips.length /
-				1000 /
-				60
+					route.trips.length /
+					1000 /
+					60 || 0
 			).toFixed(2)} minutes
 		</div>
 
