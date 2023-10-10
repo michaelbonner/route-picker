@@ -35,12 +35,20 @@
 		console.log('save');
 	};
 
+	const formatTimerNumber = (num: number) => {
+		return num < 10 ? `0${num}` : num;
+	};
+
 	$: elapsedClassName =
 		currentState === 'stopped'
 			? 'text-center text-slate-400 font-bold text-3xl'
 			: 'text-center text-emerald-400 font-bold text-3xl';
 
 	$: canSave = currentState === 'stopped' && elapsed;
+
+	$: elapsedSeconds = formatTimerNumber(Math.round(elapsed / 1000) % 60);
+	$: elapsedMinutes = formatTimerNumber(Math.floor(elapsed / 1000 / 60));
+	$: elapsedHours = formatTimerNumber(Math.floor(elapsed / 1000 / 60 / 60));
 </script>
 
 <div class="grid gap-2">
@@ -62,7 +70,7 @@
 	{/if}
 
 	<div class={elapsedClassName}>
-		{(elapsed / 1000).toFixed(1)}s
+		{elapsedHours}:{elapsedMinutes}:{elapsedSeconds}
 	</div>
 
 	<div class="flex justify-center gap-4 py-2 px-4 text-sm">
