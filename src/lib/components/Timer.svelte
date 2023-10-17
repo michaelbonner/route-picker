@@ -32,7 +32,6 @@
 
 	const save = () => {
 		pendingSave = false;
-		console.log('save');
 	};
 
 	const formatTimerNumber = (num: number) => {
