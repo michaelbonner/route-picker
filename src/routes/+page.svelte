@@ -1,6 +1,5 @@
 <script>
 	import RouteCard from '$lib/components/RouteCard.svelte';
-	import SignInOut from '$lib/components/SignInOut.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;

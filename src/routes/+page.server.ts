@@ -1,8 +1,26 @@
 import prisma from '$lib/server/prisma';
+
 /** @type {import('./$types').PageServerLoad} */
-export async function load() {
+export async function load(event) {
+	const session = await event.locals.getSession();
+
+	if (!session?.user?.email) {
+		return {
+			routes: []
+		};
+	}
+
+	const user = await prisma.user.findUnique({
+		where: {
+			email: session?.user?.email
+		}
+	});
+
 	return {
 		routes: prisma.route.findMany({
+			where: {
+				userId: user?.id
+			},
 			include: {
 				trips: true
 			}
