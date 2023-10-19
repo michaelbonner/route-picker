@@ -72,14 +72,14 @@
 		{elapsedHours}:{elapsedMinutes}:{elapsedSeconds}
 	</div>
 
-	<div class="flex justify-center gap-4 py-2 px-4 text-sm">
+	<div class="grid grid-cols-2 gap-4 py-2 px-4 text-sm">
 		<form method="POST" action="?/postTrip">
 			<input type="text" name="startTime" value={startTime} hidden />
 			<input type="text" name="endTime" value={endTime} hidden />
 			<input type="text" name="routeId" value={routeId} hidden />
 			<button
-				class={`border bg-emerald-50 border-emerald-600 text-emerald-700 py-1 px-3 rounded-md uppercase font-bold ${
-					canSave ? '' : 'opacity-50'
+				class={`w-full border bg-emerald-50 border-emerald-600 text-emerald-700 py-3 px-3 rounded-md uppercase font-bold transition-opacity ${
+					canSave ? '' : 'opacity-20'
 				}`}
 				disabled={!canSave}
 				on:click={save}
@@ -89,8 +89,8 @@
 		</form>
 		<div>
 			<button
-				class={`border bg-slate-50 border-slate-600 text-slate-700 py-1 px-3 rounded-md uppercase font-bold ${
-					canSave ? '' : 'opacity-50'
+				class={`w-full border bg-slate-50 border-slate-600 text-slate-700 py-3 px-3 rounded-md uppercase font-bold transition-opacity ${
+					canSave ? '' : 'opacity-20'
 				}`}
 				disabled={!canSave}
 				on:click={clear}>Clear</button
