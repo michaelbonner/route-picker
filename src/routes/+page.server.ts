@@ -56,6 +56,19 @@ export const actions = {
 		});
 		return { success: true };
 	},
+	deleteRoute: async ({ request }) => {
+		const data = await request.formData();
+		const idToDelete = data.get('id');
+		if (!idToDelete) {
+			return { success: false, error: 'No route id provided' };
+		}
+		await prisma.route.delete({
+			where: {
+				id: +idToDelete
+			}
+		});
+		return { success: true };
+	},
 	postTrip: async ({ request }) => {
 		const data = await request.formData();
 		if (!data.get('startTime') || !data.get('endTime') || !data.get('routeId')) {

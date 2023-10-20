@@ -9,9 +9,17 @@
 </script>
 
 <div class="border py-4 px-4 rounded-lg grid gap-4">
-	<h2 class="text-xl font-bold text-center">
-		{route.name}
-	</h2>
+	<div class="flex justify-center gap-4">
+		<h2 class="text-xl font-bold text-center">
+			{route.name}
+		</h2>
+		{#if route.trips.length === 0}
+			<form method="post" action={`?/deleteRoute`}>
+				<input type="text" name="id" value={route.id} hidden />
+				<button class="text-red-500">x</button>
+			</form>
+		{/if}
+	</div>
 
 	<div class="grid gap-4">
 		<div>
