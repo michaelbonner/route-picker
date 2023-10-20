@@ -29,6 +29,33 @@ export async function load(event) {
 }
 /** @type {import('./$types').Actions} */
 export const actions = {
+	postRoute: async ({ request, locals }) => {
+		const data = await request.formData();
+
+		const session = await locals.getSession();
+
+		if (!session?.user?.email) {
+			return { success: false, error: 'No user email provided' };
+		}
+
+		const user = await prisma.user.findUnique({
+			where: {
+				email: session?.user?.email
+			}
+		});
+
+		await prisma.route.create({
+			data: {
+				user: {
+					connect: {
+						id: user?.id
+					}
+				},
+				name: data.get('name') as string
+			}
+		});
+		return { success: true };
+	},
 	postTrip: async ({ request }) => {
 		const data = await request.formData();
 		if (!data.get('startTime') || !data.get('endTime') || !data.get('routeId')) {
