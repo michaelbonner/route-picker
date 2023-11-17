@@ -1,5 +1,7 @@
 <script>
 	import SignInOut from '$lib/components/SignInOut.svelte';
+	import car from '$lib/images/car.svg';
+
 	import '../app.css';
 </script>
 
@@ -15,7 +17,10 @@
 <div class="grid gap-8 lg:gap-12 py-8">
 	<header class="w-full max-w-7xl mx-auto px-8 flex justify-between flex-wrap gap-4">
 		<h1 class="text-3xl font-bold underline shink-0">
-			<a href="/">Which Route Is Faster</a>
+			<a class="flex items-end gap-4" href="/">
+				<img class="h-10" src={car} alt="Which Route Is Faster Car" />
+				<span> Which Route Is Faster </span>
+			</a>
 		</h1>
 
 		<SignInOut />
