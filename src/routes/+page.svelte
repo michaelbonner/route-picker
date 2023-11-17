@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import RouteCard from '$lib/components/RouteCard.svelte';
 	import { signIn } from '@auth/sveltekit/client';
+	import whichRouteIsFaster from '$lib/images/car-route.svg';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -97,7 +98,9 @@
 	{/if}
 
 	<div class="prose lg:prose-xl mt-16 mx-auto">
-		<h2 class="text-lg font-bold">What the heck is this thing?</h2>
+		<h2>What the heck is this thing?</h2>
+		<img class="lg:w-1/2" src={whichRouteIsFaster} alt="Which Route Is Faster Car" />
+
 		<p>
 			Introducing Which Route Is Faster – the ultimate web app for savvy commuters and road warriors
 			alike! Say goodbye to unpredictable travel times and hello to efficiency on the road. Our
