@@ -30,7 +30,7 @@
 			>
 				Google
 			</button>
-			<span>Or</span>
+			<span>or</span>
 			<button
 				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors"
 				on:click={() => signIn('github')}
