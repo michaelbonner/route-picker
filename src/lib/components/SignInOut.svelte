@@ -21,12 +21,23 @@
 		</div>
 	{:else}
 		<div class="flex gap-2 items-center">
-			<span class="notSignedInText">You are not signed in</span>
+			<span class="notSignedInText">You are not signed in.</span>
+			<span>Sign in with</span>
+			<button
+				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors"
+				on:click={() => signIn('google')}
+				type="button"
+			>
+				Google
+			</button>
+			<span>Or</span>
 			<button
 				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors"
 				on:click={() => signIn('github')}
-				type="button">Sign In with GitHub</button
+				type="button"
 			>
+				GitHub
+			</button>
 		</div>
 	{/if}
 </p>

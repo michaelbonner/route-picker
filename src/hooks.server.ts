@@ -1,10 +1,14 @@
-import { GITHUB_ID, GITHUB_SECRET } from '$env/static/private';
+import { GITHUB_ID, GITHUB_SECRET, GOOGLE_ID, GOOGLE_SECRET } from '$env/static/private';
 import prisma from '$lib/server/prisma';
 import GitHub from '@auth/core/providers/github';
+import Google from '@auth/core/providers/google';
 import { SvelteKitAuth } from '@auth/sveltekit';
 
 export const handle = SvelteKitAuth({
-	providers: [GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET })],
+	providers: [
+		GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET }),
+		Google({ clientId: GOOGLE_ID, clientSecret: GOOGLE_SECRET })
+	],
 	callbacks: {
 		signIn: async ({ account, profile }) => {
 			if (!profile?.email) return false;
@@ -12,7 +16,7 @@ export const handle = SvelteKitAuth({
 
 			// find user or create them
 			const dbUser = await prisma.user.findUnique({
-				where: { email: profile.email, provider: account.provider }
+				where: { email: profile.email }
 			});
 
 			if (!dbUser) {

@@ -33,10 +33,17 @@
 		<div
 			class="border rounded-lg my-4 py-8 px-4 w-full text-center italic flex flex-wrap items-center justify-center gap-4"
 		>
+			<span>Sign in with</span>
+			<button
+				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors"
+				on:click={() => signIn('google')}
+				type="button">Google</button
+			>
+			<span>Or</span>
 			<button
 				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors"
 				on:click={() => signIn('github')}
-				type="button">Sign In with GitHub</button
+				type="button">GitHub</button
 			>
 			<span>to create a new route</span>
 		</div>
