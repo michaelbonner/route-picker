@@ -20,7 +20,7 @@
 			>
 		</div>
 	{:else}
-		<div class="flex gap-2 items-center">
+		<div class="hidden lg:flex flex-wrap gap-2 items-center">
 			<span class="notSignedInText">You are not signed in.</span>
 			<span>Sign in with</span>
 			<button

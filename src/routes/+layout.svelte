@@ -13,8 +13,8 @@
 </svelte:head>
 
 <div class="grid gap-8 lg:gap-12 py-8">
-	<header class="w-full max-w-7xl mx-auto px-8 flex justify-between">
-		<h1 class="text-3xl font-bold underline">
+	<header class="w-full max-w-7xl mx-auto px-8 flex justify-between flex-wrap gap-4">
+		<h1 class="text-3xl font-bold underline shink-0">
 			<a href="/">Which Route Is Faster</a>
 		</h1>
 

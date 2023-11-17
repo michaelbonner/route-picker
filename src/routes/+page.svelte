@@ -31,7 +31,7 @@
 		</div>
 	{:else}
 		<div
-			class="border rounded-lg my-4 py-8 px-4 w-full text-center italic flex flex-wrap items-center justify-center gap-4"
+			class="border rounded-lg my-4 py-8 px-4 w-full text-center italic flex flex-wrap items-center justify-center gap-4 max-w-4xl mx-auto"
 		>
 			<span>Sign in with</span>
 			<button
@@ -95,4 +95,31 @@
 			<span>to create a new route</span>
 		</div>
 	{/if}
+
+	<div class="prose lg:prose-xl mt-16 mx-auto">
+		<h2 class="text-lg font-bold">What the heck is this thing?</h2>
+		<p>
+			Introducing Which Route Is Faster – the ultimate web app for savvy commuters and road warriors
+			alike! Say goodbye to unpredictable travel times and hello to efficiency on the road. Our
+			innovative application empowers users to effortlessly track and analyze the duration of
+			various driving routes, providing invaluable insights into real-time traffic patterns and
+			historical trends.
+		</p>
+		<p>
+			With Which Route Is Faster, you can bid farewell to the guessing game of commute durations.
+			The app's user-friendly interface allows you to input your starting point and destination, and
+			it instantly generates a detailed overview of your estimated travel time based on current
+			traffic conditions. What sets Which Route Is Faster apart is its ability to not only provide
+			on-the-spot information but also to accumulate data over time. Imagine having a comprehensive
+			log of your commute durations, enabling you to identify patterns, optimize routes, and make
+			informed decisions about the best times to hit the road.
+		</p>
+		<p>
+			Whether you're a daily commuter navigating city traffic or a business traveler planning routes
+			between meetings, Which Route Is Faster is your go-to companion for a smoother journey. With
+			its intuitive design and powerful analytical tools, this app is a game-changer for anyone
+			looking to take control of their time on the road. Sign in to Which Route Is Faster today and
+			transform your commute into a well-informed, stress-free experience!
+		</p>
+	</div>
 </div>
