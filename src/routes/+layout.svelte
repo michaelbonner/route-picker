@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Route Picker</title>
+	<title>Which Route Is Faster</title>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -15,7 +15,7 @@
 <div class="grid gap-8 lg:gap-12 py-8">
 	<header class="w-full max-w-7xl mx-auto px-8 flex justify-between">
 		<h1 class="text-3xl font-bold underline">
-			<a href="/">Route Picker</a>
+			<a href="/">Which Route Is Faster</a>
 		</h1>
 
 		<SignInOut />

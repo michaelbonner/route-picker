@@ -1,7 +1,6 @@
-# Route Picker
+# Which Route Is Faster
 
 ![Screenshot 2023-10-05 at 3 52 10 PM](https://github.com/michaelbonner/route-picker/assets/1122945/7d728d26-a7eb-4429-9b62-cd014d454a12)
-
 
 ## Developing
 

@@ -1,6 +1,6 @@
 {
-	"name": "Route Picker",
-	"short_name": "Route Picker",
+	"name": "Which Route Is Faster",
+	"short_name": "Which Route",
 	"icons": [
 		{ "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
 		{ "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
