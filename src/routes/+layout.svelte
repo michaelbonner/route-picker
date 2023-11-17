@@ -15,8 +15,10 @@
 </svelte:head>
 
 <div class="grid gap-8 lg:gap-12 py-8">
-	<header class="w-full max-w-7xl mx-auto px-8 flex justify-between flex-wrap gap-4">
-		<h1 class="text-3xl font-bold underline shink-0">
+	<header
+		class="w-full max-w-7xl mx-auto px-8 flex justify-center md:justify-between flex-wrap gap-4"
+	>
+		<h1 class="text-2xl lg:text-3xl 2xl:text-3xl font-bold underline shink-0">
 			<a class="flex items-end gap-4" href="/">
 				<img class="h-10" src={car} alt="Which Route Is Faster Car" />
 				<span> Which Route Is Faster </span>
