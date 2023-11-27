@@ -1,3 +1,7 @@
+<svelte:head>
+	<link rel="canonical" href="https://whichrouteisfaster.com/policies" />
+</svelte:head>
+
 <div class="prose lg:prose-xl">
 	<h1>Policies</h1>
 	<h2>Privacy Policy</h2>

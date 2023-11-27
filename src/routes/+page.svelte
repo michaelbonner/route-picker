@@ -9,6 +9,16 @@
 	const { routes } = data;
 </script>
 
+<!-- add svelte head -->
+<svelte:head>
+	<title>Which Route Is Faster</title>
+	<meta name="description" content="Helping you figure out which route is faster" />
+	<meta property="og:title" content="Which Route Is Faster" />
+	<meta property="og:description" content="Helping you figure out which route is faster" />
+	<meta property="og:url" content="https://whichrouteisfaster.com/" />
+	<link rel="canonical" href="https://whichrouteisfaster.com/" />
+</svelte:head>
+
 <div>
 	{#if $page.data.session}
 		<div class="grid lg:grid-cols-3 gap-4">
