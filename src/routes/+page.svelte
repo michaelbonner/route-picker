@@ -15,8 +15,8 @@
 	<meta name="description" content="Helping you figure out which route is faster" />
 	<meta property="og:title" content="Which Route Is Faster" />
 	<meta property="og:description" content="Helping you figure out which route is faster" />
-	<meta property="og:url" content="https://whichrouteisfaster.com/" />
-	<link rel="canonical" href="https://whichrouteisfaster.com/" />
+	<meta property="og:url" content="https://www.whichrouteisfaster.com/" />
+	<link rel="canonical" href="https://www.whichrouteisfaster.com/" />
 </svelte:head>
 
 <div>
