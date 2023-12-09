@@ -51,7 +51,7 @@ export const actions = {
 						id: user?.id
 					}
 				},
-				name: data.get('name') as string
+				name: data.get('routeName') as string
 			}
 		});
 		return { success: true };
