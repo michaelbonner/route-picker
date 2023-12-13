@@ -10,7 +10,7 @@
 	let startLocation: GeolocationPosition | null = null;
 	let endLocation: GeolocationPosition | null = null;
 	let path: GeolocationPosition[] = [];
-	let watchId: number = 0;
+	let geolocationUpdateIntervalId: NodeJS.Timeout | null = null;
 
 	const geolocationOptions = {
 		enableHighAccuracy: true,
@@ -23,27 +23,29 @@
 			elapsed = new Date().getTime() - startTime.getTime();
 		}, 100);
 
-		watchId = navigator.geolocation.watchPosition(
-			(success) => {
-				path = [
-					...path,
-					{
-						coords: {
-							accuracy: success.coords.accuracy,
-							altitude: success.coords.altitude,
-							altitudeAccuracy: success.coords.altitudeAccuracy,
-							heading: success.coords.heading,
-							latitude: success.coords.latitude,
-							longitude: success.coords.longitude,
-							speed: success.coords.speed
-						},
-						timestamp: success.timestamp
-					}
-				];
-			},
-			(error) => console.error(error),
-			geolocationOptions
-		);
+		geolocationUpdateIntervalId = setInterval(() => {
+			navigator.geolocation.getCurrentPosition(
+				(success) => {
+					path = [
+						...path,
+						{
+							coords: {
+								accuracy: success.coords.accuracy,
+								altitude: success.coords.altitude,
+								altitudeAccuracy: success.coords.altitudeAccuracy,
+								heading: success.coords.heading,
+								latitude: success.coords.latitude,
+								longitude: success.coords.longitude,
+								speed: success.coords.speed
+							},
+							timestamp: success.timestamp
+						}
+					];
+				},
+				(error) => console.error(error),
+				geolocationOptions
+			);
+		}, 5000);
 
 		startTime = new Date();
 		currentState = 'running';
@@ -75,7 +77,7 @@
 		endTime = new Date();
 		if (interval) clearInterval(interval);
 
-		if (watchId) navigator.geolocation.clearWatch(watchId);
+		if (geolocationUpdateIntervalId) clearInterval(geolocationUpdateIntervalId);
 
 		navigator.geolocation.getCurrentPosition(
 			(success) => {
