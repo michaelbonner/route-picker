@@ -25,8 +25,21 @@
 
 		watchId = navigator.geolocation.watchPosition(
 			(success) => {
-				console.log('success', success);
-				path.push(success);
+				path = [
+					...path,
+					{
+						coords: {
+							accuracy: success.coords.accuracy,
+							altitude: success.coords.altitude,
+							altitudeAccuracy: success.coords.altitudeAccuracy,
+							heading: success.coords.heading,
+							latitude: success.coords.latitude,
+							longitude: success.coords.longitude,
+							speed: success.coords.speed
+						},
+						timestamp: success.timestamp
+					}
+				];
 			},
 			(error) => console.error(error),
 			geolocationOptions
@@ -36,7 +49,18 @@
 		currentState = 'running';
 		navigator.geolocation.getCurrentPosition(
 			(success) => {
-				startLocation = success;
+				startLocation = {
+					coords: {
+						accuracy: success.coords.accuracy,
+						altitude: success.coords.altitude,
+						altitudeAccuracy: success.coords.altitudeAccuracy,
+						heading: success.coords.heading,
+						latitude: success.coords.latitude,
+						longitude: success.coords.longitude,
+						speed: success.coords.speed
+					},
+					timestamp: success.timestamp
+				};
 			},
 			(error) => {
 				console.error(error);
@@ -55,7 +79,18 @@
 
 		navigator.geolocation.getCurrentPosition(
 			(success) => {
-				endLocation = success;
+				endLocation = {
+					coords: {
+						accuracy: success.coords.accuracy,
+						altitude: success.coords.altitude,
+						altitudeAccuracy: success.coords.altitudeAccuracy,
+						heading: success.coords.heading,
+						latitude: success.coords.latitude,
+						longitude: success.coords.longitude,
+						speed: success.coords.speed
+					},
+					timestamp: success.timestamp
+				};
 			},
 			(error) => {
 				console.error(error);
