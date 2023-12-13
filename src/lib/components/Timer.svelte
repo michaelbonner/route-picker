@@ -15,7 +15,7 @@
 	const geolocationOptions = {
 		enableHighAccuracy: true,
 		timeout: 5000,
-		maximumAge: 0
+		maximumAge: 5 * 1000 // allow cached positions for 5 seconds
 	};
 
 	const startTimer = () => {
