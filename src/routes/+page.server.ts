@@ -85,7 +85,10 @@ export const actions = {
 					}
 				},
 				startTime: new Date(data.get('startTime') as string),
-				endTime: new Date(data.get('endTime') as string)
+				endTime: new Date(data.get('endTime') as string),
+				startLocation: JSON.parse(data.get('startLocation') as string),
+				endLocation: JSON.parse(data.get('endLocation') as string),
+				path: JSON.parse(data.get('path') as string)
 			}
 		});
 		return { success: true };

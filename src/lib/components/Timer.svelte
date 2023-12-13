@@ -7,14 +7,66 @@
 	let elapsed = 0;
 	let interval: NodeJS.Timeout;
 	let pendingSave = false;
+	let startLocation: GeolocationPosition | null = null;
+	let endLocation: GeolocationPosition | null = null;
+	let path: GeolocationPosition[] = [];
+	let watchId: number = 0;
+
+	const geolocationOptions = {
+		enableHighAccuracy: true,
+		timeout: 5000,
+		maximumAge: 0
+	};
 
 	const startTimer = () => {
 		interval = setInterval(() => {
 			elapsed = new Date().getTime() - startTime.getTime();
 		}, 100);
 
+		watchId = navigator.geolocation.watchPosition(
+			(success) => {
+				path = [
+					...path,
+					{
+						coords: {
+							accuracy: success.coords.accuracy,
+							altitude: success.coords.altitude,
+							altitudeAccuracy: success.coords.altitudeAccuracy,
+							heading: success.coords.heading,
+							latitude: success.coords.latitude,
+							longitude: success.coords.longitude,
+							speed: success.coords.speed
+						},
+						timestamp: success.timestamp
+					}
+				];
+			},
+			(error) => console.error(error),
+			geolocationOptions
+		);
+
 		startTime = new Date();
 		currentState = 'running';
+		navigator.geolocation.getCurrentPosition(
+			(success) => {
+				startLocation = {
+					coords: {
+						accuracy: success.coords.accuracy,
+						altitude: success.coords.altitude,
+						altitudeAccuracy: success.coords.altitudeAccuracy,
+						heading: success.coords.heading,
+						latitude: success.coords.latitude,
+						longitude: success.coords.longitude,
+						speed: success.coords.speed
+					},
+					timestamp: success.timestamp
+				};
+			},
+			(error) => {
+				console.error(error);
+			},
+			geolocationOptions
+		);
 	};
 
 	const stopTimer = () => {
@@ -22,6 +74,29 @@
 		pendingSave = true;
 		endTime = new Date();
 		if (interval) clearInterval(interval);
+
+		if (watchId) navigator.geolocation.clearWatch(watchId);
+
+		navigator.geolocation.getCurrentPosition(
+			(success) => {
+				endLocation = {
+					coords: {
+						accuracy: success.coords.accuracy,
+						altitude: success.coords.altitude,
+						altitudeAccuracy: success.coords.altitudeAccuracy,
+						heading: success.coords.heading,
+						latitude: success.coords.latitude,
+						longitude: success.coords.longitude,
+						speed: success.coords.speed
+					},
+					timestamp: success.timestamp
+				};
+			},
+			(error) => {
+				console.error(error);
+			},
+			geolocationOptions
+		);
 	};
 
 	const clear = () => {
@@ -77,6 +152,9 @@
 			<input type="text" name="startTime" value={startTime} hidden />
 			<input type="text" name="endTime" value={endTime} hidden />
 			<input type="text" name="routeId" value={routeId} hidden />
+			<input type="text" name="startLocation" value={JSON.stringify(startLocation)} hidden />
+			<input type="text" name="endLocation" value={JSON.stringify(endLocation)} hidden />
+			<input type="text" name="path" value={JSON.stringify(path)} hidden />
 			<button
 				class={`w-full border bg-emerald-50 border-emerald-600 text-emerald-700 py-3 px-3 rounded-md uppercase font-bold transition-opacity ${
 					canSave ? '' : 'opacity-20'

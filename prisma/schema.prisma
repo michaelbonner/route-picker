@@ -27,9 +27,12 @@ model Route {
 }
 
 model Trip {
-  id        Int       @id @default(autoincrement())
-  startTime DateTime  @default(now())
-  endTime   DateTime?
+  id            Int       @id @default(autoincrement())
+  startTime     DateTime  @default(now())
+  endTime       DateTime?
+  startLocation Json      @default("{}")
+  endLocation   Json      @default("{}")
+  path          Json      @default("{}")
 
   routeId Int
 
