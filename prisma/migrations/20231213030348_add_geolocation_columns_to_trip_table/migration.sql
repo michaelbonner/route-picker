@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Trip"
+ADD COLUMN "endLocation" JSONB NOT NULL DEFAULT '{}',
+    ADD COLUMN "path" JSONB NOT NULL DEFAULT '{}',
+    ADD COLUMN "startLocation" JSONB NOT NULL DEFAULT '{}';
