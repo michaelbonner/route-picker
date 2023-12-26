@@ -30,7 +30,13 @@
 					<h2 class="text-xl font-bold text-center">New Route</h2>
 					<div class="grid gap-2">
 						<label for="name">Route Name</label>
-						<input class="py-2 px-4 border rounded-lg" required id="name" name="routeName" type="text" />
+						<input
+							class="py-2 px-4 border rounded-lg"
+							required
+							id="name"
+							name="routeName"
+							type="text"
+						/>
 					</div>
 					<button
 						class="py-3 flex items-center justify-center bg-slate-900 w-full text-slate-100 font-bold rounded-xl"
