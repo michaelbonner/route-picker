@@ -6,6 +6,16 @@
 	export let route: Route & {
 		trips: Trip[];
 	};
+
+	const convertSecondsToHoursMinutesSeconds = (seconds: number) => {
+		const durationHours = Math.floor(seconds / 60 / 60);
+		const durationMinutes = Math.floor((seconds / 60) % 60);
+		const durationSeconds = Math.floor(seconds % 60);
+
+		return `${durationHours < 10 ? `0${durationHours}` : durationHours}:${
+			durationMinutes < 10 ? `0${durationMinutes}` : durationMinutes
+		}:${durationSeconds < 10 ? `0${durationSeconds}` : durationSeconds}`;
+	};
 </script>
 
 <div class="border py-4 px-4 rounded-lg grid gap-4">
@@ -24,18 +34,20 @@
 	<div class="grid gap-4">
 		<div>
 			{#each route.trips as trip}
-				<div class="flex justify-between text-sm border px-2 py-1">
-					<div>
+				<div class="flex justify-between items-center text-sm border px-2 py-1 gap-1">
+					<div class="text-xs">
 						{format(trip.startTime, 'yyyy-MM-dd HH:mm:ss')}
 					</div>
-					<div>
+					<div class="text-xs">
 						{#if trip.endTime}
 							{format(trip.endTime, 'yyyy-MM-dd HH:mm:ss')}
 						{/if}
 					</div>
 					<div>
 						{#if trip.endTime}
-							{((trip.endTime.getTime() - trip.startTime.getTime()) / 1000 / 60).toFixed(2)} minutes
+							{convertSecondsToHoursMinutesSeconds(
+								(trip.endTime.getTime() - trip.startTime.getTime()) / 1000
+							)}
 						{/if}
 					</div>
 					<div>
@@ -49,15 +61,12 @@
 		</div>
 
 		<div class="text-sm">
-			Average: {(
+			Average: {convertSecondsToHoursMinutesSeconds(
 				route.trips.reduce((acc, trip) => {
 					if (!trip.endTime) return acc;
-					return acc + (trip.endTime.getTime() - trip.startTime.getTime());
-				}, 0) /
-					route.trips.length /
-					1000 /
-					60 || 0
-			).toFixed(2)} minutes
+					return acc + (trip.endTime.getTime() - trip.startTime.getTime()) / 1000;
+				}, 0) / route.trips.length || 0
+			)}
 		</div>
 
 		<Timer routeId={route.id} />
