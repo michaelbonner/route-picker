@@ -17,7 +17,7 @@ export async function load(event) {
 	});
 
 	return {
-		routes: prisma.route.findMany({
+		routes: await prisma.route.findMany({
 			where: {
 				userId: user?.id
 			},
