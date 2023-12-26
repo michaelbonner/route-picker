@@ -6,16 +6,16 @@ const prisma = new PrismaClient();
 async function main() {
 	const existingRoutes = await prisma.route.findMany();
 	if (existingRoutes.length > 0) {
-		console.log(`Seeding already done. Exiting.`);
+		console.info(`Seeding already done. Exiting.`);
 		return;
 	}
 
-	console.log(`Start seeding ...`);
+	console.info(`Start seeding ...`);
 
 	await prisma.route.createMany({
 		data: [{ name: 'Work - left way' }, { name: 'Work - right way' }]
 	});
-	console.log(`Created routes.`);
+	console.info(`Created routes.`);
 
 	const dbRoutes = await prisma.route.findMany();
 	for await (const route of dbRoutes) {
@@ -35,9 +35,9 @@ async function main() {
 		});
 	}
 
-	console.log(`Created trips.`);
+	console.info(`Created trips.`);
 
-	console.log(`Seeding finished.`);
+	console.info(`Seeding finished.`);
 }
 
 main()
