@@ -12,8 +12,22 @@ async function main() {
 
 	console.info(`Start seeding ...`);
 
+	const userId = Number(Math.random().toString(36).substring(2, 9));
+	await prisma.user.create({
+		data: {
+			id: userId,
+			email: `which-route${new Date().getTime()}@michaelbonner.dev`,
+			provider: 'google',
+			createdAt: new Date(),
+			updatedAt: new Date()
+		}
+	});
+
 	await prisma.route.createMany({
-		data: [{ name: 'Work - left way' }, { name: 'Work - right way' }]
+		data: [
+			{ name: 'Work - left way', userId },
+			{ name: 'Work - right way', userId }
+		]
 	});
 	console.info(`Created routes.`);
 
