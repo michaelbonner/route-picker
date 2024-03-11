@@ -22,7 +22,14 @@ export async function load(event) {
 				userId: user?.id
 			},
 			include: {
-				trips: true
+				trips: {
+					orderBy: {
+						startTime: 'asc'
+					}
+				}
+			},
+			orderBy: {
+				createdAt: 'asc'
 			}
 		})
 	};
