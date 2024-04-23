@@ -21,13 +21,17 @@
 
 <div>
 	{#if $page.data.session}
-		<div class="grid lg:grid-cols-3 gap-4">
+		<div class="grid lg:grid-cols-3 gap-8">
 			{#each routes as route}
 				<RouteCard {route} />
 			{/each}
 			<div>
-				<form class="border rounded-lg py-3 px-4 grid gap-4" method="POST" action="?/postRoute">
-					<h2 class="text-xl font-bold text-center">New Route</h2>
+				<form
+					class="py-3 px-4 grid gap-4 border rounded-xl lg:border-0"
+					method="POST"
+					action="?/postRoute"
+				>
+					<h2 class="text-xl font-bold text-center">Create New Route</h2>
 					<div class="grid gap-2">
 						<label for="name">Route Name</label>
 						<input
@@ -38,11 +42,13 @@
 							type="text"
 						/>
 					</div>
-					<button
-						class="py-3 flex items-center justify-center bg-slate-900 w-full text-slate-100 font-bold rounded-xl"
-					>
-						+ New Route
-					</button>
+					<div class="flex justify-end">
+						<button
+							class="py-3 px-6 flex items-center justify-center bg-slate-900 text-slate-100 font-bold rounded-xl"
+						>
+							+ New Route
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>

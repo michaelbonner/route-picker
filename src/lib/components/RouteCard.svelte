@@ -18,8 +18,8 @@
 	};
 </script>
 
-<div class="border py-4 px-4 rounded-lg grid gap-4">
-	<div class="flex justify-center gap-4">
+<div class="py-4 rounded-lg grid gap-4">
+	<div class="flex justify-center gap-4 px-4">
 		<h2 class="text-xl font-bold text-center">
 			{route.name} <span class="font-light text-base">({route.trips.length} trips)</span>
 		</h2>
@@ -60,7 +60,7 @@
 			{/each}
 		</div>
 
-		<div class="text-sm">
+		<div class="text-sm px-4">
 			Average: {convertSecondsToHoursMinutesSeconds(
 				route.trips.reduce((acc, trip) => {
 					if (!trip.endTime) return acc;
@@ -69,6 +69,8 @@
 			)}
 		</div>
 
-		<Timer routeId={route.id} />
+		<div class="px-4">
+			<Timer routeId={route.id} />
+		</div>
 	</div>
 </div>
