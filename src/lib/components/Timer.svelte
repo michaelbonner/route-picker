@@ -120,7 +120,7 @@
 			? 'text-center text-slate-400 font-bold text-3xl'
 			: 'text-center text-emerald-400 font-bold text-3xl';
 
-	$: canSave = currentState === 'stopped' && elapsed;
+	$: canSave = !!(currentState === 'stopped' && !!elapsed);
 
 	$: elapsedSeconds = formatTimerNumber(Math.round(elapsed / 1000) % 60);
 	$: elapsedMinutes = formatTimerNumber(Math.floor(elapsed / 1000 / 60));
@@ -130,7 +130,10 @@
 <div class="grid gap-2">
 	{#if currentState === 'stopped'}
 		<button
-			class="flex items-center justify-center bg-slate-900 w-full h-24 text-slate-100 font-bold rounded-xl"
+			class={`flex items-center justify-center bg-slate-900 w-full h-24 text-slate-100 font-bold rounded-xl ${
+				!canSave ? '' : 'opacity-20'
+			}`}
+			disabled={canSave}
 			on:click={startTimer}
 		>
 			Start Timer
