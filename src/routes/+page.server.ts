@@ -24,7 +24,7 @@ export async function load(event) {
 			include: {
 				trips: {
 					orderBy: {
-						startTime: 'asc'
+						startTime: 'desc'
 					}
 				}
 			},

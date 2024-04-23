@@ -21,7 +21,7 @@
 <div class="border py-4 px-4 rounded-lg grid gap-4">
 	<div class="flex justify-center gap-4">
 		<h2 class="text-xl font-bold text-center">
-			{route.name}
+			{route.name} <span class="font-light text-base">({route.trips.length} trips)</span>
 		</h2>
 		{#if route.trips.length === 0}
 			<form method="post" action={`?/deleteRoute`}>
@@ -32,9 +32,9 @@
 	</div>
 
 	<div class="grid gap-4">
-		<div>
+		<div class="max-h-[20vh] overflow-auto border">
 			{#each route.trips as trip}
-				<div class="flex justify-between items-center text-sm border px-2 py-1 gap-1">
+				<div class="flex justify-between items-center text-sm border-b px-2 py-1 gap-1">
 					<div class="text-xs">
 						{format(trip.startTime, 'yyyy-MM-dd HH:mm:ss')}
 					</div>
