@@ -118,27 +118,23 @@
 		<img class="lg:w-1/2" src={whichRouteIsFaster} alt="Which Route Is Faster Car" />
 
 		<p>
-			Introducing Which Route Is Faster – the ultimate web app for savvy commuters and road warriors
-			alike! Say goodbye to unpredictable travel times and hello to efficiency on the road. Our
-			innovative application empowers users to effortlessly track and analyze the duration of
-			various driving routes, providing invaluable insights into real-time traffic patterns and
-			historical trends.
+			How many times have you driven the same route to work, and wondered if there was a faster way?
+			Now you have a way to track your trips and see which route is faster over time.
 		</p>
-		<p>
-			With Which Route Is Faster, you can bid farewell to the guessing game of commute durations.
-			The app's user-friendly interface allows you to input your starting point and destination, and
-			it instantly generates a detailed overview of your estimated travel time based on current
-			traffic conditions. What sets Which Route Is Faster apart is its ability to not only provide
-			on-the-spot information but also to accumulate data over time. Imagine having a comprehensive
-			log of your commute durations, enabling you to identify patterns, optimize routes, and make
-			informed decisions about the best times to hit the road.
-		</p>
-		<p>
-			Whether you're a daily commuter navigating city traffic or a business traveler planning routes
-			between meetings, Which Route Is Faster is your go-to companion for a smoother journey. With
-			its intuitive design and powerful analytical tools, this app is a game-changer for anyone
-			looking to take control of their time on the road. Sign in to Which Route Is Faster today and
-			transform your commute into a well-informed, stress-free experience!
-		</p>
+
+		<p>Here's how it works:</p>
+
+		<ol>
+			<li>
+				Think of a route you want to track. Maybe it's "To work via 6th South" or "To work via 4th
+				South".
+			</li>
+			<li>Add that route to the list of routes (To work via 6th South).</li>
+			<li>Add an alternate route to the list of routes (To work via 4th South).</li>
+			<li>When the two paths diverge, start the timer.</li>
+			<li>When you arrive at your destination, stop the timer.</li>
+			<li>Repeat this process for a few days or weeks.</li>
+			<li>Review the trips for each route to see which one is faster over time.</li>
+		</ol>
 	</div>
 </div>
