@@ -18,17 +18,28 @@
 	};
 </script>
 
-<div class="py-4 rounded-lg grid gap-4">
-	<div class="flex justify-center gap-4 px-4">
-		<h2 class="text-xl font-bold text-center">
-			{route.name} <span class="font-light text-base">({route.trips.length} trips)</span>
-		</h2>
-		{#if route.trips.length === 0}
-			<form method="post" action={`?/deleteRoute`}>
-				<input type="text" name="id" value={route.id} hidden />
-				<button class="text-red-500">x</button>
-			</form>
-		{/if}
+<div class="rounded-lg grid gap-4">
+	<div>
+		<div class="flex justify-center gap-4 px-4">
+			<h2 class="text-xl font-bold text-center">
+				{route.name} <span class="font-light text-base">({route.trips.length} trips)</span>
+			</h2>
+			{#if route.trips.length === 0}
+				<form method="post" action={`?/deleteRoute`}>
+					<input type="text" name="id" value={route.id} hidden />
+					<button class="text-red-500">x</button>
+				</form>
+			{/if}
+		</div>
+
+		<div class="text-sm px-4 text-center">
+			Average: {convertSecondsToHoursMinutesSeconds(
+				route.trips.reduce((acc, trip) => {
+					if (!trip.endTime) return acc;
+					return acc + (trip.endTime.getTime() - trip.startTime.getTime()) / 1000;
+				}, 0) / route.trips.length || 0
+			)}
+		</div>
 	</div>
 
 	<div class="grid gap-4">
@@ -58,15 +69,6 @@
 					</div>
 				</div>
 			{/each}
-		</div>
-
-		<div class="text-sm px-4">
-			Average: {convertSecondsToHoursMinutesSeconds(
-				route.trips.reduce((acc, trip) => {
-					if (!trip.endTime) return acc;
-					return acc + (trip.endTime.getTime() - trip.startTime.getTime()) / 1000;
-				}, 0) / route.trips.length || 0
-			)}
 		</div>
 
 		<div class="px-4">

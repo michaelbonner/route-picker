@@ -21,7 +21,7 @@
 
 <div>
 	{#if $page.data.session}
-		<div class="grid lg:grid-cols-3 gap-8">
+		<div class="grid lg:grid-cols-3 gap-4">
 			{#each routes as route}
 				<RouteCard {route} />
 			{/each}
