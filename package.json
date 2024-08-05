@@ -23,11 +23,11 @@
 		"@sveltejs/kit": "^2.5.18",
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@tailwindcss/typography": "^0.5.13",
-		"@typescript-eslint/eslint-plugin": "^7.16.0",
-		"@typescript-eslint/parser": "^7.16.0",
+		"@typescript-eslint/eslint-plugin": "^8.0.0",
+		"@typescript-eslint/parser": "^8.0.0",
 		"autoprefixer": "^10.4.19",
 		"concurrently": "^8.2.2",
-		"eslint": "^8.57.0",
+		"eslint": "^9.8.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.41.0",
 		"postcss": "^8.4.39",
@@ -44,8 +44,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@auth/core": "^0.28.0",
-		"@auth/sveltekit": "^0.14.0",
+		"@auth/core": "^0.34.2",
+		"@auth/sveltekit": "^1.4.2",
 		"@prisma/client": "^5.16.1",
 		"date-fns": "^3.6.0"
 	}

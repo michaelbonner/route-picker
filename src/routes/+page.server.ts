@@ -2,7 +2,7 @@ import prisma from '$lib/server/prisma';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load(event) {
-	const session = await event.locals.getSession();
+	const session = await event.locals.auth();
 
 	if (!session?.user?.email) {
 		return {
@@ -39,7 +39,7 @@ export const actions = {
 	postRoute: async ({ request, locals }) => {
 		const data = await request.formData();
 
-		const session = await locals.getSession();
+		const session = await locals.auth();
 
 		if (!session?.user?.email) {
 			return { success: false, error: 'No user email provided' };
