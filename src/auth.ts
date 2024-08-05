@@ -1,7 +1,7 @@
 import { GITHUB_ID, GITHUB_SECRET, GOOGLE_ID, GOOGLE_SECRET } from '$env/static/private';
 import prisma from '$lib/server/prisma';
-import GitHub from '@auth/core/providers/github';
-import Google from '@auth/core/providers/google';
+import GitHub from '@auth/sveltekit/providers/github';
+import Google from '@auth/sveltekit/providers/google';
 import { SvelteKitAuth } from '@auth/sveltekit';
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
