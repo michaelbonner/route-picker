@@ -9,6 +9,7 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 		GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET }),
 		Google({ clientId: GOOGLE_ID, clientSecret: GOOGLE_SECRET })
 	],
+	trustHost: true,
 	callbacks: {
 		signIn: async ({ account, profile }) => {
 			if (!profile?.email) return false;
