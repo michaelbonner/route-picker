@@ -155,6 +155,15 @@
 	<div
 		class={`grid grid-cols-2 gap-4 py-2 px-4 text-sm transition-all ${canSave ? 'opacity-100' : 'opacity-0'}`}
 	>
+		<div>
+			<button
+				class={`w-full border bg-slate-50 border-slate-600 text-slate-700 py-3 px-3 rounded-md uppercase font-bold transition-opacity ${
+					canSave ? '' : 'opacity-20'
+				}`}
+				disabled={!canSave}
+				on:click={clear}>Clear</button
+			>
+		</div>
 		<form method="POST" action="?/postTrip">
 			<input type="text" name="startTime" value={startTime} hidden />
 			<input type="text" name="endTime" value={endTime} hidden />
@@ -172,14 +181,5 @@
 				Save
 			</button>
 		</form>
-		<div>
-			<button
-				class={`w-full border bg-slate-50 border-slate-600 text-slate-700 py-3 px-3 rounded-md uppercase font-bold transition-opacity ${
-					canSave ? '' : 'opacity-20'
-				}`}
-				disabled={!canSave}
-				on:click={clear}>Clear</button
-			>
-		</div>
 	</div>
 </div>
