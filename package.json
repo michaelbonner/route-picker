@@ -45,7 +45,7 @@
 	"type": "module",
 	"dependencies": {
 		"@auth/core": "^0.34.2",
-		"@auth/sveltekit": "^1.4.2",
+		"@auth/sveltekit": "~1.4.2",
 		"@prisma/client": "^5.20.0",
 		"date-fns": "^4.1.0"
 	}
