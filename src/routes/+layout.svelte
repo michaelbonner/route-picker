@@ -18,12 +18,12 @@
 	<link rel="manifest" href="/site.webmanifest" />
 </svelte:head>
 
-<div class="grid gap-8 lg:gap-12 py-8">
+<div class="grid gap-8 py-8 lg:gap-12">
 	<header
-		class="w-full max-w-7xl mx-auto px-4 flex justify-center md:justify-between flex-wrap gap-4"
+		class="flex flex-wrap gap-4 justify-center px-4 mx-auto w-full max-w-7xl md:justify-between"
 	>
-		<h1 class="text-2xl lg:text-3xl 2xl:text-3xl font-bold underline shink-0">
-			<a class="flex items-end gap-4" href="/">
+		<h1 class="text-2xl font-bold underline lg:text-3xl 2xl:text-3xl shink-0">
+			<a class="flex gap-4 items-end" href="/">
 				<img class="h-10" src={car} alt="Which Route Is Faster Car" />
 				<span> Which Route Is Faster </span>
 			</a>
@@ -32,11 +32,11 @@
 		<SignInOut />
 	</header>
 
-	<main class="w-full max-w-7xl mx-auto px-4">
+	<main class="px-4 mx-auto w-full max-w-7xl">
 		<slot />
 	</main>
 
-	<footer class="w-full max-w-7xl mx-auto px-4 font-light text-sm flex justify-between flex-wrap">
+	<footer class="flex flex-wrap justify-between px-4 mx-auto w-full max-w-7xl text-sm font-light">
 		<p>
 			&copy;{new Date().getFullYear()}
 			<a class="underline underline-offset-2" href="https://michaelbonner.dev" target="_blank"

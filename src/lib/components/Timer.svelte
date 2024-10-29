@@ -141,7 +141,7 @@
 	{/if}
 	{#if currentState === 'running'}
 		<button
-			class="flex items-center justify-center bg-orange-800 w-full h-24 text-slate-100 font-bold rounded-xl"
+			class="flex justify-center items-center w-full h-24 font-bold bg-orange-800 rounded-xl text-slate-100"
 			on:click={stopTimer}
 		>
 			Stop Timer

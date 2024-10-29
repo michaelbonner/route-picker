@@ -18,11 +18,11 @@
 	};
 </script>
 
-<div class="rounded-lg grid gap-4">
+<div class="grid gap-4 rounded-lg">
 	<div>
-		<div class="flex justify-center gap-4 px-4">
+		<div class="flex gap-4 justify-center px-4">
 			<h2 class="text-xl font-bold text-center">
-				{route.name} <span class="font-light text-base">({route.trips.length} trips)</span>
+				{route.name} <span class="text-base font-light">({route.trips.length} trips)</span>
 			</h2>
 			{#if route.trips.length === 0}
 				<form method="post" action={`?/deleteRoute`}>
@@ -32,7 +32,7 @@
 			{/if}
 		</div>
 
-		<div class="text-sm px-4 text-center">
+		<div class="px-4 text-sm text-center">
 			Average: {convertSecondsToHoursMinutesSeconds(
 				route.trips.reduce((acc, trip) => {
 					if (!trip.endTime) return acc;
@@ -43,9 +43,9 @@
 	</div>
 
 	<div class="grid gap-4">
-		<div class="max-h-[20vh] overflow-auto border">
+		<div class="overflow-auto border max-h-[20vh]">
 			{#each route.trips as trip}
-				<div class="flex justify-between items-center text-sm border-b px-2 py-1 gap-1">
+				<div class="flex gap-1 justify-between items-center py-1 px-2 text-sm border-b">
 					<div class="text-xs">
 						{format(trip.startTime, 'yyyy-MM-dd HH:mm:ss')}
 					</div>

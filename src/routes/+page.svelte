@@ -21,13 +21,13 @@
 
 <div>
 	{#if $page.data.session}
-		<div class="grid lg:grid-cols-3 gap-4">
+		<div class="grid gap-4 lg:grid-cols-3">
 			{#each routes as route}
 				<RouteCard {route} />
 			{/each}
 			<div>
 				<form
-					class="py-3 px-4 grid gap-4 border rounded-xl lg:border-0"
+					class="grid gap-4 py-3 px-4 rounded-xl border lg:border-0"
 					method="POST"
 					action="?/postRoute"
 				>
@@ -35,7 +35,7 @@
 					<div class="grid gap-2">
 						<label for="name">Route Name</label>
 						<input
-							class="py-2 px-4 border rounded-lg"
+							class="py-2 px-4 rounded-lg border"
 							required
 							id="name"
 							name="routeName"
@@ -44,7 +44,7 @@
 					</div>
 					<div class="flex justify-end">
 						<button
-							class="py-3 px-6 flex items-center justify-center bg-slate-900 text-slate-100 font-bold rounded-xl"
+							class="flex justify-center items-center py-3 px-6 font-bold rounded-xl bg-slate-900 text-slate-100"
 						>
 							+ New Route
 						</button>
@@ -54,11 +54,11 @@
 		</div>
 	{:else}
 		<div
-			class="border rounded-lg my-4 py-8 px-4 w-full text-center italic flex flex-wrap items-center justify-center gap-4 max-w-4xl mx-auto"
+			class="flex flex-wrap gap-4 justify-center items-center py-8 px-4 my-4 mx-auto w-full max-w-4xl italic text-center rounded-lg border"
 		>
 			<span>Sign in with</span>
 			<button
-				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors flex gap-1 items-center"
+				class="flex gap-1 items-center py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
 				on:click={() => signIn('google')}
 				type="button"
 			>
@@ -97,7 +97,7 @@
 			</button>
 			<span>or</span>
 			<button
-				class="py-1 px-3 border rounded-lg hover:bg-gray-50 transition-colors flex gap-1 items-center"
+				class="flex gap-1 items-center py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
 				on:click={() => signIn('github')}
 				type="button"
 			>
@@ -119,7 +119,7 @@
 		</div>
 	{/if}
 
-	<div class="prose lg:prose-xl mt-16 mx-auto">
+	<div class="mx-auto mt-16 prose lg:prose-xl">
 		<h2>What the heck is this thing?</h2>
 		<img class="lg:w-1/2" src={whichRouteIsFaster} alt="Which Route Is Faster Car" />
 
