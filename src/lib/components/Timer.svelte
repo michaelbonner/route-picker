@@ -1,15 +1,19 @@
 <script lang="ts">
-	export let routeId: number;
+	interface Props {
+		routeId: number;
+	}
 
-	let currentState = 'stopped';
-	let startTime = new Date();
-	let endTime = new Date();
-	let elapsed = 0;
+	let { routeId }: Props = $props();
+
+	let currentState = $state('stopped');
+	let startTime = $state(new Date());
+	let endTime = $state(new Date());
+	let elapsed = $state(0);
 	let interval: NodeJS.Timeout;
 	let pendingSave = false;
-	let startLocation: GeolocationPosition | null = null;
-	let endLocation: GeolocationPosition | null = null;
-	let path: GeolocationPosition[] = [];
+	let startLocation: GeolocationPosition | null = $state(null);
+	let endLocation: GeolocationPosition | null = $state(null);
+	let path: GeolocationPosition[] = $state([]);
 	let geolocationUpdateIntervalId: NodeJS.Timeout | null = null;
 
 	const geolocationOptions = {
@@ -115,16 +119,16 @@
 		return num < 10 ? `0${num}` : num;
 	};
 
-	$: elapsedClassName =
-		currentState === 'stopped'
+	let elapsedClassName =
+		$derived(currentState === 'stopped'
 			? 'text-center text-slate-400 font-bold text-3xl'
-			: 'text-center text-emerald-400 font-bold text-3xl';
+			: 'text-center text-emerald-400 font-bold text-3xl');
 
-	$: canSave = !!(currentState === 'stopped' && !!elapsed);
+	let canSave = $derived(!!(currentState === 'stopped' && !!elapsed));
 
-	$: elapsedSeconds = formatTimerNumber(Math.round(elapsed / 1000) % 60);
-	$: elapsedMinutes = formatTimerNumber(Math.floor(elapsed / 1000 / 60));
-	$: elapsedHours = formatTimerNumber(Math.floor(elapsed / 1000 / 60 / 60));
+	let elapsedSeconds = $derived(formatTimerNumber(Math.round(elapsed / 1000) % 60));
+	let elapsedMinutes = $derived(formatTimerNumber(Math.floor(elapsed / 1000 / 60)));
+	let elapsedHours = $derived(formatTimerNumber(Math.floor(elapsed / 1000 / 60 / 60)));
 </script>
 
 <div class="grid gap-2">
@@ -134,7 +138,7 @@
 				!canSave ? '' : 'opacity-20'
 			}`}
 			disabled={canSave}
-			on:click={startTimer}
+			onclick={startTimer}
 		>
 			Start Timer
 		</button>
@@ -142,7 +146,7 @@
 	{#if currentState === 'running'}
 		<button
 			class="flex justify-center items-center w-full h-24 font-bold bg-orange-800 rounded-xl text-slate-100"
-			on:click={stopTimer}
+			onclick={stopTimer}
 		>
 			Stop Timer
 		</button>
@@ -161,7 +165,7 @@
 					canSave ? '' : 'opacity-20'
 				}`}
 				disabled={!canSave}
-				on:click={clear}>Clear</button
+				onclick={clear}>Clear</button
 			>
 		</div>
 		<form method="POST" action="?/postTrip">
@@ -176,7 +180,7 @@
 					canSave ? '' : 'opacity-20'
 				}`}
 				disabled={!canSave}
-				on:click={save}
+				onclick={save}
 			>
 				Save
 			</button>

@@ -3,9 +3,13 @@
 	import type { Route, Trip } from '@prisma/client';
 	import { format, isSameDay, isSameHour, isSameYear } from 'date-fns';
 
-	export let route: Route & {
+	interface Props {
+		route: Route & {
 		trips: Trip[];
 	};
+	}
+
+	let { route }: Props = $props();
 
 	const convertSecondsToHoursMinutesSeconds = (seconds: number) => {
 		const durationHours = Math.floor(seconds / 60 / 60);
