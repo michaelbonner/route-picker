@@ -3,11 +3,12 @@
 	import { page } from '$app/stores';
 </script>
 
-<p>
+<div>
 	{#if $page.data.session}
 		<div class="flex gap-2 items-center">
 			{#if $page.data.session.user?.image}
-				<span style="background-image: url('{$page.data.session.user.image}')" class="avatar" />
+				<span style="background-image: url('{$page.data.session.user.image}')" class="avatar"
+				></span>
 			{/if}
 			<span>
 				<small>Signed in as</small>
@@ -15,7 +16,7 @@
 			</span>
 			<button
 				class="py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
-				on:click={() => signOut()}
+				onclick={() => signOut()}
 				type="button">Sign out</button
 			>
 		</div>
@@ -25,7 +26,7 @@
 			<span>Sign in with</span>
 			<button
 				class="py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
-				on:click={() => signIn('google')}
+				onclick={() => signIn('google')}
 				type="button"
 			>
 				Google
@@ -33,11 +34,11 @@
 			<span>or</span>
 			<button
 				class="py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
-				on:click={() => signIn('github')}
+				onclick={() => signIn('github')}
 				type="button"
 			>
 				GitHub
 			</button>
 		</div>
 	{/if}
-</p>
+</div>

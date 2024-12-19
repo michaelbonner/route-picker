@@ -1,8 +1,13 @@
-<script>
+<script lang="ts">
 	import SignInOut from '$lib/components/SignInOut.svelte';
 	import car from '$lib/images/car.svg';
 
 	import '../app.css';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -33,7 +38,7 @@
 	</header>
 
 	<main class="px-4 mx-auto w-full max-w-7xl">
-		<slot />
+		{@render children?.()}
 	</main>
 
 	<footer class="flex flex-wrap justify-between px-4 mx-auto w-full max-w-7xl text-sm font-light">

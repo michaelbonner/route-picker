@@ -4,8 +4,14 @@
 	import { signIn } from '@auth/sveltekit/client';
 	import whichRouteIsFaster from '$lib/images/car-route.svg';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('./$types').PageData} data
+	 */
+
+	/** @type {Props} */
+	let { data } = $props();
 	const { routes } = data;
 </script>
 
@@ -59,7 +65,7 @@
 			<span>Sign in with</span>
 			<button
 				class="flex gap-1 items-center py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
-				on:click={() => signIn('google')}
+				onclick={() => signIn('google')}
 				type="button"
 			>
 				<svg
@@ -98,7 +104,7 @@
 			<span>or</span>
 			<button
 				class="flex gap-1 items-center py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
-				on:click={() => signIn('github')}
+				onclick={() => signIn('github')}
 				type="button"
 			>
 				<svg
