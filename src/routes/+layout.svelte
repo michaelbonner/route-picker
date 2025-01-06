@@ -43,7 +43,7 @@
 
 	<footer class="flex flex-wrap justify-between px-4 mx-auto w-full max-w-7xl text-sm font-light">
 		<p>
-			&copy;{new Date().getFullYear()}
+			&copy;2023-{new Date().getFullYear()}
 			<a class="underline underline-offset-2" href="https://michaelbonner.dev" target="_blank"
 				>Michael Bonner</a
 			>
