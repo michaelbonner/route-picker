@@ -16,7 +16,8 @@
 		"reset": "prisma migrate reset",
 		"postinstall": "prisma generate",
 		"seed": "ts-node --esm prisma/seed.mts",
-		"studio": "prisma studio"
+		"studio": "prisma studio",
+		"preinstall": "npx only-allow pnpm"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
