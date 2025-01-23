@@ -17,12 +17,13 @@
 		"postinstall": "prisma generate",
 		"seed": "ts-node --esm prisma/seed.mts",
 		"studio": "prisma studio",
-		"preinstall": "npx only-allow pnpm"
+		"preinstall": "npx only-allow pnpm",
+		"out": "pnpm outdated"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
-		"@sveltejs/adapter-vercel": "^5.5.2",
-		"@sveltejs/kit": "^2.15.3",
+		"@sveltejs/adapter-vercel": "^5.5.3",
+		"@sveltejs/kit": "^2.16.1",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@tailwindcss/postcss": "^4.0.0",
 		"concurrently": "^9.1.2",
@@ -33,15 +34,15 @@
 		"postcss": "^8.5.1",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
-		"prettier-plugin-tailwindcss": "^0.6.10",
+		"prettier-plugin-tailwindcss": "^0.6.11",
 		"prisma": "^6.2.1",
-		"svelte": "^5.18.0",
+		"svelte": "^5.19.2",
 		"svelte-check": "^4.1.4",
 		"tailwindcss": "^4.0.0",
 		"typescript": "^5.7.3",
-		"typescript-eslint": "^8.20.0",
-		"vite": "^6.0.7",
-		"vitest": "^3.0.1"
+		"typescript-eslint": "^8.21.0",
+		"vite": "^6.0.11",
+		"vitest": "^3.0.4"
 	},
 	"type": "module",
 	"dependencies": {
