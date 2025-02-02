@@ -17,8 +17,9 @@
 		"postinstall": "prisma generate",
 		"seed": "ts-node --esm prisma/seed.mts",
 		"studio": "prisma studio",
-		"preinstall": "npx only-allow pnpm",
-		"out": "pnpm outdated"
+		"preinstall": "npx only-allow bun",
+		"out": "bun outdated",
+		"up": "bun update"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -51,6 +52,5 @@
 		"@prisma/client": "^6.3.0",
 		"@tailwindcss/typography": "^0.5.16",
 		"date-fns": "^4.1.0"
-	},
-	"packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
+	}
 }
