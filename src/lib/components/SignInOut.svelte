@@ -1,6 +1,7 @@
 <script>
-	import { signIn, signOut } from '@auth/sveltekit/client';
 	import { page } from '$app/stores';
+	import { signOut } from '@auth/sveltekit/client';
+	import { SignIn } from '@auth/sveltekit/components';
 </script>
 
 <div>
@@ -23,22 +24,10 @@
 	{:else}
 		<div class="hidden flex-wrap gap-2 items-center lg:flex">
 			<span class="notSignedInText">You are not signed in.</span>
-			<span>Sign in with</span>
-			<button
-				class="py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
-				onclick={() => signIn('google')}
-				type="button"
-			>
-				Google
-			</button>
-			<span>or</span>
-			<button
-				class="py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
-				onclick={() => signIn('github')}
-				type="button"
-			>
-				GitHub
-			</button>
+			<SignIn>
+				<span class="border-b-2 underline-offset-4 cursor-pointer" slot="submitButton">Sign in</span
+				>
+			</SignIn>
 		</div>
 	{/if}
 </div>
