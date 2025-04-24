@@ -48,7 +48,7 @@
 	"type": "module",
 	"dependencies": {
 		"@auth/core": "^0.39.0",
-		"@auth/sveltekit": "^1.9.0",
+		"@auth/sveltekit": "^1.9.1",
 		"@prisma/client": "^6.6.0",
 		"@tailwindcss/typography": "^0.5.16",
 		"date-fns": "^4.1.0"

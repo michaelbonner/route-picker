@@ -5,7 +5,7 @@
       "name": "route-picker",
       "dependencies": {
         "@auth/core": "^0.39.0",
-        "@auth/sveltekit": "^1.9.0",
+        "@auth/sveltekit": "^1.9.1",
         "@prisma/client": "^6.6.0",
         "@tailwindcss/typography": "^0.5.16",
         "date-fns": "^4.1.0",
@@ -43,7 +43,7 @@
 
     "@auth/core": ["@auth/core@0.39.0", "", { "dependencies": { "@panva/hkdf": "^1.2.1", "jose": "^6.0.6", "oauth4webapi": "^3.3.0", "preact": "10.24.3", "preact-render-to-string": "6.5.11" }, "peerDependencies": { "@simplewebauthn/browser": "^9.0.1", "@simplewebauthn/server": "^9.0.2", "nodemailer": "^6.8.0" }, "optionalPeers": ["@simplewebauthn/browser", "@simplewebauthn/server", "nodemailer"] }, "sha512-jusviw/sUSfAh6S/wjY5tRmJOq0Itd3ImF+c/b4HB9DfmfChtcfVJTNJeqCeExeCG8oh4PBKRsMQJsn2W6NhFQ=="],
 
-    "@auth/sveltekit": ["@auth/sveltekit@1.9.0", "", { "dependencies": { "@auth/core": "0.39.0", "set-cookie-parser": "^2.7.0" }, "peerDependencies": { "@simplewebauthn/browser": "^9.0.1", "@simplewebauthn/server": "^9.0.3", "@sveltejs/kit": "^1.0.0 || ^2.0.0", "nodemailer": "^6.6.5", "svelte": "^3.54.0 || ^4.0.0 || ^5.0.0-0" }, "optionalPeers": ["@simplewebauthn/browser", "@simplewebauthn/server", "nodemailer"] }, "sha512-eC0SFIw5p8MV3E3kBFSFO+K+10zDTi+QEvT8w57wczoIxHpZDoK4BCGPu0aNL8hT5wYiMlB+1uP+mfc8GjTpOg=="],
+    "@auth/sveltekit": ["@auth/sveltekit@1.9.1", "", { "dependencies": { "@auth/core": "0.39.0", "set-cookie-parser": "^2.7.0" }, "peerDependencies": { "@simplewebauthn/browser": "^9.0.1", "@simplewebauthn/server": "^9.0.3", "@sveltejs/kit": "^1.0.0 || ^2.0.0", "nodemailer": "^6.6.5", "svelte": "^3.54.0 || ^4.0.0 || ^5.0.0-0" }, "optionalPeers": ["@simplewebauthn/browser", "@simplewebauthn/server", "nodemailer"] }, "sha512-vXpor3JZF1GilEWraUjDu9RwGuDhUhVP2hVhIBdRo4kh6C/pmCRWEYsptIrHetpS8urmpTtrrQ3kyRjIK4DFfw=="],
 
     "@esbuild/aix-ppc64": ["@esbuild/aix-ppc64@0.24.2", "", { "os": "aix", "cpu": "ppc64" }, "sha512-thpVCb/rhxE/BnMLQ7GReQLLN8q9qbHmI55F4489/ByVg2aQaQ6kbcLb6FHkocZzQhxc4gx0sCk0tJkKBFzDhA=="],
 
