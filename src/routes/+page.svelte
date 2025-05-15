@@ -17,9 +17,15 @@
 <!-- add svelte head -->
 <svelte:head>
 	<title>Which Route Is Faster</title>
-	<meta name="description" content="Helping you figure out which route is faster" />
+	<meta
+		name="description"
+		content="Helping you figure out which route is faster, the most boring way possible"
+	/>
 	<meta property="og:title" content="Which Route Is Faster" />
-	<meta property="og:description" content="Helping you figure out which route is faster" />
+	<meta
+		property="og:description"
+		content="Helping you figure out which route is faster, the most boring way possible"
+	/>
 	<meta property="og:url" content="https://www.whichrouteisfaster.com/" />
 	<link rel="canonical" href="https://www.whichrouteisfaster.com/" />
 </svelte:head>
