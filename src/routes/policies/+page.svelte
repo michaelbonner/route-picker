@@ -32,20 +32,19 @@
 		<span>
 			<span>
 				<span
-					>This privacy notice for <bdt>Michael Bonner<bdt> </bdt> </bdt> (<bdt
-					> </bdt>"<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>"<bdt
+					>This privacy notice for <bdt>Michael Bonner<bdt> </bdt> </bdt> (<bdt> </bdt>"<strong
+						>we</strong
+					>," "<strong>us</strong>," or "<strong>our</strong>"<bdt
 						class="statement-end-if-in-editor"
 					>
 					</bdt>
 				</span>
 				<span
-					>), describes how and why we might collect, store, use, and/or share (<bdt
-					> </bdt>"<strong>process</strong>"<bdt class="statement-end-if-in-editor"> </bdt>) your
-					information when you use our services (<bdt> </bdt>"<strong>Services</strong>"<bdt
-						class="statement-end-if-in-editor"
-					>
-					</bdt
-					>), such as when you:</span
+					>), describes how and why we might collect, store, use, and/or share (<bdt> </bdt>"<strong
+						>process</strong
+					>"<bdt class="statement-end-if-in-editor"> </bdt>) your information when you use our
+					services (<bdt> </bdt>"<strong>Services</strong>"<bdt class="statement-end-if-in-editor">
+					</bdt>), such as when you:</span
 				>
 			</span>
 		</span>
@@ -200,9 +199,8 @@
 			<span>
 				<span>
 					<strong>What personal information do we process?</strong> When you visit, use, or navigate
-					our Services, we may process personal information depending on how you interact with us
-					and the Services, the choices you make, and the products and features you use. Learn more
-					about&nbsp;</span
+					our Services, we may process personal information depending on how you interact with us and
+					the Services, the choices you make, and the products and features you use. Learn more about&nbsp;</span
 				>
 			</span>
 			<a href="#personalinfo">
@@ -240,11 +238,10 @@
 		<div>
 			<span>
 				<span>
-					<strong>How do we process your information?</strong> We process your information to
-					provide, improve, and administer our Services, communicate with you, for security and
-					fraud prevention, and to comply with law. We may also process your information for other
-					purposes with your consent. We process your information only when we have a valid legal
-					reason to do so. Learn more about&nbsp;</span
+					<strong>How do we process your information?</strong> We process your information to provide,
+					improve, and administer our Services, communicate with you, for security and fraud prevention,
+					and to comply with law. We may also process your information for other purposes with your consent.
+					We process your information only when we have a valid legal reason to do so. Learn more about&nbsp;</span
 				>
 			</span>
 			<a href="#infouse">
@@ -261,8 +258,7 @@
 			<span>
 				<span>
 					<strong
-						>In what situations and with which <bdt> </bdt>parties do we share personal
-						information?</strong
+						>In what situations and with which <bdt> </bdt>parties do we share personal information?</strong
 					>
 					We may share information in specific situations and with specific
 					<bdt> </bdt>third parties. Learn more about&nbsp;</span
@@ -285,13 +281,12 @@
 				<span>
 					<strong>How do we keep your information safe?</strong> We have
 					<bdt> </bdt>organizational<bdt class="statement-end-if-in-editor"> </bdt>
-					and technical processes and procedures in place to protect your personal information.
-					However, no electronic transmission over the internet or information storage technology
-					can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers,
-					cybercriminals, or other
+					and technical processes and procedures in place to protect your personal information. However,
+					no electronic transmission over the internet or information storage technology can be guaranteed
+					to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other
 					<bdt> </bdt>unauthorized<bdt class="statement-end-if-in-editor"> </bdt> third parties will
-					not be able to defeat our security and improperly collect, access, steal, or modify your
-					information. Learn more about&nbsp;</span
+					not be able to defeat our security and improperly collect, access, steal, or modify your information.
+					Learn more about&nbsp;</span
 				>
 			</span>
 			<a href="#infosafe">
@@ -312,9 +307,9 @@
 		<div>
 			<span>
 				<span>
-					<strong>What are your rights?</strong> Depending on where you are located geographically,
-					the applicable privacy law may mean you have certain rights regarding your personal
-					information. Learn more about&nbsp;</span
+					<strong>What are your rights?</strong> Depending on where you are located geographically, the
+					applicable privacy law may mean you have certain rights regarding your personal information.
+					Learn more about&nbsp;</span
 				>
 			</span>
 			<a href="#privacyrights">
@@ -660,8 +655,7 @@
 						</span>
 						<span
 							>express an interest in obtaining information about us or our products and Services,
-							when you participate in activities on the Services, or otherwise when you contact
-							us.</span
+							when you participate in activities on the Services, or otherwise when you contact us.</span
 						>
 					</span>
 				</span>
@@ -946,8 +940,10 @@
 							settings and information about your activity in the Services<span>&nbsp;</span>(such
 							as the date/time stamps associated with your usage, pages and files viewed, searches,
 							and other actions you take such as which features you use), device event information
-							(such as system activity, error reports (sometimes called <bdt> </bdt>"crash
-							dumps"<bdt class="statement-end-if-in-editor"> </bdt>), and hardware settings).<span>
+							(such as system activity, error reports (sometimes called <bdt> </bdt>"crash dumps"<bdt
+								class="statement-end-if-in-editor"
+							>
+							</bdt>), and hardware settings).<span>
 								<span>
 									<span>
 										<span>
@@ -1245,13 +1241,12 @@
 																											<span>
 																												<span>
 																													<strong
-																														>To comply with our legal
-																														obligations.</strong
+																														>To comply with our legal obligations.</strong
 																													>
-																													We may process your information to comply
-																													with our legal obligations, respond to
-																													legal requests, and exercise, establish,
-																													or defend our legal rights.<bdt
+																													We may process your information to comply with
+																													our legal obligations, respond to legal requests,
+																													and exercise, establish, or defend our legal
+																													rights.<bdt
 																														class="statement-end-if-in-editor"
 																													>
 																													</bdt>
@@ -1300,8 +1295,7 @@
 																																	<span
 																																		data-custom-class="heading_1"
 																																		>3. WHEN AND WITH WHOM DO WE
-																																		SHARE YOUR PERSONAL
-																																		INFORMATION?</span
+																																		SHARE YOUR PERSONAL INFORMATION?</span
 																																	>
 																																</strong>
 																															</span>
@@ -1355,13 +1349,12 @@
 																											<li>
 																												<span>
 																													<span>
-																														<strong>Business Transfers.</strong> We
-																														may share or transfer your information
-																														in connection with, or during
-																														negotiations of, any merger, sale of
-																														company assets, financing, or
-																														acquisition of all or a portion of our
-																														business to another company.</span
+																														<strong>Business Transfers.</strong> We may
+																														share or transfer your information in connection
+																														with, or during negotiations of, any merger,
+																														sale of company assets, financing, or acquisition
+																														of all or a portion of our business to another
+																														company.</span
 																													>
 																												</span>
 																											</li>
@@ -1477,8 +1470,8 @@
 																																			information about how we use
 																																			such technologies and how you
 																																			can refuse certain cookies is
-																																			set out in our Cookie
-																																			Notice<span>
+																																			set out in our Cookie Notice<span
+																																			>
 																																				<span> <bdt> </bdt>.</span>
 																																				<span>
 																																					<span>
@@ -1533,8 +1526,7 @@
 																																						<span
 																																							data-custom-class="heading_1"
 																																							>5. HOW DO WE HANDLE
-																																							YOUR SOCIAL
-																																							LOGINS?</span
+																																							YOUR SOCIAL LOGINS?</span
 																																						>
 																																					</strong>
 																																				</span>
@@ -1671,8 +1663,7 @@
 																																						<span
 																																							data-custom-class="heading_1"
 																																							>6. HOW LONG DO WE
-																																							KEEP YOUR
-																																							INFORMATION?</span
+																																							KEEP YOUR INFORMATION?</span
 																																						>
 																																					</strong>
 																																				</span>
@@ -1698,10 +1689,9 @@
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
-																																				the purposes outlined in
-																																				this privacy notice unless
-																																				otherwise required by
-																																				law.</em
+																																				the purposes outlined in this
+																																				privacy notice unless otherwise
+																																				required by law.</em
 																																			>
 																																		</span>
 																																	</span>
@@ -1723,17 +1713,17 @@
 																																			required or permitted by law
 																																			(such as tax, accounting, or
 																																			other legal requirements).<bdt
-																																			> </bdt>
+																																			>
+																																			</bdt>
 																																			No purpose in this notice will
-																																			require us keeping your
-																																			personal information for
-																																			longer than
+																																			require us keeping your personal
+																																			information for longer than
 																																			<span>
 																																				<span>
 																																					<span>
 																																						<bdt> </bdt>
-																																					</span> </span
-																																				>&nbsp;</span
+																																					</span>
+																																				</span>&nbsp;</span
 																																			>
 																																			<bdt> </bdt>the period of time
 																																			in which users have an account
@@ -1744,8 +1734,8 @@
 																																						<bdt class="else-block">
 																																						</bdt>
 																																					</span>
-																																				</span> </span
-																																			>.</span
+																																				</span>
+																																			</span>.</span
 																																		>
 																																	</span>
 																																</span>
@@ -1766,16 +1756,14 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			such information, or, if this
-																																			is not possible (for example,
-																																			because your personal
-																																			information has been stored in
-																																			backup archives), then we will
-																																			securely store your personal
-																																			information and isolate it
-																																			from any further processing
-																																			until deletion is
-																																			possible.<span>
+																																			such information, or, if this is
+																																			not possible (for example, because
+																																			your personal information has been
+																																			stored in backup archives), then
+																																			we will securely store your personal
+																																			information and isolate it from
+																																			any further processing until deletion
+																																			is possible.<span>
 																																				<bdt> </bdt>
 																																			</span>
 																																		</span>
@@ -1795,8 +1783,7 @@
 																																						<span
 																																							data-custom-class="heading_1"
 																																							>7. HOW DO WE KEEP
-																																							YOUR INFORMATION
-																																							SAFE?</span
+																																							YOUR INFORMATION SAFE?</span
 																																						>
 																																					</strong>
 																																				</span>
@@ -1819,13 +1806,12 @@
 																																				>We aim to protect your
 																																				personal information through
 																																				a system of
-																																				<bdt> </bdt
-																																				>organizational<bdt
+																																				<bdt>
+																																				</bdt>organizational<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
-																																				and technical security
-																																				measures.</em
+																																				and technical security measures.</em
 																																			>
 																																		</span>
 																																	</span>
@@ -1845,36 +1831,31 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			security measures designed to
-																																			protect the security of any
-																																			personal information we
-																																			process. However, despite our
-																																			safeguards and efforts to
-																																			secure your information, no
-																																			electronic transmission over
-																																			the Internet or information
-																																			storage technology can be
-																																			guaranteed to be 100% secure,
-																																			so we cannot promise or
-																																			guarantee that hackers,
-																																			cybercriminals, or other
+																																			security measures designed to protect
+																																			the security of any personal information
+																																			we process. However, despite our
+																																			safeguards and efforts to secure
+																																			your information, no electronic
+																																			transmission over the Internet
+																																			or information storage technology
+																																			can be guaranteed to be 100% secure,
+																																			so we cannot promise or guarantee
+																																			that hackers, cybercriminals, or
+																																			other
 																																			<bdt> </bdt>unauthorized<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
 																																			third parties will not be able
-																																			to defeat our security and
-																																			improperly collect, access,
-																																			steal, or modify your
-																																			information. Although we will
-																																			do our best to protect your
-																																			personal information,
-																																			transmission of personal
-																																			information to and from our
-																																			Services is at your own risk.
-																																			You should only access the
-																																			Services within a secure
-																																			environment.<span>
+																																			to defeat our security and improperly
+																																			collect, access, steal, or modify
+																																			your information. Although we will
+																																			do our best to protect your personal
+																																			information, transmission of personal
+																																			information to and from our Services
+																																			is at your own risk. You should
+																																			only access the Services within
+																																			a secure environment.<span>
 																																				<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
@@ -1929,8 +1910,7 @@
 																																				under 18 years of age<bdt
 																																					class="else-block"
 																																				>
-																																				</bdt
-																																				>.</em
+																																				</bdt>.</em
 																																			>
 																																			<bdt> </bdt>
 																																		</span>
@@ -1973,8 +1953,8 @@
 																																					>
 																																					<bdt class="else-block">
 																																					</bdt>
-																																				</span> </span
-																																			>.</span
+																																				</span>
+																																			</span>.</span
 																																		>
 																																		<span>
 																																			<bdt class="else-block">
@@ -2023,8 +2003,8 @@
 																																							<em>
 																																								<bdt> </bdt>
 																																							</em>
-																																						</span> </span
-																																					>&nbsp;</span
+																																						</span>
+																																					</span>&nbsp;</span
 																																				>You may review, change, or
 																																				terminate your account at
 																																				any time.</em
@@ -2049,26 +2029,24 @@
 																																		<span>
 																																			<strong>
 																																				<u
-																																					>Withdrawing your
-																																					consent:</u
+																																					>Withdrawing your consent:</u
 																																				>
 																																			</strong>
-																																			If we are relying on your
-																																			consent to process your
-																																			personal information,<bdt
-																																			> </bdt> which may be express
-																																			and/or implied consent
-																																			depending on the applicable
+																																			If we are relying on your consent
+																																			to process your personal information,<bdt
+																																			>
+																																			</bdt>
+																																			which may be express and/or implied
+																																			consent depending on the applicable
 																																			law,<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
 																																			you have the right to withdraw
-																																			your consent at any time. You
-																																			can withdraw your consent at
-																																			any time by contacting us by
-																																			using the contact details
-																																			provided in the section
+																																			your consent at any time. You can
+																																			withdraw your consent at any time
+																																			by contacting us by using the contact
+																																			details provided in the section
 																																			<bdt> </bdt>"<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -2113,10 +2091,10 @@
 																																		>
 																																		</bdt>
 																																		will it affect the processing of
-																																		your personal information
-																																		conducted in reliance on lawful
-																																		processing grounds other than
-																																		consent.<bdt> </bdt>
+																																		your personal information conducted
+																																		in reliance on lawful processing
+																																		grounds other than consent.<bdt>
+																																		</bdt>
 																																	</span>
 																																</span>
 																																<bdt>
@@ -2148,8 +2126,7 @@
 																																		>If you would at any time like
 																																		to review or change the
 																																		information in your account or
-																																		terminate your account, you
-																																		can:<bdt
+																																		terminate your account, you can:<bdt
 																																			class="forloop-component"
 																																		>
 																																		</bdt>
@@ -2236,16 +2213,14 @@
 																																					technologies:</u
 																																				>
 																																			</strong>
-																																			Most Web browsers are set to
-																																			accept cookies by default. If
-																																			you prefer, you can usually
-																																			choose to set your browser to
-																																			remove cookies and to reject
-																																			cookies. If you choose to
-																																			remove cookies or reject
-																																			cookies, this could affect
-																																			certain features or services
-																																			of our Services.
+																																			Most Web browsers are set to accept
+																																			cookies by default. If you prefer,
+																																			you can usually choose to set your
+																																			browser to remove cookies and to
+																																			reject cookies. If you choose to
+																																			remove cookies or reject cookies,
+																																			this could affect certain features
+																																			or services of our Services.
 																																			<bdt>
 																																				<span>
 																																					<span>
@@ -2315,8 +2290,7 @@
 																																						<span
 																																							data-custom-class="heading_1"
 																																							>10. CONTROLS FOR
-																																							DO-NOT-TRACK
-																																							FEATURES</span
+																																							DO-NOT-TRACK FEATURES</span
 																																						>
 																																					</strong>
 																																				</span>
@@ -2335,13 +2309,12 @@
 																																			>Most web browsers and some
 																																			mobile operating systems and
 																																			mobile applications include a
-																																			Do-Not-Track (<bdt
-																																			> </bdt>"DNT"<bdt
+																																			Do-Not-Track (<bdt>
+																																			</bdt>"DNT"<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
-																																			</bdt
-																																			>) feature or setting you can
-																																			activate to signal your
+																																			</bdt>) feature or setting you
+																																			can activate to signal your
 																																			privacy preference not to have
 																																			data about your online
 																																			browsing activities monitored
@@ -2352,13 +2325,12 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			and implementing DNT signals
-																																			has been
+																																			and implementing DNT signals has
+																																			been
 																																			<bdt> </bdt>finalized<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
-																																			</bdt
-																																			>. As such, we do not
+																																			</bdt>. As such, we do not
 																																			currently respond to DNT
 																																			browser signals or any other
 																																			mechanism that automatically
@@ -2448,8 +2420,7 @@
 																																				<bdt
 																																					class="forloop-component"
 																																				>
-																																				</bdt
-																																				>, Colorado<bdt
+																																				</bdt>, Colorado<bdt
 																																					class="forloop-component"
 																																				>
 																																				</bdt>
@@ -2533,10 +2504,9 @@
 																																				<bdt
 																																					class="forloop-component"
 																																				>
-																																				</bdt
-																																				>, you are granted specific
-																																				rights regarding access to
-																																				your personal
+																																				</bdt>, you are granted
+																																				specific rights regarding
+																																				access to your personal
 																																				information.</em
 																																			>
 																																		</span>
@@ -2552,8 +2522,7 @@
 																																		<span>
 																																			<strong
 																																				>What categories of personal
-																																				information do we
-																																				collect?</strong
+																																				information do we collect?</strong
 																																			>
 																																		</span>
 																																	</span>
@@ -2584,8 +2553,7 @@
 																																			<span>
 																																				<span>
 																																					<span>
-																																						<strong
-																																							>Category</strong
+																																						<strong>Category</strong
 																																						>
 																																					</span>
 																																				</span>
@@ -2595,8 +2563,7 @@
 																																			<span>
 																																				<span>
 																																					<span>
-																																						<strong
-																																							>Examples</strong
+																																						<strong>Examples</strong
 																																						>
 																																					</span>
 																																				</span>
@@ -2656,8 +2623,8 @@
 																																					<span>
 																																						<span>
 																																							<bdt>
-																																								<bdt> </bdt> </bdt
-																																							>NO<bdt
+																																								<bdt> </bdt>
+																																							</bdt>NO<bdt
 																																								class="statement-end-if-in-editor"
 																																							>
 																																								<bdt> </bdt>
@@ -2756,12 +2723,10 @@
 																																							<bdt> </bdt>C<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Protected
+																																							</bdt>. Protected
 																																							classification
 																																							characteristics under
-																																							state or federal
-																																							law</span
+																																							state or federal law</span
 																																						>
 																																					</span>
 																																				</span>
@@ -2811,8 +2776,7 @@
 																																							<bdt> </bdt>D<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Commercial
+																																							</bdt>. Commercial
 																																							information</span
 																																						>
 																																					</span>
@@ -2866,8 +2830,7 @@
 																																							<bdt> </bdt>E<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Biometric
+																																							</bdt>. Biometric
 																																							information</span
 																																						>
 																																					</span>
@@ -2920,9 +2883,8 @@
 																																							<bdt> </bdt>F<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Internet or other
-																																							similar network
+																																							</bdt>. Internet or
+																																							other similar network
 																																							activity</span
 																																						>
 																																					</span>
@@ -2936,17 +2898,16 @@
 																																						<span
 																																							>Browsing history,
 																																							search history, online
-																																							<bdt> </bdt
-																																							>behavior<bdt
+																																							<bdt>
+																																							</bdt>behavior<bdt
 																																								class="statement-end-if-in-editor"
 																																							>
-																																							</bdt
-																																							>, interest data, and
-																																							interactions with our
-																																							and other websites,
+																																							</bdt>, interest data,
+																																							and interactions with
+																																							our and other
+																																							websites,
 																																							applications, systems,
-																																							and
-																																							advertisements</span
+																																							and advertisements</span
 																																						>
 																																					</span>
 																																				</span>
@@ -2984,8 +2945,7 @@
 																																							<bdt> </bdt>G<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Geolocation
+																																							</bdt>. Geolocation
 																																							data</span
 																																						>
 																																					</span>
@@ -3035,11 +2995,10 @@
 																																							<bdt> </bdt>H<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Audio, electronic,
-																																							visual, thermal,
-																																							olfactory, or similar
-																																							information</span
+																																							</bdt>. Audio,
+																																							electronic, visual,
+																																							thermal, olfactory, or
+																																							similar information</span
 																																						>
 																																					</span>
 																																				</span>
@@ -3054,8 +3013,7 @@
 																																							video or call
 																																							recordings created in
 																																							connection with our
-																																							business
-																																							activities</span
+																																							business activities</span
 																																						>
 																																					</span>
 																																				</span>
@@ -3093,9 +3051,8 @@
 																																							<bdt> </bdt>I<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Professional or
-																																							employment-related
+																																							</bdt>. Professional
+																																							or employment-related
 																																							information</span
 																																						>
 																																					</span>
@@ -3154,8 +3111,7 @@
 																																							<bdt> </bdt>J<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Education
+																																							</bdt>. Education
 																																							Information</span
 																																						>
 																																					</span>
@@ -3168,8 +3124,7 @@
 																																					<span>
 																																						<span
 																																							>Student records and
-																																							directory
-																																							information</span
+																																							directory information</span
 																																						>
 																																					</span>
 																																				</span>
@@ -3207,11 +3162,9 @@
 																																							<bdt> </bdt>K<bdt
 																																								class="else-block"
 																																							>
-																																							</bdt
-																																							>. Inferences drawn
-																																							from collected
-																																							personal
-																																							information</span
+																																							</bdt>. Inferences
+																																							drawn from collected
+																																							personal information</span
 																																						>
 																																					</span>
 																																				</span>
@@ -3269,8 +3222,7 @@
 																																				<bdt> </bdt>L<bdt
 																																					class="else-block"
 																																				>
-																																				</bdt
-																																				>. Sensitive personal
+																																				</bdt>. Sensitive personal
 																																				Information</span
 																																			>
 																																		</td>
@@ -3284,8 +3236,9 @@
 																																				<br />
 																																			</div>
 																																			<div data-empty="true">
-																																				<bdt> <span> </span> </bdt
-																																				>NO<bdt
+																																				<bdt>
+																																					<span> </span>
+																																				</bdt>NO<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
 																																					<span> </span>
@@ -3403,8 +3356,7 @@
 																																			<span>
 																																				<span
 																																					>Participation in customer
-																																					surveys or contests;
-																																					and</span
+																																					surveys or contests; and</span
 																																				>
 																																				<span>
 																																					<span>
@@ -3501,8 +3453,7 @@
 																																			<span>
 																																				<strong
 																																					>How do we use and share
-																																					your personal
-																																					information?</strong
+																																					your personal information?</strong
 																																				>
 																																			</span>
 																																		</span>
@@ -3555,8 +3506,7 @@
 																																			<span>
 																																				<strong
 																																					>Will your information be
-																																					shared with anyone
-																																					else?</strong
+																																					shared with anyone else?</strong
 																																				>
 																																			</span>
 																																		</span>
@@ -3624,8 +3574,8 @@
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
-																																				of your personal
-																																				information.<span>
+																																				of your personal information.<span
+																																				>
 																																					<span>
 																																						<bdt> </bdt>
 																																					</span>
@@ -3646,11 +3596,11 @@
 																																				information to third parties
 																																				for a business or commercial
 																																				purpose in the preceding
-																																				twelve (12) months.
-																																				We<span>&nbsp;</span>will
-																																				not sell or share personal
-																																				information in the future
-																																				belonging to website
+																																				twelve (12) months. We<span
+																																					>&nbsp;</span
+																																				>will not sell or share
+																																				personal information in the
+																																				future belonging to website
 																																				visitors, users, and other
 																																				consumers.<span>
 																																					<span>
@@ -3699,30 +3649,25 @@
 																																	<span
 																																		>California Civil Code Section
 																																		1798.83, also known as the
-																																		<bdt> </bdt>"Shine The
-																																		Light"<bdt
+																																		<bdt> </bdt>"Shine The Light"<bdt
 																																			class="statement-end-if-in-editor"
 																																		>
 																																		</bdt>
-																																		law permits our users who are
-																																		California residents to request
-																																		and obtain from us, once a year
-																																		and free of charge, information
-																																		about categories of personal
-																																		information (if any) we
-																																		disclosed to third parties for
-																																		direct marketing purposes and
-																																		the names and addresses of all
-																																		third parties with which we
-																																		shared personal information in
-																																		the immediately preceding
-																																		calendar year. If you are a
-																																		California resident and would
-																																		like to make such a request,
-																																		please submit your request in
-																																		writing to us using the contact
-																																		information provided
-																																		below.</span
+																																		law permits our users who are California
+																																		residents to request and obtain from
+																																		us, once a year and free of charge,
+																																		information about categories of personal
+																																		information (if any) we disclosed
+																																		to third parties for direct marketing
+																																		purposes and the names and addresses
+																																		of all third parties with which we
+																																		shared personal information in the
+																																		immediately preceding calendar year.
+																																		If you are a California resident
+																																		and would like to make such a request,
+																																		please submit your request in writing
+																																		to us using the contact information
+																																		provided below.</span
 																																	>
 																																</div>
 																																<div>
@@ -3853,8 +3798,8 @@
 																																		<span
 																																			>All other individuals are
 																																			defined as
-																																			<bdt> </bdt
-																																			>"non-residents."<bdt
+																																			<bdt>
+																																			</bdt>"non-residents."<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
@@ -3877,9 +3822,8 @@
 																																			>
 																																			</bdt>
 																																			applies to you, we must adhere
-																																			to certain rights and
-																																			obligations regarding your
-																																			personal information.</span
+																																			to certain rights and obligations
+																																			regarding your personal information.</span
 																																		>
 																																	</span>
 																																</div>
@@ -3892,8 +3836,7 @@
 																																			<span>
 																																				<strong
 																																					>Your rights with respect
-																																					to your personal
-																																					data</strong
+																																					to your personal data</strong
 																																				>
 																																			</span>
 																																		</span>
@@ -4266,8 +4209,8 @@
 																																					parties to whom the
 																																					personal information was
 																																					sold, shared, or disclosed
-																																					for a business
-																																					purpose;<span>
+																																					for a business purpose;<span
+																																					>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4433,8 +4376,7 @@
 																																<div>
 																																	<span
 																																		>We do not process consumer's
-																																		sensitive personal
-																																		information.</span
+																																		sensitive personal information.</span
 																																	>
 																																</div>
 																																<div>
@@ -4484,16 +4426,16 @@
 																																				information we already have
 																																				on file, or we may contact
 																																				you through a communication
-																																				method (e.g.<bdt
-																																				> </bdt>,<bdt
+																																				method (e.g.<bdt>
+																																				</bdt>,<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
-																																				phone or email) that you
-																																				have previously provided to
-																																				us. We may also use other
-																																				verification methods as the
-																																				circumstances dictate.</span
+																																				phone or email) that you have
+																																				previously provided to us. We
+																																				may also use other verification
+																																				methods as the circumstances
+																																				dictate.</span
 																																			>
 																																		</span>
 																																	</span>
@@ -4575,7 +4517,8 @@
 																																				<span
 																																					>You may object to the
 																																					processing of your
-																																					personal information.<span>
+																																					personal information.<span
+																																					>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4700,24 +4643,21 @@
 																																						class="statement-end-if-in-editor"
 																																					>
 																																					</bdt>
-																																					agent to make a request
-																																					under the CCPA on your
-																																					behalf. We may deny a
-																																					request from an
+																																					agent to make a request under
+																																					the CCPA on your behalf. We
+																																					may deny a request from an
 																																					<bdt> </bdt>authorized<bdt
 																																						class="statement-end-if-in-editor"
 																																					>
 																																					</bdt>
 																																					agent that does not submit
-																																					proof that they have been
-																																					validly
+																																					proof that they have been validly
 																																					<bdt> </bdt>authorized<bdt
 																																						class="statement-end-if-in-editor"
 																																					>
 																																					</bdt>
-																																					to act on your behalf in
-																																					accordance with the
-																																					CCPA.<span>
+																																					to act on your behalf in accordance
+																																					with the CCPA.<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4784,8 +4724,8 @@
 																																					soon as feasibly possible,
 																																					but no later than fifteen
 																																					(15) days from the date of
-																																					the request
-																																					submission.<span>
+																																					the request submission.<span
+																																					>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4835,8 +4775,7 @@
 																																	>
 																																		<span>
 																																			<span
-																																				>data subject access
-																																				request</span
+																																				>data subject access request</span
 																																			>
 																																		</span>
 																																	</a>
@@ -5007,8 +4946,7 @@
 																																			<span
 																																				>Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with
-																																				us</span
+																																				previously shared with us</span
 																																			>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
@@ -5032,12 +4970,11 @@
 																																				profiling in furtherance of
 																																				decisions that produce legal
 																																				or similarly significant
-																																				effects (<bdt
-																																				> </bdt>"profiling"<bdt
+																																				effects (<bdt>
+																																				</bdt>"profiling"<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
-																																				</bdt
-																																				>)</span
+																																				</bdt>)</span
 																																			>
 																																		</span>
 																																		<bdt
@@ -5051,8 +4988,7 @@
 																																		<span> </span>
 																																	</bdt>
 																																	<span
-																																		>To submit a request to
-																																		exercise</span
+																																		>To submit a request to exercise</span
 																																	>
 																																	<bdt> </bdt>
 																																	<span>these</span>
@@ -5077,8 +5013,7 @@
 																																	>
 																																		<span>
 																																			<span
-																																				>data subject access
-																																				request</span
+																																				>data subject access request</span
 																																			>
 																																		</span>
 																																	</a>
@@ -5101,13 +5036,13 @@
 																																			<bdt
 																																				>whichrouteisfaster@michaelbonner.dev</bdt
 																																			>
-																																			<bdt class="else-block"> </bdt
-																																			>. Within forty-five (45) days
-																																			of receipt of an appeal, we
-																																			will inform you in writing of
-																																			any action taken or not taken
-																																			in response to the appeal,
-																																			including a written
+																																			<bdt class="else-block">
+																																			</bdt>. Within forty-five (45)
+																																			days of receipt of an appeal,
+																																			we will inform you in writing
+																																			of any action taken or not
+																																			taken in response to the
+																																			appeal, including a written
 																																			explanation of the reasons for
 																																			the decisions.</span
 																																		>
@@ -5233,8 +5168,7 @@
 																																			<span
 																																				>Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with
-																																				us</span
+																																				previously shared with us</span
 																																			>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
@@ -5258,12 +5192,11 @@
 																																				profiling in furtherance of
 																																				decisions that produce legal
 																																				or similarly significant
-																																				effects (<bdt
-																																				> </bdt>"profiling"<bdt
+																																				effects (<bdt>
+																																				</bdt>"profiling"<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
-																																				</bdt
-																																				>)</span
+																																				</bdt>)</span
 																																			>
 																																		</span>
 																																		<bdt
@@ -5276,8 +5209,9 @@
 																																	<bdt>
 																																		<span>
 																																			<span> </span>
-																																		</span> </bdt
-																																	>To submit a request to exercise
+																																		</span>
+																																	</bdt>To submit a request to
+																																	exercise
 																																	<bdt> </bdt>these<bdt
 																																		class="statement-end-if-in-editor"
 																																	>
@@ -5296,8 +5230,7 @@
 																																	>
 																																		<span>
 																																			<span
-																																				>data subject access
-																																				request</span
+																																				>data subject access request</span
 																																			>
 																																		</span>
 																																	</a>
@@ -5317,12 +5250,12 @@
 																																			<bdt
 																																				>whichrouteisfaster@michaelbonner.dev</bdt
 																																			>
-																																			<bdt class="else-block"> </bdt
-																																			>. Within sixty (60) days of
-																																			receipt of an appeal, we will
-																																			inform you in writing of any
-																																			action taken or not taken in
-																																			response to the appeal,
+																																			<bdt class="else-block">
+																																			</bdt>. Within sixty (60) days
+																																			of receipt of an appeal, we
+																																			will inform you in writing of
+																																			any action taken or not taken
+																																			in response to the appeal,
 																																			including a written
 																																			explanation of the reasons for
 																																			the decisions.</span
@@ -5437,8 +5370,7 @@
 																																			<span
 																																				>Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with
-																																				us</span
+																																				previously shared with us</span
 																																			>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
@@ -5490,8 +5422,7 @@
 																																			target="_blank"
 																																		>
 																																			<span
-																																				>data subject access
-																																				request</span
+																																				>data subject access request</span
 																																			>
 																																		</a>
 																																		<bdt> </bdt>.</span
@@ -5529,8 +5460,7 @@
 																																	<span>
 																																		<span
 																																			>Under the Virginia Consumer
-																																			Data Protection Act
-																																			(VCDPA):</span
+																																			Data Protection Act (VCDPA):</span
 																																		>
 																																	</span>
 																																</div>
@@ -5541,17 +5471,17 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<bdt> <span> </span> </bdt
-																																		>"Consumer"<bdt
+																																		<bdt>
+																																			<span> </span>
+																																		</bdt>"Consumer"<bdt
 																																			class="statement-end-if-in-editor"
 																																		>
 																																		</bdt>
-																																		means a natural person who is a
-																																		resident of the Commonwealth
-																																		acting only in an individual or
-																																		household context. It does not
-																																		include a natural person acting
-																																		in a commercial or employment
+																																		means a natural person who is a resident
+																																		of the Commonwealth acting only in
+																																		an individual or household context.
+																																		It does not include a natural person
+																																		acting in a commercial or employment
 																																		context.</span
 																																	>
 																																</div>
@@ -5562,22 +5492,21 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<bdt> <span> </span> </bdt
-																																		>"Personal data"<bdt
+																																		<bdt>
+																																			<span> </span>
+																																		</bdt>"Personal data"<bdt
 																																			class="statement-end-if-in-editor"
 																																		>
 																																		</bdt>
-																																		means any information that is
-																																		linked or reasonably linkable to
-																																		an identified or identifiable
-																																		natural person.
+																																		means any information that is linked
+																																		or reasonably linkable to an identified
+																																		or identifiable natural person.
 																																		<bdt> </bdt>"Personal data"<bdt
 																																			class="statement-end-if-in-editor"
 																																		>
 																																		</bdt>
-																																		does not include de-identified
-																																		data or publicly available
-																																		information.</span
+																																		does not include de-identified data
+																																		or publicly available information.</span
 																																	>
 																																</div>
 																																<div>
@@ -5592,9 +5521,8 @@
 																																			class="statement-end-if-in-editor"
 																																		>
 																																		</bdt>
-																																		means the exchange of personal
-																																		data for monetary
-																																		consideration.</span
+																																		means the exchange of personal data
+																																		for monetary consideration.</span
 																																	>
 																																</div>
 																																<div>
@@ -5611,9 +5539,8 @@
 																																			>
 																																			</bdt>
 																																			applies to you, we must adhere
-																																			to certain rights and
-																																			obligations regarding your
-																																			personal data.</span
+																																			to certain rights and obligations
+																																			regarding your personal data.</span
 																																		>
 																																	</span>
 																																</div>
@@ -5720,8 +5647,7 @@
 																																			<span
 																																				>Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with
-																																				us</span
+																																				previously shared with us</span
 																																			>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
@@ -5747,12 +5673,11 @@
 																																				profiling in furtherance of
 																																				decisions that produce legal
 																																				or similarly significant
-																																				effects (<bdt
-																																				> </bdt>"profiling"<bdt
+																																				effects (<bdt>
+																																				</bdt>"profiling"<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
-																																				</bdt
-																																				>)</span
+																																				</bdt>)</span
 																																			>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
@@ -5828,8 +5753,8 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			agent does not submit proof
-																																			that they have been validly
+																																			agent does not submit proof that
+																																			they have been validly
 																																			<bdt> </bdt>authorized<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5869,10 +5794,9 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			agent, we may need to collect
-																																			additional information to
-																																			verify your identity before
-																																			processing your request.</span
+																																			agent, we may need to collect additional
+																																			information to verify your identity
+																																			before processing your request.</span
 																																		>
 																																	</span>
 																																</div>
@@ -5896,8 +5820,7 @@
 																																			of any such extension within
 																																			the initial 45-day response
 																																			period, together with the
-																																			reason for the
-																																			extension.</span
+																																			reason for the extension.</span
 																																		>
 																																	</span>
 																																</div>
@@ -5929,12 +5852,12 @@
 																																			<bdt
 																																				>whichrouteisfaster@michaelbonner.dev</bdt
 																																			>
-																																			<bdt class="else-block"> </bdt
-																																			>. Within sixty (60) days of
-																																			receipt of an appeal, we will
-																																			inform you in writing of any
-																																			action taken or not taken in
-																																			response to the appeal,
+																																			<bdt class="else-block">
+																																			</bdt>. Within sixty (60) days
+																																			of receipt of an appeal, we
+																																			will inform you in writing of
+																																			any action taken or not taken
+																																			in response to the appeal,
 																																			including a written
 																																			explanation of the reasons for
 																																			the decisions. If your appeal
@@ -5949,8 +5872,8 @@
 																																						>Attorney General to
 																																						submit a complaint</span
 																																					>
-																																				</span> </a
-																																			>.</span
+																																				</span>
+																																			</a>.</span
 																																		>
 																																	</span>
 																																	<bdt
@@ -5974,13 +5897,20 @@
 																																													<span>
 																																														<span>
 																																															<span>
-																																																<span>
-																																																	<span>
-																																																		<span>
-																																																			<span>
-																																																				<span>
-																																																					<span>
-																																																						<span>
+																																																<span
+																																																>
+																																																	<span
+																																																	>
+																																																		<span
+																																																		>
+																																																			<span
+																																																			>
+																																																				<span
+																																																				>
+																																																					<span
+																																																					>
+																																																						<span
+																																																						>
 																																																							<bdt
 																																																								class="statement-end-if-in-editor"
 																																																							>
@@ -6078,18 +6008,15 @@
 																																				date and the updated version
 																																				will be effective as soon as
 																																				it is accessible. If we make
-																																				material changes to this
-																																				privacy notice, we may
-																																				notify you either by
-																																				prominently posting a notice
-																																				of such changes or by
-																																				directly sending you a
-																																				notification. We encourage
-																																				you to review this privacy
-																																				notice frequently to be
-																																				informed of how we are
-																																				protecting your
-																																				information.</span
+																																				material changes to this privacy
+																																				notice, we may notify you either
+																																				by prominently posting a notice
+																																				of such changes or by directly
+																																				sending you a notification. We
+																																				encourage you to review this
+																																				privacy notice frequently to
+																																				be informed of how we are protecting
+																																				your information.</span
 																																			>
 																																		</span>
 																																	</span>
@@ -6129,8 +6056,9 @@
 																																				you may
 																																				<span>
 																																					<span>
-																																						<bdt> <bdt> </bdt> </bdt
-																																						>email us at
+																																						<bdt>
+																																							<bdt> </bdt>
+																																						</bdt>email us at
 																																						<bdt
 																																							>whichrouteisfaster@michaelbonner.dev
 																																							or&nbsp;</bdt
@@ -6166,8 +6094,7 @@
 																																						<span>
 																																							<span>
 																																								<bdt
-																																									>Michael
-																																									Bonner</bdt
+																																									>Michael Bonner</bdt
 																																								>
 																																							</span>
 																																						</span>
@@ -6313,8 +6240,7 @@
 																																								>14. HOW CAN YOU
 																																								REVIEW, UPDATE, OR
 																																								DELETE THE DATA WE
-																																								COLLECT FROM
-																																								YOU?</span
+																																								COLLECT FROM YOU?</span
 																																							>
 																																						</strong>
 																																					</span>
@@ -6339,8 +6265,7 @@
 																																				<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
-																																				</bdt
-																																				>To request to review,
+																																				</bdt>To request to review,
 																																				update, or delete your
 																																				personal information, please
 																																				<bdt> </bdt>fill out and

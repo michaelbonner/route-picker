@@ -1,20 +1,34 @@
 <script lang="ts">
+	import { invalidateAll } from '$app/navigation';
+
 	interface Props {
 		routeId: number;
 	}
 
-	let { routeId }: Props = $props();
+	const { routeId }: Props = $props();
+
+	interface Location {
+		coords: {
+			accuracy: number;
+			altitude: number | null;
+			altitudeAccuracy: number | null;
+			heading: number | null;
+			latitude: number;
+			longitude: number;
+			speed: number | null;
+		};
+		timestamp: number;
+	}
 
 	let currentState = $state('stopped');
 	let startTime = $state(new Date());
 	let endTime = $state(new Date());
 	let elapsed = $state(0);
-	let interval: NodeJS.Timeout;
-	let pendingSave = false;
-	let startLocation: GeolocationPosition | null = $state(null);
-	let endLocation: GeolocationPosition | null = $state(null);
-	let path: GeolocationPosition[] = $state([]);
-	let geolocationUpdateIntervalId: NodeJS.Timeout | null = null;
+	let interval: number;
+	let startLocation: Location | null = $state(null);
+	let endLocation: Location | null = $state(null);
+	let path: Location[] = $state([]);
+	let geolocationUpdateIntervalId: number | null = null;
 
 	const geolocationOptions = {
 		enableHighAccuracy: true,
@@ -23,11 +37,11 @@
 	};
 
 	const startTimer = () => {
-		interval = setInterval(() => {
+		interval = window.setInterval(() => {
 			elapsed = new Date().getTime() - startTime.getTime();
 		}, 100);
 
-		geolocationUpdateIntervalId = setInterval(() => {
+		geolocationUpdateIntervalId = window.setInterval(() => {
 			navigator.geolocation.getCurrentPosition(
 				(success) => {
 					path = [
@@ -77,11 +91,10 @@
 
 	const stopTimer = () => {
 		currentState = 'stopped';
-		pendingSave = true;
 		endTime = new Date();
-		if (interval) clearInterval(interval);
+		if (interval) window.clearInterval(interval);
 
-		if (geolocationUpdateIntervalId) clearInterval(geolocationUpdateIntervalId);
+		if (geolocationUpdateIntervalId) window.clearInterval(geolocationUpdateIntervalId);
 
 		navigator.geolocation.getCurrentPosition(
 			(success) => {
@@ -107,28 +120,50 @@
 
 	const clear = () => {
 		stopTimer();
-		pendingSave = false;
 		elapsed = 0;
 	};
 
-	const save = () => {
-		pendingSave = false;
+	const save = async () => {
+		// Create form data for submission
+		const formData = new FormData();
+		formData.append('startTime', startTime.toString());
+		formData.append('endTime', endTime.toString());
+		formData.append('routeId', routeId.toString());
+		formData.append('startLocation', JSON.stringify(startLocation));
+		formData.append('endLocation', JSON.stringify(endLocation));
+		formData.append('path', JSON.stringify(path));
+
+		// Submit the form data using fetch
+		const response = await fetch('?/postTrip', {
+			method: 'POST',
+			body: formData
+		});
+
+		// Reset timer values after successful submission
+		if (response.ok) {
+			elapsed = 0;
+			path = [];
+			startLocation = null;
+			endLocation = null;
+			await invalidateAll();
+		}
 	};
 
 	const formatTimerNumber = (num: number) => {
 		return num < 10 ? `0${num}` : num;
 	};
 
-	let elapsedClassName =
-		$derived(currentState === 'stopped'
+	const elapsedClassName = $derived(
+		currentState === 'stopped'
 			? 'text-center text-slate-400 font-bold text-3xl'
-			: 'text-center text-emerald-400 font-bold text-3xl');
+			: 'text-center text-emerald-400 font-bold text-3xl'
+	);
 
-	let canSave = $derived(!!(currentState === 'stopped' && !!elapsed));
+	const canSave = $derived(!!(currentState === 'stopped' && !!elapsed));
 
-	let elapsedSeconds = $derived(formatTimerNumber(Math.round(elapsed / 1000) % 60));
-	let elapsedMinutes = $derived(formatTimerNumber(Math.floor(elapsed / 1000 / 60)));
-	let elapsedHours = $derived(formatTimerNumber(Math.floor(elapsed / 1000 / 60 / 60)));
+	const elapsedSeconds = $derived(formatTimerNumber(Math.round(elapsed / 1000) % 60));
+	const elapsedMinutes = $derived(formatTimerNumber(Math.floor(elapsed / 1000 / 60)));
+	const elapsedHours = $derived(formatTimerNumber(Math.floor(elapsed / 1000 / 60 / 60)));
 </script>
 
 <div class="grid gap-2">
@@ -168,13 +203,7 @@
 				onclick={clear}>Clear</button
 			>
 		</div>
-		<form method="POST" action="?/postTrip">
-			<input type="text" name="startTime" value={startTime} hidden />
-			<input type="text" name="endTime" value={endTime} hidden />
-			<input type="text" name="routeId" value={routeId} hidden />
-			<input type="text" name="startLocation" value={JSON.stringify(startLocation)} hidden />
-			<input type="text" name="endLocation" value={JSON.stringify(endLocation)} hidden />
-			<input type="text" name="path" value={JSON.stringify(path)} hidden />
+		<div>
 			<button
 				class={`w-full border bg-emerald-50 border-emerald-600 text-emerald-700 py-3 px-3 rounded-md uppercase font-bold transition-opacity ${
 					canSave ? '' : 'opacity-20'
@@ -184,6 +213,6 @@
 			>
 				Save
 			</button>
-		</form>
+		</div>
 	</div>
 </div>

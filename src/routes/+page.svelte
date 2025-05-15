@@ -3,6 +3,7 @@
 	import RouteCard from '$lib/components/RouteCard.svelte';
 	import whichRouteIsFaster from '$lib/images/car-route.svg';
 	import { SignIn } from '@auth/sveltekit/components';
+	import { invalidateAll } from '$app/navigation';
 
 	/**
 	 * @typedef {Object} Props
@@ -10,8 +11,27 @@
 	 */
 
 	/** @type {Props} */
-	let { data } = $props();
-	const { routes } = data;
+	const { data } = $props();
+	const routes = $derived(data.routes);
+
+	let newRouteName = $state('');
+
+	const createNewRoute = async () => {
+		if (!newRouteName) return;
+
+		const formData = new FormData();
+		formData.append('routeName', newRouteName);
+
+		const response = await fetch('?/postRoute', {
+			method: 'POST',
+			body: formData
+		});
+
+		if (response.ok) {
+			newRouteName = '';
+			await invalidateAll();
+		}
+	};
 </script>
 
 <!-- add svelte head -->
@@ -37,11 +57,7 @@
 				<RouteCard {route} />
 			{/each}
 			<div>
-				<form
-					class="grid gap-4 py-3 px-4 rounded-xl border lg:border-0"
-					method="POST"
-					action="?/postRoute"
-				>
+				<div class="grid gap-4 py-3 px-4 rounded-xl border lg:border-0">
 					<h2 class="text-xl font-bold text-center">Create New Route</h2>
 					<div class="grid gap-2">
 						<label for="name">Route Name</label>
@@ -51,16 +67,18 @@
 							id="name"
 							name="routeName"
 							type="text"
+							bind:value={newRouteName}
 						/>
 					</div>
 					<div class="flex justify-end">
 						<button
 							class="flex justify-center items-center py-3 px-6 font-bold rounded-xl bg-slate-900 text-slate-100"
+							onclick={createNewRoute}
 						>
 							+ New Route
 						</button>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	{:else}

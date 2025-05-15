@@ -2,14 +2,17 @@
 	import Timer from '$lib/components/Timer.svelte';
 	import type { Route, Trip } from '@prisma/client';
 	import { format, isSameDay, isSameHour, isSameYear } from 'date-fns';
+	import { invalidateAll } from '$app/navigation';
 
 	interface Props {
 		route: Route & {
-		trips: Trip[];
-	};
+			trips: Trip[];
+		};
 	}
 
-	let { route }: Props = $props();
+	const props: Props = $props();
+
+	const route = $derived(props.route);
 
 	const convertSecondsToHoursMinutesSeconds = (seconds: number) => {
 		const durationHours = Math.floor(seconds / 60 / 60);
@@ -50,6 +53,34 @@
 
 		return `${format(startTime, 'MM/dd/yy: h:mm:ss')} – ${format(endTime, 'h:mm:ss a')}`;
 	};
+
+	const deleteRoute = async (id: number) => {
+		const formData = new FormData();
+		formData.append('id', id.toString());
+
+		const response = await fetch('?/deleteRoute', {
+			method: 'POST',
+			body: formData
+		});
+
+		if (response.ok) {
+			await invalidateAll();
+		}
+	};
+
+	const deleteTrip = async (id: number) => {
+		const formData = new FormData();
+		formData.append('id', id.toString());
+
+		const response = await fetch('?/deleteTrip', {
+			method: 'POST',
+			body: formData
+		});
+
+		if (response.ok) {
+			await invalidateAll();
+		}
+	};
 </script>
 
 <div class="grid gap-4 rounded-lg">
@@ -59,10 +90,7 @@
 				{route.name} <span class="text-base font-light">({route.trips.length} trips)</span>
 			</h2>
 			{#if route.trips.length === 0}
-				<form method="post" action={`?/deleteRoute`}>
-					<input type="text" name="id" value={route.id} hidden />
-					<button class="text-red-500">x</button>
-				</form>
+				<button class="text-red-500" onclick={() => deleteRoute(route.id)}> x </button>
 			{/if}
 		</div>
 
@@ -91,10 +119,7 @@
 						{/if}
 					</div>
 					<div>
-						<form method="post" action={`?/deleteTrip`}>
-							<input type="text" name="id" value={trip.id} hidden />
-							<button class="text-red-500">x</button>
-						</form>
+						<button class="text-red-500" onclick={() => deleteTrip(trip.id)}> x </button>
 					</div>
 				</div>
 			{/each}

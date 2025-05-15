@@ -1,7 +1,9 @@
 import prisma from '$lib/server/prisma';
+import type { ServerLoadEvent } from '@sveltejs/kit';
+import type { PageServerLoadEvent } from './$types';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load(event) {
+export async function load(event: PageServerLoadEvent) {
 	const session = await event.locals.auth();
 
 	if (!session?.user?.email) {
@@ -36,7 +38,7 @@ export async function load(event) {
 }
 /** @type {import('./$types').Actions} */
 export const actions = {
-	postRoute: async ({ request, locals }) => {
+	postRoute: async ({ request, locals }: ServerLoadEvent) => {
 		const data = await request.formData();
 
 		const session = await locals.auth();
@@ -63,7 +65,7 @@ export const actions = {
 		});
 		return { success: true };
 	},
-	deleteRoute: async ({ request }) => {
+	deleteRoute: async ({ request }: { request: Request }) => {
 		const data = await request.formData();
 		const idToDelete = data.get('id');
 		if (!idToDelete) {
@@ -76,7 +78,7 @@ export const actions = {
 		});
 		return { success: true };
 	},
-	postTrip: async ({ request }) => {
+	postTrip: async ({ request }: { request: Request }) => {
 		const data = await request.formData();
 		if (!data.get('startTime') || !data.get('endTime') || !data.get('routeId')) {
 			return { success: false, error: 'No route id provided' };
@@ -100,7 +102,7 @@ export const actions = {
 		});
 		return { success: true };
 	},
-	deleteTrip: async ({ request }) => {
+	deleteTrip: async ({ request }: { request: Request }) => {
 		const data = await request.formData();
 		const idToDelete = data.get('id');
 		if (!idToDelete) {
