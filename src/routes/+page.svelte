@@ -53,7 +53,7 @@
 <div>
 	{#if page.data.session}
 		<div class="grid gap-4 lg:grid-cols-3">
-			{#each routes as route}
+			{#each routes as route (route.id)}
 				<RouteCard {route} />
 			{/each}
 			<div>
