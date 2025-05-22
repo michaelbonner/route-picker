@@ -1,5 +1,5 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import RouteCard from '$lib/components/RouteCard.svelte';
 	import whichRouteIsFaster from '$lib/images/car-route.svg';
 	import { SignIn } from '@auth/sveltekit/components';
@@ -51,7 +51,7 @@
 </svelte:head>
 
 <div>
-	{#if $page.data.session}
+	{#if page.data.session}
 		<div class="grid gap-4 lg:grid-cols-3">
 			{#each routes as route}
 				<RouteCard {route} />
