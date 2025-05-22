@@ -86,30 +86,31 @@
 			class="flex flex-col gap-4 justify-stretch [&_button]:w-full [&_button]:flex [&_button]:justify-center [&_button]:max-w-4xl [&_button]:mx-auto"
 		>
 			<SignIn>
-				<span
-					class="rounded-lg border cursor-pointer gap-2 items-center px-4 py-6 flex w-full justify-center hover:bg-slate-100 transition-colors"
-					slot="submitButton"
-				>
-					<span>
-						<svg
-							class="size-5"
-							stroke="currentColor"
-							fill="currentColor"
-							stroke-width="0"
-							viewBox="0 0 20 20"
-							aria-hidden="true"
-							height="200px"
-							width="200px"
-							xmlns="http://www.w3.org/2000/svg"
-							><path
-								fill-rule="evenodd"
-								d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-								clip-rule="evenodd"
-							></path></svg
-						>
+				{#snippet submitButton()}
+					<span
+						class="rounded-lg border cursor-pointer gap-2 items-center px-4 py-6 flex w-full justify-center hover:bg-slate-100 transition-colors"
+					>
+						<span>
+							<svg
+								class="size-5"
+								stroke="currentColor"
+								fill="currentColor"
+								stroke-width="0"
+								viewBox="0 0 20 20"
+								aria-hidden="true"
+								height="200px"
+								width="200px"
+								xmlns="http://www.w3.org/2000/svg"
+								><path
+									fill-rule="evenodd"
+									d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+									clip-rule="evenodd"
+								></path></svg
+							>
+						</span>
+						<span class="border-b-2 underline-offset-4"> Sign in to create routes </span>
 					</span>
-					<span class="border-b-2 underline-offset-4"> Sign in to create routes </span>
-				</span>
+				{/snippet}
 			</SignIn>
 		</div>
 	{/if}

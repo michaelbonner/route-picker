@@ -24,8 +24,9 @@
 		<div class="hidden flex-wrap gap-2 items-center lg:flex">
 			<span class="notSignedInText">You are not signed in.</span>
 			<SignIn>
-				<span class="border-b-2 underline-offset-4 cursor-pointer" slot="submitButton">Sign in</span
-				>
+				{#snippet submitButton()}
+					<span class="border-b-2 underline-offset-4 cursor-pointer">Sign in</span>
+				{/snippet}
 			</SignIn>
 		</div>
 	{/if}
