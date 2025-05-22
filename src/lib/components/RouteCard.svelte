@@ -106,7 +106,7 @@
 
 	<div class="grid gap-4">
 		<div class="overflow-auto border max-h-[20vh]">
-			{#each route.trips as trip}
+			{#each route.trips as trip (trip.id)}
 				<div class="flex gap-2 justify-end items-center py-1 px-2 text-sm border-b">
 					<div class="text-xs flex-1">
 						{getTimeFormatted(trip.startTime, trip.endTime)}
