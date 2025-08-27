@@ -8,9 +8,6 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import RouteCard from './RouteCard.svelte';
 
-// Type assertion for Svelte 5 compatibility
-const RouteCardComponent = RouteCard as any;
-
 describe('RouteCard editing functionality', () => {
 	const mockRoute: Route & { trips: Trip[] } = {
 		id: 1,
@@ -50,7 +47,7 @@ describe('RouteCard editing functionality', () => {
 
 	describe('edit mode state transitions and UI updates', () => {
 		it('should display route name as clickable button initially', () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
 			expect(editButton).toBeInTheDocument();
@@ -58,7 +55,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should enter edit mode when route name is clicked', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
 			await user.click(editButton);
@@ -71,7 +68,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should select all text when entering edit mode', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
 			await user.click(editButton);
@@ -84,7 +81,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should exit edit mode and revert to original name when cancelled', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -113,9 +110,9 @@ describe('RouteCard editing functionality', () => {
 					new Promise<Response>((resolve) =>
 						setTimeout(() => resolve(new Response('', { status: 200 })), 100)
 					)
-			) as any;
+			);
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and submit
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -131,7 +128,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should display error message when validation fails', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -157,9 +154,9 @@ describe('RouteCard editing functionality', () => {
 						headers: { 'Content-Type': 'application/json' }
 					})
 				)
-			) as any;
+			);
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and submit
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -179,9 +176,9 @@ describe('RouteCard editing functionality', () => {
 
 	describe('keyboard event handling and form submission', () => {
 		it('should save changes when Enter key is pressed', async () => {
-			globalThis.fetch = vi.fn(() => Promise.resolve(new Response('', { status: 200 }))) as any;
+			globalThis.fetch = vi.fn(() => Promise.resolve(new Response('', { status: 200 })));
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -200,7 +197,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should cancel edit when Escape key is pressed', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -217,7 +214,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should prevent default behavior for Enter and Escape keys', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -241,7 +238,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should validate input before form submission', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -261,7 +258,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should validate maximum length before submission', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -291,7 +288,7 @@ describe('RouteCard editing functionality', () => {
 				)
 			);
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and submit
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -312,7 +309,7 @@ describe('RouteCard editing functionality', () => {
 			// Mock network error
 			globalThis.fetch = vi.fn(() => Promise.reject(new Error('Network error')));
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and submit
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -330,7 +327,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should clear validation errors when user starts typing', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and trigger validation error
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -357,7 +354,7 @@ describe('RouteCard editing functionality', () => {
 
 	describe('accessibility features and focus management', () => {
 		it('should have proper ARIA labels for edit controls', () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
 			expect(editButton).toHaveAttribute('aria-label');
@@ -365,7 +362,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should have proper ARIA attributes in edit mode', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -378,7 +375,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should update ARIA attributes when validation fails', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and trigger validation error
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -395,7 +392,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should provide screen reader instructions', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -408,7 +405,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should announce status changes to screen readers', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Check for aria-live region (it has aria-live but not role="status")
 			const statusRegion = document.querySelector('[aria-live="polite"]');
@@ -416,7 +413,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should manage focus properly during edit mode transitions', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -437,7 +434,7 @@ describe('RouteCard editing functionality', () => {
 		});
 
 		it('should have proper error announcement with role="alert"', async () => {
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and trigger validation error
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -459,12 +456,12 @@ describe('RouteCard editing functionality', () => {
 			// Mock delayed response
 			globalThis.fetch = vi.fn(
 				() =>
-					new Promise((resolve) =>
+					new Promise<Response>((resolve) =>
 						setTimeout(() => resolve(new Response('', { status: 200 })), 100)
 					)
 			);
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and submit
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -484,7 +481,7 @@ describe('RouteCard editing functionality', () => {
 	describe('edge cases and integration scenarios', () => {
 		it('should handle route with no trips', () => {
 			const routeWithNoTrips = { ...mockRoute, trips: [] };
-			render(RouteCardComponent, { props: { route: routeWithNoTrips } });
+			render(RouteCard, { route: routeWithNoTrips });
 
 			// Should still allow editing
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -499,12 +496,12 @@ describe('RouteCard editing functionality', () => {
 			// Mock delayed response
 			globalThis.fetch = vi.fn(
 				() =>
-					new Promise((resolve) =>
+					new Promise<Response>((resolve) =>
 						setTimeout(() => resolve(new Response('', { status: 200 })), 100)
 					)
 			);
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode and submit
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });
@@ -536,7 +533,7 @@ describe('RouteCard editing functionality', () => {
 				enhance: mockEnhance
 			}));
 
-			render(RouteCardComponent, { props: { route: mockRoute } });
+			render(RouteCard, { route: mockRoute });
 
 			// Enter edit mode
 			const editButton = screen.getByRole('button', { name: /edit route name: test route/i });

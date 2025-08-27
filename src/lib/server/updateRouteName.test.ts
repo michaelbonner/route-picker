@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { fail } from '@sveltejs/kit';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock the prisma import
 vi.mock('$lib/server/prisma', () => ({
@@ -24,19 +24,10 @@ vi.mock('@sveltejs/kit', async () => {
 });
 
 // Import after mocking
+import prisma from '../../lib/server/__mocks__/prisma';
 import { actions } from '../../routes/+page.server.js';
-import prisma from '$lib/server/prisma';
 
-// Type the mocked prisma for better intellisense
-const mockedPrisma = prisma as {
-	user: {
-		findUnique: ReturnType<typeof vi.fn>;
-	};
-	route: {
-		findUnique: ReturnType<typeof vi.fn>;
-		update: ReturnType<typeof vi.fn>;
-	};
-};
+vi.mock('$lib/server/prisma');
 
 describe('updateRouteName server action', () => {
 	const mockRequest = {
@@ -67,13 +58,25 @@ describe('updateRouteName server action', () => {
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
 
-			const mockUser = { id: 1, email: 'test@example.com' };
-			mockedPrisma.user.findUnique.mockResolvedValue(mockUser);
+			const mockUser = {
+				id: 1,
+				email: 'test@example.com',
+				provider: '',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.user.findUnique.mockResolvedValue(mockUser);
 
-			const mockRoute = { id: 1, userId: 1, name: 'Old Route Name' };
-			mockedPrisma.route.findUnique.mockResolvedValue(mockRoute);
+			const mockRoute = {
+				id: 1,
+				userId: 1,
+				name: 'Old Route Name',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.route.findUnique.mockResolvedValue(mockRoute);
 
-			mockedPrisma.route.update.mockResolvedValue({
+			prisma.route.update.mockResolvedValue({
 				...mockRoute,
 				name: 'Updated Route Name'
 			});
@@ -86,7 +89,7 @@ describe('updateRouteName server action', () => {
 
 			// Assert
 			expect(result).toEqual({ success: true });
-			expect(mockedPrisma.route.update).toHaveBeenCalledWith({
+			expect(prisma.route.update).toHaveBeenCalledWith({
 				where: { id: 1 },
 				data: { name: 'Updated Route Name' }
 			});
@@ -103,13 +106,25 @@ describe('updateRouteName server action', () => {
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
 
-			const mockUser = { id: 1, email: 'test@example.com' };
-			mockedPrisma.user.findUnique.mockResolvedValue(mockUser);
+			const mockUser = {
+				id: 1,
+				email: 'test@example.com',
+				provider: '',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.user.findUnique.mockResolvedValue(mockUser);
 
-			const mockRoute = { id: 1, userId: 1, name: 'Old Route Name' };
-			mockedPrisma.route.findUnique.mockResolvedValue(mockRoute);
+			const mockRoute = {
+				id: 1,
+				userId: 1,
+				name: 'Old Route Name',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.route.findUnique.mockResolvedValue(mockRoute);
 
-			mockedPrisma.route.update.mockResolvedValue({
+			prisma.route.update.mockResolvedValue({
 				...mockRoute,
 				name: 'Trimmed Route Name'
 			});
@@ -122,7 +137,7 @@ describe('updateRouteName server action', () => {
 
 			// Assert
 			expect(result).toEqual({ success: true });
-			expect(mockedPrisma.route.update).toHaveBeenCalledWith({
+			expect(prisma.route.update).toHaveBeenCalledWith({
 				where: { id: 1 },
 				data: { name: 'Trimmed Route Name' }
 			});
@@ -178,7 +193,7 @@ describe('updateRouteName server action', () => {
 
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
-			mockedPrisma.user.findUnique.mockResolvedValue(null);
+			prisma.user.findUnique.mockResolvedValue(null);
 
 			// Act
 			await actions.updateRouteName({
@@ -201,9 +216,15 @@ describe('updateRouteName server action', () => {
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
 
-			const mockUser = { id: 1, email: 'test@example.com' };
-			mockedPrisma.user.findUnique.mockResolvedValue(mockUser);
-			mockedPrisma.route.findUnique.mockResolvedValue(null);
+			const mockUser = {
+				id: 1,
+				email: 'test@example.com',
+				provider: '',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.user.findUnique.mockResolvedValue(mockUser);
+			prisma.route.findUnique.mockResolvedValue(null);
 
 			// Act
 			await actions.updateRouteName({
@@ -226,12 +247,24 @@ describe('updateRouteName server action', () => {
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
 
-			const mockUser = { id: 1, email: 'test@example.com' };
-			mockedPrisma.user.findUnique.mockResolvedValue(mockUser);
+			const mockUser = {
+				id: 1,
+				email: 'test@example.com',
+				provider: '',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.user.findUnique.mockResolvedValue(mockUser);
 
 			// Route belongs to different user
-			const mockRoute = { id: 1, userId: 2, name: 'Route Name' };
-			mockedPrisma.route.findUnique.mockResolvedValue(mockRoute);
+			const mockRoute = {
+				id: 1,
+				userId: 2,
+				name: 'Route Name',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.route.findUnique.mockResolvedValue(mockRoute);
 
 			// Act
 			await actions.updateRouteName({
@@ -353,14 +386,26 @@ describe('updateRouteName server action', () => {
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
 
-			const mockUser = { id: 1, email: 'test@example.com' };
-			mockedPrisma.user.findUnique.mockResolvedValue(mockUser);
+			const mockUser = {
+				id: 1,
+				email: 'test@example.com',
+				provider: '',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.user.findUnique.mockResolvedValue(mockUser);
 
-			const mockRoute = { id: 1, userId: 1, name: 'Old Route Name' };
-			mockedPrisma.route.findUnique.mockResolvedValue(mockRoute);
+			const mockRoute = {
+				id: 1,
+				userId: 1,
+				name: 'Old Route Name',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.route.findUnique.mockResolvedValue(mockRoute);
 
 			// Simulate database error
-			mockedPrisma.route.update.mockRejectedValue(new Error('Database connection failed'));
+			prisma.route.update.mockRejectedValue(new Error('Database connection failed'));
 
 			// Act
 			await actions.updateRouteName({
@@ -425,7 +470,7 @@ describe('updateRouteName server action', () => {
 			mockLocals.auth.mockResolvedValue(mockSession);
 
 			// Simulate database error during user lookup
-			mockedPrisma.user.findUnique.mockRejectedValue(new Error('User lookup failed'));
+			prisma.user.findUnique.mockRejectedValue(new Error('User lookup failed'));
 
 			// Act
 			await actions.updateRouteName({
@@ -450,11 +495,17 @@ describe('updateRouteName server action', () => {
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
 
-			const mockUser = { id: 1, email: 'test@example.com' };
-			mockedPrisma.user.findUnique.mockResolvedValue(mockUser);
+			const mockUser = {
+				id: 1,
+				email: 'test@example.com',
+				provider: '',
+				createdAt: new Date(),
+				updatedAt: new Date()
+			};
+			prisma.user.findUnique.mockResolvedValue(mockUser);
 
 			// Simulate database error during route lookup
-			mockedPrisma.route.findUnique.mockRejectedValue(new Error('Route lookup failed'));
+			prisma.route.findUnique.mockRejectedValue(new Error('Route lookup failed'));
 
 			// Act
 			await actions.updateRouteName({

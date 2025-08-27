@@ -3,9 +3,6 @@ import { render, screen } from '@testing-library/svelte';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import RouteCard from './RouteCard.svelte';
 
-// Type assertion for Svelte 5 compatibility with testing library
-const RouteCardComponent = RouteCard as unknown;
-
 describe('RouteCard basic functionality', () => {
 	const mockRoute: Route & { trips: Trip[] } = {
 		id: 1,
@@ -27,13 +24,13 @@ describe('RouteCard basic functionality', () => {
 	});
 
 	it('should render route name', () => {
-		render(RouteCardComponent, { props: { route: mockRoute } });
+		render(RouteCard, { route: mockRoute });
 
 		expect(screen.getByText('Test Route')).toBeInTheDocument();
 	});
 
 	it('should show edit button', () => {
-		render(RouteCardComponent, { props: { route: mockRoute } });
+		render(RouteCard, { route: mockRoute });
 
 		const editButton = screen.getByRole('button', { name: /edit route name/i });
 		expect(editButton).toBeInTheDocument();
