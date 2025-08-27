@@ -1,5 +1,5 @@
 import prisma from '$lib/server/prisma';
-import type { ServerLoadEvent } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import type { PageServerLoadEvent } from './$types';
 
 /** @type {import('./$types').PageServerLoad} */
@@ -38,7 +38,7 @@ export async function load(event: PageServerLoadEvent) {
 }
 /** @type {import('./$types').Actions} */
 export const actions = {
-	postRoute: async ({ request, locals }: ServerLoadEvent) => {
+	postRoute: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
 		const data = await request.formData();
 
 		const session = await locals.auth();
@@ -114,5 +114,80 @@ export const actions = {
 			}
 		});
 		return { success: true };
+	},
+	updateRouteName: async ({ request, locals }) => {
+		try {
+			const data = await request.formData();
+			const routeId = data.get('routeId');
+			const newName = data.get('newName');
+
+			// Validate required fields
+			if (!routeId || !newName) {
+				return fail(400, { error: 'Route ID and new name are required' });
+			}
+
+			// Convert routeId to number and validate
+			const routeIdNum = parseInt(routeId as string, 10);
+			if (isNaN(routeIdNum)) {
+				return fail(400, { error: 'Invalid route ID' });
+			}
+
+			// Sanitize and validate the new name
+			const sanitizedName = (newName as string).trim();
+			if (!sanitizedName || sanitizedName.length === 0) {
+				return fail(400, { error: 'Route name cannot be empty' });
+			}
+
+			if (sanitizedName.length > 100) {
+				return fail(400, { error: 'Route name cannot exceed 100 characters' });
+			}
+
+			// Check user authentication
+			const session = await locals.auth();
+			if (!session?.user?.email) {
+				return fail(401, { error: 'Authentication required' });
+			}
+
+			// Get the user
+			const user = await prisma.user.findUnique({
+				where: {
+					email: session.user.email
+				}
+			});
+
+			if (!user) {
+				return fail(401, { error: 'User not found' });
+			}
+
+			// Verify route ownership
+			const route = await prisma.route.findUnique({
+				where: {
+					id: routeIdNum
+				}
+			});
+
+			if (!route) {
+				return fail(404, { error: 'Route not found' });
+			}
+
+			if (route.userId !== user.id) {
+				return fail(403, { error: 'You do not have permission to edit this route' });
+			}
+
+			// Update the route name
+			await prisma.route.update({
+				where: {
+					id: routeIdNum
+				},
+				data: {
+					name: sanitizedName
+				}
+			});
+
+			return { success: true };
+		} catch (error) {
+			console.error('Error updating route name:', error);
+			return fail(500, { error: 'An unexpected error occurred' });
+		}
 	}
 };
