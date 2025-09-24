@@ -209,7 +209,7 @@
 				} else if (result.type === 'failure') {
 					// Revert optimistic update on server error
 					route.name = originalName;
-					const errorMessage = (result.data as any)?.error || 'Failed to update route name';
+					const errorMessage = (result.data?.error as string) || 'Failed to update route name';
 					editError = errorMessage;
 					statusAnnouncement = `Error: ${errorMessage}`;
 
@@ -250,6 +250,7 @@
 					}, 5000);
 				}
 			} catch (error) {
+				console.error('Error updating route name:', error);
 				// Revert optimistic update on network error
 				route.name = originalName;
 				const errorMessage = 'Network error occurred';
