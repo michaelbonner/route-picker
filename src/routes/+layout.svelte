@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import SignInOut from '$lib/components/SignInOut.svelte';
 	import car from '$lib/images/car.svg';
 
@@ -29,7 +30,7 @@
 		class="flex flex-wrap gap-4 justify-center px-4 mx-auto w-full max-w-7xl md:justify-between"
 	>
 		<h1 class="text-2xl font-bold underline lg:text-3xl 2xl:text-3xl shink-0">
-			<a class="flex gap-4 items-end" href="/">
+			<a class="flex gap-4 items-end" href={resolve('/')}>
 				<img class="h-10" src={car} alt="Which Route Is Faster Car" />
 				<span> Which Route Is Faster </span>
 			</a>
@@ -50,7 +51,7 @@
 			>
 		</p>
 		<p>
-			<a class="underline underline-offset-2" href="/policies">Policies</a>
+			<a class="underline underline-offset-2" href={resolve('/policies')}>Policies</a>
 		</p>
 	</footer>
 </div>
