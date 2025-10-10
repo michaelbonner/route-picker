@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import RouteCard from '$lib/components/RouteCard.svelte';
 	import whichRouteIsFaster from '$lib/images/car-route.svg';
+	import whichRouteIsFasterScreenshot from '$lib/images/which-route-is-faster-screenshot.avif';
 	import { SignIn } from '@auth/sveltekit/components';
 	import { invalidateAll } from '$app/navigation';
 
@@ -117,14 +118,41 @@
 
 	<div class="mx-auto mt-16 prose lg:prose-xl">
 		<h2>What the heck is this thing?</h2>
-		<img class="lg:w-1/2" src={whichRouteIsFaster} alt="Which Route Is Faster Car" />
 
-		<p>
-			How many times have you driven the same route to work, and wondered if there was a faster way?
-			Now you have a way to track your trips and see which route is faster over time.
-		</p>
+		<div class="flex flex-col lg:flex-row-reverse items-start gap-4 prose-img:mt-6">
+			<img
+				class="w-full max-w-xs lg:w-[260px]"
+				src={whichRouteIsFaster}
+				alt="Which Route Is Faster Car"
+			/>
 
-		<p>Here's how it works:</p>
+			<div>
+				<p>
+					<strong>TL;DR: It's just saveable timers.</strong> Just plain old timers that you can start
+					and stop to track your trips. Then you can see which route is faster over time.
+				</p>
+
+				<p>
+					How many times have you driven the same route to work, and wondered if there was a faster
+					way? Now you have a way to track your trips and see which route is faster over time.
+				</p>
+			</div>
+		</div>
+
+		<div class="bg-gray-100 rounded-xl p-4 prose-figure:mb-0">
+			<figure>
+				<a href={whichRouteIsFasterScreenshot} target="_blank">
+					<img
+						src={whichRouteIsFasterScreenshot}
+						alt="Screenshot of the app"
+						class="rounded-lg shadow"
+					/>
+				</a>
+				<figcaption class="text-center">Screenshot of the app</figcaption>
+			</figure>
+		</div>
+
+		<h3>Getting started:</h3>
 
 		<ol>
 			<li>
