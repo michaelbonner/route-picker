@@ -27,7 +27,7 @@
 		"@eslint/compat": "^1.4.1",
 		"@sveltejs/kit": "^2.48.4",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
-		"@tailwindcss/postcss": "^4.1.16",
+		"@tailwindcss/postcss": "^4.1.17",
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/svelte": "^5.2.8",
 		"@testing-library/user-event": "^14.6.1",
@@ -43,13 +43,13 @@
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.7.1",
-		"prisma": "^6.18.0",
-		"svelte": "^5.43.3",
+		"prisma": "^6.19.0",
+		"svelte": "^5.43.4",
 		"svelte-check": "^4.3.3",
-		"tailwindcss": "^4.1.16",
+		"tailwindcss": "^4.1.17",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.46.3",
-		"vite": "^7.1.12",
+		"vite": "^7.2.1",
 		"vitest": "^4.0.7",
 		"vitest-browser-svelte": "^2.0.1",
 		"vitest-mock-extended": "^3.1.0"
@@ -58,10 +58,10 @@
 	"dependencies": {
 		"@auth/core": "^0.41.1",
 		"@auth/sveltekit": "^1.11.1",
-		"@prisma/client": "^6.18.0",
+		"@prisma/client": "^6.19.0",
 		"@sveltejs/adapter-node": "^5.4.0",
 		"@tailwindcss/typography": "^0.5.19",
-		"@tailwindcss/vite": "^4.1.16",
+		"@tailwindcss/vite": "^4.1.17",
 		"date-fns": "^4.1.0"
 	}
 }
