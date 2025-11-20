@@ -6,16 +6,16 @@ import type { PageServerLoadEvent } from './$types';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load(event: PageServerLoadEvent) {
-	const session = await event.locals.auth();
+	const session = event.locals.session;
 
-	if (!session?.user?.email) {
+	if (!session?.userId) {
 		return {
 			routes: []
 		};
 	}
 
 	const dbUser = await db.query.user.findFirst({
-		where: eq(user.email, session.user.email)
+		where: eq(user.id, session.userId)
 	});
 
 	if (!dbUser) {
@@ -43,14 +43,14 @@ export const actions = {
 	postRoute: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
 		const data = await request.formData();
 
-		const session = await locals.auth();
+		const session = locals.session;
 
-		if (!session?.user?.email) {
-			return { success: false, error: 'No user email provided' };
+		if (!session?.userId) {
+			return { success: false, error: 'No user id provided' };
 		}
 
 		const dbUser = await db.query.user.findFirst({
-			where: eq(user.email, session.user.email)
+			where: eq(user.id, session.userId)
 		});
 
 		if (!dbUser) {
@@ -127,7 +127,7 @@ export const actions = {
 			}
 
 			// Check user authentication
-			const session = await locals.auth();
+			const session = locals.session;
 			if (!session?.user?.email) {
 				return fail(401, { error: 'Authentication required' });
 			}
