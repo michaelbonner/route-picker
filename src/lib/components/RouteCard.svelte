@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 	import Timer from '$lib/components/Timer.svelte';
-	import type { Route, Trip } from '@prisma/client';
+	import type { Route, Trip } from '$lib/server/db/schema';
 	import type { ActionResult } from '@sveltejs/kit';
 	import { format, isSameDay, isSameHour, isSameYear } from 'date-fns';
 

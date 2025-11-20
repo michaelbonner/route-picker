@@ -1,5 +1,7 @@
-import prisma from '$lib/server/prisma';
+import { db } from '$lib/server/db';
+import { route, trip, user } from '$lib/server/db/schema';
 import { fail } from '@sveltejs/kit';
+import { eq, desc, asc } from 'drizzle-orm';
 import type { PageServerLoadEvent } from './$types';
 
 /** @type {import('./$types').PageServerLoad} */
@@ -12,28 +14,28 @@ export async function load(event: PageServerLoadEvent) {
 		};
 	}
 
-	const user = await prisma.user.findUnique({
-		where: {
-			email: session?.user?.email
-		}
+	const dbUser = await db.query.user.findFirst({
+		where: eq(user.email, session.user.email)
+	});
+
+	if (!dbUser) {
+		return {
+			routes: []
+		};
+	}
+
+	const routes = await db.query.route.findMany({
+		where: eq(route.userId, dbUser.id),
+		with: {
+			trips: {
+				orderBy: [desc(trip.startTime)]
+			}
+		},
+		orderBy: [asc(route.createdAt)]
 	});
 
 	return {
-		routes: await prisma.route.findMany({
-			where: {
-				userId: user?.id
-			},
-			include: {
-				trips: {
-					orderBy: {
-						startTime: 'desc'
-					}
-				}
-			},
-			orderBy: {
-				createdAt: 'asc'
-			}
-		})
+		routes
 	};
 }
 /** @type {import('./$types').Actions} */
@@ -47,21 +49,17 @@ export const actions = {
 			return { success: false, error: 'No user email provided' };
 		}
 
-		const user = await prisma.user.findUnique({
-			where: {
-				email: session?.user?.email
-			}
+		const dbUser = await db.query.user.findFirst({
+			where: eq(user.email, session.user.email)
 		});
 
-		await prisma.route.create({
-			data: {
-				user: {
-					connect: {
-						id: user?.id
-					}
-				},
-				name: data.get('routeName') as string
-			}
+		if (!dbUser) {
+			return { success: false, error: 'User not found' };
+		}
+
+		await db.insert(route).values({
+			userId: dbUser.id,
+			name: data.get('routeName') as string
 		});
 		return { success: true };
 	},
@@ -71,11 +69,7 @@ export const actions = {
 		if (!idToDelete) {
 			return { success: false, error: 'No route id provided' };
 		}
-		await prisma.route.delete({
-			where: {
-				id: +idToDelete
-			}
-		});
+		await db.delete(route).where(eq(route.id, +idToDelete));
 		return { success: true };
 	},
 	postTrip: async ({ request }: { request: Request }) => {
@@ -86,19 +80,13 @@ export const actions = {
 		if (typeof data.get('startTime') !== 'string' || typeof data.get('endTime') !== 'string') {
 			return { success: false, error: 'Invalid date provided' };
 		}
-		await prisma.trip.create({
-			data: {
-				route: {
-					connect: {
-						id: +(data.get('routeId') || 0)
-					}
-				},
-				startTime: new Date(data.get('startTime') as string),
-				endTime: new Date(data.get('endTime') as string),
-				startLocation: JSON.parse(data.get('startLocation') as string),
-				endLocation: JSON.parse(data.get('endLocation') as string),
-				path: JSON.parse(data.get('path') as string)
-			}
+		await db.insert(trip).values({
+			routeId: +(data.get('routeId') || 0),
+			startTime: new Date(data.get('startTime') as string),
+			endTime: new Date(data.get('endTime') as string),
+			startLocation: JSON.parse(data.get('startLocation') as string),
+			endLocation: JSON.parse(data.get('endLocation') as string),
+			path: JSON.parse(data.get('path') as string)
 		});
 		return { success: true };
 	},
@@ -108,14 +96,10 @@ export const actions = {
 		if (!idToDelete) {
 			return { success: false, error: 'No trip id provided' };
 		}
-		await prisma.trip.delete({
-			where: {
-				id: +idToDelete
-			}
-		});
+		await db.delete(trip).where(eq(trip.id, +idToDelete));
 		return { success: true };
 	},
-	updateRouteName: async ({ request, locals }) => {
+	updateRouteName: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
 		try {
 			const data = await request.formData();
 			const routeId = data.get('routeId');
@@ -149,40 +133,31 @@ export const actions = {
 			}
 
 			// Get the user
-			const user = await prisma.user.findUnique({
-				where: {
-					email: session.user.email
-				}
+			const dbUser = await db.query.user.findFirst({
+				where: eq(user.email, session.user.email)
 			});
 
-			if (!user) {
+			if (!dbUser) {
 				return fail(401, { error: 'User not found' });
 			}
 
 			// Verify route ownership
-			const route = await prisma.route.findUnique({
-				where: {
-					id: routeIdNum
-				}
+			const dbRoute = await db.query.route.findFirst({
+				where: eq(route.id, routeIdNum)
 			});
 
-			if (!route) {
+			if (!dbRoute) {
 				return fail(404, { error: 'Route not found' });
 			}
 
-			if (route.userId !== user.id) {
+			if (dbRoute.userId !== dbUser.id) {
 				return fail(403, { error: 'You do not have permission to edit this route' });
 			}
 
 			// Update the route name
-			await prisma.route.update({
-				where: {
-					id: routeIdNum
-				},
-				data: {
-					name: sanitizedName
-				}
-			});
+			await db.update(route)
+				.set({ name: sanitizedName })
+				.where(eq(route.id, routeIdNum));
 
 			return { success: true };
 		} catch (error) {

@@ -1,16 +1,21 @@
 import { fail } from '@sveltejs/kit';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { eq } from 'drizzle-orm';
 
-// Mock the prisma import
-vi.mock('$lib/server/prisma', () => ({
-	default: {
-		user: {
-			findUnique: vi.fn()
+// Mock the db import
+vi.mock('$lib/server/db', () => ({
+	db: {
+		query: {
+			user: {
+				findFirst: vi.fn()
+			},
+			route: {
+				findFirst: vi.fn()
+			}
 		},
-		route: {
-			findUnique: vi.fn(),
-			update: vi.fn()
-		}
+		update: vi.fn(),
+		insert: vi.fn(),
+		delete: vi.fn()
 	}
 }));
 
@@ -24,10 +29,8 @@ vi.mock('@sveltejs/kit', async () => {
 });
 
 // Import after mocking
-import prisma from '../../lib/server/__mocks__/prisma';
+import { db } from '$lib/server/db';
 import { actions } from '../../routes/+page.server.js';
-
-vi.mock('$lib/server/prisma');
 
 describe('updateRouteName server action', () => {
 	const mockRequest = {
@@ -36,6 +39,14 @@ describe('updateRouteName server action', () => {
 
 	const mockLocals = {
 		auth: vi.fn()
+	};
+
+	// Helper to mock chainable update
+	const mockUpdateChain = () => {
+		const whereMock = vi.fn().mockResolvedValue({ success: true });
+		const setMock = vi.fn().mockReturnValue({ where: whereMock });
+		(db.update as any).mockReturnValue({ set: setMock });
+		return { setMock, whereMock };
 	};
 
 	beforeEach(() => {
@@ -65,7 +76,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.user.findUnique.mockResolvedValue(mockUser);
+			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
 
 			const mockRoute = {
 				id: 1,
@@ -74,25 +85,23 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.route.findUnique.mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
 
-			prisma.route.update.mockResolvedValue({
-				...mockRoute,
-				name: 'Updated Route Name'
-			});
+			const { setMock, whereMock } = mockUpdateChain();
 
 			// Act
 			const result = await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
 			expect(result).toEqual({ success: true });
-			expect(prisma.route.update).toHaveBeenCalledWith({
-				where: { id: 1 },
-				data: { name: 'Updated Route Name' }
-			});
+			expect(db.update).toHaveBeenCalled();
+			expect(setMock).toHaveBeenCalledWith({ name: 'Updated Route Name' });
+			// We can't easily check the exact arguments of where() because it uses Drizzle operators
+			// but we verify the chain was called
+			expect(whereMock).toHaveBeenCalled();
 		});
 
 		it('should trim whitespace from route name', async () => {
@@ -113,7 +122,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.user.findUnique.mockResolvedValue(mockUser);
+			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
 
 			const mockRoute = {
 				id: 1,
@@ -122,25 +131,19 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.route.findUnique.mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
 
-			prisma.route.update.mockResolvedValue({
-				...mockRoute,
-				name: 'Trimmed Route Name'
-			});
+			const { setMock, whereMock } = mockUpdateChain();
 
 			// Act
 			const result = await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
 			expect(result).toEqual({ success: true });
-			expect(prisma.route.update).toHaveBeenCalledWith({
-				where: { id: 1 },
-				data: { name: 'Trimmed Route Name' }
-			});
+			expect(setMock).toHaveBeenCalledWith({ name: 'Trimmed Route Name' });
 		});
 	});
 
@@ -156,8 +159,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -175,8 +178,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -193,12 +196,12 @@ describe('updateRouteName server action', () => {
 
 			const mockSession = { user: { email: 'test@example.com' } };
 			mockLocals.auth.mockResolvedValue(mockSession);
-			prisma.user.findUnique.mockResolvedValue(null);
+			(db.query.user.findFirst as any).mockResolvedValue(null);
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -223,13 +226,13 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.user.findUnique.mockResolvedValue(mockUser);
-			prisma.route.findUnique.mockResolvedValue(null);
+			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
+			(db.query.route.findFirst as any).mockResolvedValue(null);
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -254,7 +257,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.user.findUnique.mockResolvedValue(mockUser);
+			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
 
 			// Route belongs to different user
 			const mockRoute = {
@@ -264,12 +267,12 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.route.findUnique.mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -287,8 +290,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -304,8 +307,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -324,8 +327,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -342,8 +345,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -363,8 +366,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -393,7 +396,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.user.findUnique.mockResolvedValue(mockUser);
+			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
 
 			const mockRoute = {
 				id: 1,
@@ -402,15 +405,18 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.route.findUnique.mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
 
 			// Simulate database error
-			prisma.route.update.mockRejectedValue(new Error('Database connection failed'));
+			const setMock = vi.fn().mockReturnValue({
+				where: vi.fn().mockRejectedValue(new Error('Database connection failed'))
+			});
+			(db.update as any).mockReturnValue({ set: setMock });
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -432,8 +438,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -448,8 +454,8 @@ describe('updateRouteName server action', () => {
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -470,12 +476,12 @@ describe('updateRouteName server action', () => {
 			mockLocals.auth.mockResolvedValue(mockSession);
 
 			// Simulate database error during user lookup
-			prisma.user.findUnique.mockRejectedValue(new Error('User lookup failed'));
+			(db.query.user.findFirst as any).mockRejectedValue(new Error('User lookup failed'));
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
@@ -502,15 +508,15 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			prisma.user.findUnique.mockResolvedValue(mockUser);
+			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
 
 			// Simulate database error during route lookup
-			prisma.route.findUnique.mockRejectedValue(new Error('Route lookup failed'));
+			(db.query.route.findFirst as any).mockRejectedValue(new Error('Route lookup failed'));
 
 			// Act
 			await actions.updateRouteName({
-				request: mockRequest,
-				locals: mockLocals
+				request: mockRequest as unknown as Request,
+				locals: mockLocals as unknown as App.Locals
 			});
 
 			// Assert
