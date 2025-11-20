@@ -6,14 +6,19 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"start": "node build/index.js",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest run",
+		"test:watch": "vitest",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
-		"db:studio": "drizzle-kit studio"
+		"db:studio": "drizzle-kit studio",
+		"preinstall": "npx only-allow bun",
+		"out": "bun outdated",
+		"up": "bun update"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.0",
