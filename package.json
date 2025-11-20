@@ -3,25 +3,17 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "concurrently -n PRISMA,NEXT -c magenta,cyan \"prisma generate --watch\" \"vite dev\"",
+		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"start": "node build/index.js",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest run",
-		"test:watch": "vitest",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"migrate": "prisma migrate deploy",
-		"migrate:create": "prisma migrate dev --create-only",
-		"reset": "prisma migrate reset",
-		"postinstall": "prisma generate",
-		"seed": "ts-node --esm prisma/seed.mts",
-		"studio": "prisma studio",
-		"preinstall": "npx only-allow bun",
-		"out": "bun outdated",
-		"up": "bun update"
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:studio": "drizzle-kit studio"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.0",
@@ -31,8 +23,10 @@
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/svelte": "^5.2.9",
 		"@testing-library/user-event": "^14.6.1",
+		"@types/pg": "^8.15.6",
 		"@vitest/browser": "^4.0.12",
 		"concurrently": "^9.2.1",
+		"drizzle-kit": "^0.30.1",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.0",
@@ -43,7 +37,6 @@
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.7.1",
-		"prisma": "^6.19.0",
 		"svelte": "^5.43.14",
 		"svelte-check": "^4.3.4",
 		"tailwindcss": "^4.1.17",
@@ -58,10 +51,11 @@
 	"dependencies": {
 		"@auth/core": "^0.41.1",
 		"@auth/sveltekit": "^1.11.1",
-		"@prisma/client": "^6.19.0",
 		"@sveltejs/adapter-node": "^5.4.0",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.17",
-		"date-fns": "^4.1.0"
+		"date-fns": "^4.1.0",
+		"drizzle-orm": "^0.44.7",
+		"pg": "^8.16.3"
 	}
 }

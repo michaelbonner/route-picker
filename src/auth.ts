@@ -1,8 +1,10 @@
 import { GITHUB_ID, GITHUB_SECRET, GOOGLE_ID, GOOGLE_SECRET } from '$env/static/private';
-import prisma from '$lib/server/prisma';
+import { db } from '$lib/server/db';
+import { user } from '$lib/server/db/schema';
 import GitHub from '@auth/sveltekit/providers/github';
 import Google from '@auth/sveltekit/providers/google';
 import { SvelteKitAuth } from '@auth/sveltekit';
+import { eq } from 'drizzle-orm';
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
 	providers: [
@@ -16,16 +18,14 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 			if (!account) return false;
 
 			// find user or create them
-			const dbUser = await prisma.user.findUnique({
-				where: { email: profile.email }
+			const dbUser = await db.query.user.findFirst({
+				where: eq(user.email, profile.email)
 			});
 
 			if (!dbUser) {
-				await prisma.user.create({
-					data: {
-						email: profile.email,
-						provider: account.provider
-					}
+				await db.insert(user).values({
+					email: profile.email,
+					provider: account.provider
 				});
 			}
 

@@ -1,4 +1,4 @@
-import type { Route, Trip } from '@prisma/client';
+import type { Route, Trip } from '$lib/server/db/schema';
 import { render, screen } from '@testing-library/svelte';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import RouteCard from './RouteCard.svelte';
