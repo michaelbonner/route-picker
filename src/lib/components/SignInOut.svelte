@@ -18,12 +18,9 @@
 <div>
 	{#if page.data.session}
 		<div class="flex gap-2 items-center">
-			{#if page.data.session.user?.image}
-				<span style="background-image: url('{page.data.session.user.image}')" class="avatar"></span>
-			{/if}
 			<span>
 				<small>Signed in as</small>
-				<strong>{page.data.session.user?.name ?? 'User'}</strong>
+				<strong>{page.data.user?.email}</strong>
 			</span>
 			<button
 				class="py-1 px-3 rounded-lg border transition-colors hover:bg-gray-50"
