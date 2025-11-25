@@ -38,7 +38,7 @@ describe('updateRouteName server action', () => {
 	};
 
 	const mockLocals = {
-		auth: vi.fn()
+		session: null as any
 	};
 
 	// Helper to mock chainable update
@@ -67,7 +67,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 
 			const mockUser = {
 				id: 1,
@@ -113,7 +113,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 
 			const mockUser = {
 				id: 1,
@@ -155,7 +155,7 @@ describe('updateRouteName server action', () => {
 				['newName', 'New Route Name']
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
-			mockLocals.auth.mockResolvedValue(null);
+			mockLocals.session = null;
 
 			// Act
 			await actions.updateRouteName({
@@ -174,7 +174,7 @@ describe('updateRouteName server action', () => {
 				['newName', 'New Route Name']
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
-			mockLocals.auth.mockResolvedValue({ user: {} });
+			mockLocals.session = { user: {} };
 
 			// Act
 			await actions.updateRouteName({
@@ -195,7 +195,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 			(db.query.user.findFirst as any).mockResolvedValue(null);
 
 			// Act
@@ -217,7 +217,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 
 			const mockUser = {
 				id: 1,
@@ -248,7 +248,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 
 			const mockUser = {
 				id: 1,
@@ -387,7 +387,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 
 			const mockUser = {
 				id: 1,
@@ -425,28 +425,6 @@ describe('updateRouteName server action', () => {
 			});
 		});
 
-		it('should handle auth service errors gracefully', async () => {
-			// Arrange
-			const formData = new Map([
-				['routeId', '1'],
-				['newName', 'New Route Name']
-			]);
-			mockRequest.formData.mockResolvedValue(formData);
-
-			// Simulate auth service error
-			mockLocals.auth.mockRejectedValue(new Error('Auth service unavailable'));
-
-			// Act
-			await actions.updateRouteName({
-				request: mockRequest as unknown as Request,
-				locals: mockLocals as unknown as App.Locals
-			});
-
-			// Assert
-			expect(fail).toHaveBeenCalledWith(500, {
-				error: 'An unexpected error occurred'
-			});
-		});
 
 		it('should handle form data parsing errors gracefully', async () => {
 			// Arrange
@@ -473,7 +451,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 
 			// Simulate database error during user lookup
 			(db.query.user.findFirst as any).mockRejectedValue(new Error('User lookup failed'));
@@ -499,7 +477,7 @@ describe('updateRouteName server action', () => {
 			mockRequest.formData.mockResolvedValue(formData);
 
 			const mockSession = { user: { email: 'test@example.com' } };
-			mockLocals.auth.mockResolvedValue(mockSession);
+			mockLocals.session = mockSession;
 
 			const mockUser = {
 				id: 1,

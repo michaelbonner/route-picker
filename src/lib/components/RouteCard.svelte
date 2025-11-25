@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 	import Timer from '$lib/components/Timer.svelte';
-	import type { Route, Trip } from '$lib/server/db/schema';
+	import type { Route, RouteGroup, Trip } from '$lib/server/db/schema';
 	import type { ActionResult } from '@sveltejs/kit';
 	import { format, isSameDay, isSameHour, isSameYear } from 'date-fns';
 
@@ -10,6 +10,7 @@
 		route: Route & {
 			trips: Trip[];
 		};
+		groups?: RouteGroup[];
 	}
 
 	const props: Props = $props();
@@ -373,6 +374,26 @@
 				</button>
 			{/if}
 		</div>
+
+		{#if props.groups && props.groups.length > 0}
+			<div class="flex justify-center mt-2">
+				<form method="POST" action="?/moveRouteToGroup" use:enhance>
+					<input type="hidden" name="routeId" value={route.id} />
+					<select
+						name="groupId"
+						class="text-xs border rounded px-2 py-1 bg-white"
+						onchange={(e) => e.currentTarget.form?.requestSubmit()}
+						value={route.routeGroupId || ''}
+						aria-label="Move route to group"
+					>
+						<option value="">No Group</option>
+						{#each props.groups as group}
+							<option value={group.id}>{group.name}</option>
+						{/each}
+					</select>
+				</form>
+			</div>
+		{/if}
 
 		{#if editError}
 			<div
