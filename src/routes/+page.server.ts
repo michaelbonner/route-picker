@@ -75,12 +75,23 @@ export const actions = {
 			return { success: false, error: 'User not found' };
 		}
 
-		const routeGroupId = data.get('routeGroupId');
+		const routeGroupIdRaw = data.get('routeGroupId');
+		let routeGroupId = null;
+
+		if (routeGroupIdRaw) {
+			const groupId = +routeGroupIdRaw;
+			const group = await db.query.routeGroup.findFirst({
+				where: and(eq(routeGroup.id, groupId), eq(routeGroup.userId, dbUser.id))
+			});
+			if (group) {
+				routeGroupId = groupId;
+			}
+		}
 
 		await db.insert(route).values({
 			userId: dbUser.id,
 			name: data.get('routeName') as string,
-			routeGroupId: routeGroupId ? +routeGroupId : null
+			routeGroupId
 		});
 		return { success: true };
 	},
