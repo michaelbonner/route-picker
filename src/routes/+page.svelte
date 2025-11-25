@@ -131,7 +131,7 @@
 						<div class="grid gap-2">
 							<label for="groupName">Group Name</label>
 							<input
-								class="py-2 px-4 rounded-lg border"
+								class="py-2 px-4 rounded-lg border bg-white"
 								required
 								id="groupName"
 								name="groupName"
