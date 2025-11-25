@@ -379,18 +379,21 @@
 			<div class="flex justify-center mt-2">
 				<form method="POST" action="?/moveRouteToGroup" use:enhance>
 					<input type="hidden" name="routeId" value={route.id} />
-					<select
-						name="groupId"
-						class="text-xs border rounded px-2 py-1 bg-white"
-						onchange={(e) => e.currentTarget.form?.requestSubmit()}
-						value={route.routeGroupId || ''}
-						aria-label="Move route to group"
-					>
-						<option value="">No Group</option>
-						{#each props.groups as group}
-							<option value={group.id}>{group.name}</option>
-						{/each}
-					</select>
+					<div class="grid gap-2 border p-2">
+						<label for="groupId" class="text-sm font-medium">Move route to group</label>
+						<select
+							name="groupId"
+							class="text-xs border rounded px-2 py-1 bg-white"
+							onchange={(e) => e.currentTarget.form?.requestSubmit()}
+							value={route.routeGroupId || ''}
+							aria-label="Move route to group"
+						>
+							<option value="">No Group</option>
+							{#each props.groups as group}
+								<option value={group.id}>{group.name}</option>
+							{/each}
+						</select>
+					</div>
 				</form>
 			</div>
 		{/if}
