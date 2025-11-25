@@ -203,11 +203,14 @@ export const actions = {
 		if (!session?.userId) return fail(401, { error: 'Unauthorized' });
 
 		const name = data.get('name') as string;
-		if (!name) return fail(400, { error: 'Name is required' });
+		const trimmedName = name?.trim();
+
+		if (!trimmedName) return fail(400, { error: 'Name is required' });
+		if (trimmedName.length > 100) return fail(400, { error: 'Name too long' });
 
 		await db.insert(routeGroup).values({
 			userId: session.userId,
-			name
+			name: trimmedName
 		});
 		return { success: true };
 	},
