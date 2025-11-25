@@ -382,11 +382,11 @@
 					<div class="grid gap-2 border p-2">
 						<label for="groupId" class="text-sm font-medium">Move route to group</label>
 						<select
+							id="groupId"
 							name="groupId"
 							class="text-xs border rounded px-2 py-1 bg-white"
 							onchange={(e) => e.currentTarget.form?.requestSubmit()}
 							value={route.routeGroupId || ''}
-							aria-label="Move route to group"
 						>
 							<option value="">No Group</option>
 							{#each props.groups as group}
