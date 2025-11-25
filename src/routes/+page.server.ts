@@ -1,7 +1,7 @@
 import { db } from '$lib/server/db';
-import { route, trip, user } from '$lib/server/db/schema';
+import { route, routeGroup, trip, user } from '$lib/server/db/schema';
 import { fail } from '@sveltejs/kit';
-import { eq, desc, asc } from 'drizzle-orm';
+import { eq, desc, asc, and, isNull } from 'drizzle-orm';
 import type { PageServerLoadEvent } from './$types';
 
 /** @type {import('./$types').PageServerLoad} */
@@ -10,7 +10,8 @@ export async function load(event: PageServerLoadEvent) {
 
 	if (!session?.userId) {
 		return {
-			routes: []
+			routes: [],
+			groups: []
 		};
 	}
 
@@ -20,12 +21,13 @@ export async function load(event: PageServerLoadEvent) {
 
 	if (!dbUser) {
 		return {
-			routes: []
+			routes: [],
+			groups: []
 		};
 	}
 
-	const routes = await db.query.route.findMany({
-		where: eq(route.userId, dbUser.id),
+	const ungroupedRoutes = await db.query.route.findMany({
+		where: and(eq(route.userId, dbUser.id), isNull(route.routeGroupId)),
 		with: {
 			trips: {
 				orderBy: [desc(trip.startTime)]
@@ -34,8 +36,24 @@ export async function load(event: PageServerLoadEvent) {
 		orderBy: [asc(route.createdAt)]
 	});
 
+	const groups = await db.query.routeGroup.findMany({
+		where: eq(routeGroup.userId, dbUser.id),
+		with: {
+			routes: {
+				with: {
+					trips: {
+						orderBy: [desc(trip.startTime)]
+					}
+				},
+				orderBy: [asc(route.createdAt)]
+			}
+		},
+		orderBy: [asc(routeGroup.createdAt)]
+	});
+
 	return {
-		routes
+		routes: ungroupedRoutes,
+		groups
 	};
 }
 /** @type {import('./$types').Actions} */
@@ -57,9 +75,12 @@ export const actions = {
 			return { success: false, error: 'User not found' };
 		}
 
+		const routeGroupId = data.get('routeGroupId');
+
 		await db.insert(route).values({
 			userId: dbUser.id,
-			name: data.get('routeName') as string
+			name: data.get('routeName') as string,
+			routeGroupId: routeGroupId ? +routeGroupId : null
 		});
 		return { success: true };
 	},
@@ -164,5 +185,83 @@ export const actions = {
 			console.error('Error updating route name:', error);
 			return fail(500, { error: 'An unexpected error occurred' });
 		}
+	},
+	createGroup: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
+		const data = await request.formData();
+		const session = locals.session;
+		if (!session?.userId) return fail(401, { error: 'Unauthorized' });
+
+		const name = data.get('name') as string;
+		if (!name) return fail(400, { error: 'Name is required' });
+
+		await db.insert(routeGroup).values({
+			userId: session.userId,
+			name
+		});
+		return { success: true };
+	},
+	deleteGroup: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
+		const data = await request.formData();
+		const session = locals.session;
+		if (!session?.userId) return fail(401, { error: 'Unauthorized' });
+
+		const id = data.get('id');
+		if (!id) return fail(400, { error: 'ID is required' });
+
+		// Verify ownership
+		const group = await db.query.routeGroup.findFirst({
+			where: eq(routeGroup.id, +id)
+		});
+		if (!group || group.userId !== session.userId) return fail(403, { error: 'Forbidden' });
+
+		await db.delete(routeGroup).where(eq(routeGroup.id, +id));
+		return { success: true };
+	},
+	updateGroupName: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
+		const data = await request.formData();
+		const session = locals.session;
+		if (!session?.userId) return fail(401, { error: 'Unauthorized' });
+
+		const id = data.get('id');
+		const name = data.get('name') as string;
+		if (!id || !name) return fail(400, { error: 'ID and name are required' });
+
+		// Verify ownership
+		const group = await db.query.routeGroup.findFirst({
+			where: eq(routeGroup.id, +id)
+		});
+		if (!group || group.userId !== session.userId) return fail(403, { error: 'Forbidden' });
+
+		await db.update(routeGroup).set({ name }).where(eq(routeGroup.id, +id));
+		return { success: true };
+	},
+	moveRouteToGroup: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
+		const data = await request.formData();
+		const session = locals.session;
+		if (!session?.userId) return fail(401, { error: 'Unauthorized' });
+
+		const routeId = data.get('routeId');
+		const groupId = data.get('groupId'); // Can be null/empty to ungroup
+
+		if (!routeId) return fail(400, { error: 'Route ID is required' });
+
+		// Verify route ownership
+		const routeToCheck = await db.query.route.findFirst({
+			where: eq(route.id, +routeId)
+		});
+		if (!routeToCheck || routeToCheck.userId !== session.userId) return fail(403, { error: 'Forbidden' });
+
+		// If groupId is provided, verify group ownership
+		if (groupId) {
+			const group = await db.query.routeGroup.findFirst({
+				where: eq(routeGroup.id, +groupId)
+			});
+			if (!group || group.userId !== session.userId) return fail(403, { error: 'Forbidden' });
+		}
+
+		await db.update(route)
+			.set({ routeGroupId: groupId ? +groupId : null })
+			.where(eq(route.id, +routeId));
+		return { success: true };
 	}
 };

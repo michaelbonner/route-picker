@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	import RouteGroup from '$lib/components/RouteGroup.svelte';
 	import { page } from '$app/state';
 	import RouteCard from '$lib/components/RouteCard.svelte';
 	import whichRouteIsFaster from '$lib/images/car-route.svg';
@@ -14,8 +15,10 @@
 	/** @type {Props} */
 	const { data } = $props();
 	const routes = $derived(data.routes);
+	const groups = $derived(data.groups || []);
 
 	let newRouteName = $state('');
+	let newGroupName = $state('');
 
 	const createNewRoute = async () => {
 		if (!newRouteName) return;
@@ -30,6 +33,23 @@
 
 		if (response.ok) {
 			newRouteName = '';
+			await invalidateAll();
+		}
+	};
+
+	const createNewGroup = async () => {
+		if (!newGroupName) return;
+
+		const formData = new FormData();
+		formData.append('name', newGroupName);
+
+		const response = await fetch('?/createGroup', {
+			method: 'POST',
+			body: formData
+		});
+
+		if (response.ok) {
+			newGroupName = '';
 			await invalidateAll();
 		}
 	};
@@ -59,33 +79,76 @@
 
 <div>
 	{#if page.data.session}
-		<div class="grid gap-4 lg:grid-cols-3">
-			{#each routes as route (route.id)}
-				<RouteCard {route} />
-			{/each}
-			<div>
-				<div class="grid gap-4 py-3 px-4 rounded-xl border lg:border-0">
-					<h2 class="text-xl font-bold text-center">Create New Route</h2>
-					<div class="grid gap-2">
-						<label for="name">Route Name</label>
-						<input
-							class="py-2 px-4 rounded-lg border"
-							required
-							id="name"
-							name="routeName"
-							type="text"
-							bind:value={newRouteName}
-						/>
-					</div>
-					<div class="flex justify-end">
-						<button
-							class="flex justify-center items-center py-3 px-6 font-bold rounded-xl bg-slate-900 text-slate-100"
-							onclick={createNewRoute}
-						>
-							+ New Route
-						</button>
+		<div class="grid gap-8">
+			<!-- Groups Section -->
+			{#if groups.length > 0}
+				<div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+					{#each groups as group (group.id)}
+						<RouteGroup {group} allGroups={groups} />
+					{/each}
+				</div>
+				<hr class="border-slate-200" />
+			{/if}
+
+			<div class="grid gap-4 lg:grid-cols-3">
+				{#each routes as route (route.id)}
+					<RouteCard {route} {groups} />
+				{/each}
+			</div>
+
+			<div class="grid gap-4 lg:grid-cols-3">
+				<!-- Create Forms Column -->
+				<div class="flex flex-col gap-4">
+					<!-- Create Route -->
+					<div class="grid gap-4 py-3 px-4 rounded-xl border lg:border-0 bg-white">
+						<h2 class="text-xl font-bold text-center">Create New Route</h2>
+						<div class="grid gap-2">
+							<label for="name">Route Name</label>
+							<input
+								class="py-2 px-4 rounded-lg border"
+								required
+								id="name"
+								name="routeName"
+								type="text"
+								bind:value={newRouteName}
+							/>
+						</div>
+						<div class="flex justify-end">
+							<button
+								class="flex justify-center items-center py-3 px-6 font-bold rounded-xl bg-slate-900 text-slate-100 hover:bg-slate-800 transition-colors"
+								onclick={createNewRoute}
+							>
+								+ New Route
+							</button>
+						</div>
 					</div>
 				</div>
+
+				{#if routes.length > 0}
+					<!-- Create Group -->
+					<div class="grid gap-4 py-3 px-4 rounded-xl border lg:border-0 bg-slate-50 max-w-lg">
+						<h2 class="text-xl font-bold text-center">Create New Group</h2>
+						<div class="grid gap-2">
+							<label for="groupName">Group Name</label>
+							<input
+								class="py-2 px-4 rounded-lg border"
+								required
+								id="groupName"
+								name="groupName"
+								type="text"
+								bind:value={newGroupName}
+							/>
+						</div>
+						<div class="flex justify-end">
+							<button
+								class="flex justify-center items-center py-3 px-6 font-bold rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+								onclick={createNewGroup}
+							>
+								+ New Group
+							</button>
+						</div>
+					</div>
+				{/if}
 			</div>
 		</div>
 	{:else}

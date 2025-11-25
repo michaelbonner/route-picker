@@ -3,6 +3,7 @@ import { relations, type InferSelectModel } from 'drizzle-orm';
 
 export type User = InferSelectModel<typeof user>;
 export type Route = InferSelectModel<typeof route>;
+export type RouteGroup = InferSelectModel<typeof routeGroup>;
 export type Trip = InferSelectModel<typeof trip>;
 
 export const user = pgTable('user', {
@@ -63,10 +64,12 @@ export const route = pgTable('route', {
 	id: serial('id').primaryKey(),
 	name: text('name').notNull(),
 	userId: text('userId').notNull().references(() => user.id, { onDelete: 'restrict', onUpdate: 'cascade' }),
+	routeGroupId: integer('routeGroupId').references(() => routeGroup.id, { onDelete: 'set null', onUpdate: 'cascade' }),
 	createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
 	updatedAt: timestamp('updatedAt', { mode: 'date' }).defaultNow().notNull().$onUpdate(() => new Date()),
 }, (t) => ({
 	userIdIdx: index('userId').on(t.userId),
+	routeGroupIdIdx: index('routeGroupId').on(t.routeGroupId),
 }));
 
 export const routeRelations = relations(route, ({ one, many }) => ({
@@ -74,7 +77,29 @@ export const routeRelations = relations(route, ({ one, many }) => ({
 		fields: [route.userId],
 		references: [user.id],
 	}),
+	group: one(routeGroup, {
+		fields: [route.routeGroupId],
+		references: [routeGroup.id],
+	}),
 	trips: many(trip),
+}));
+
+export const routeGroup = pgTable('route_group', {
+	id: serial('id').primaryKey(),
+	name: text('name').notNull(),
+	userId: text('userId').notNull().references(() => user.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+	createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
+	updatedAt: timestamp('updatedAt', { mode: 'date' }).defaultNow().notNull().$onUpdate(() => new Date()),
+}, (t) => ({
+	userIdIdx: index('route_group_userId_idx').on(t.userId),
+}));
+
+export const routeGroupRelations = relations(routeGroup, ({ one, many }) => ({
+	user: one(user, {
+		fields: [routeGroup.userId],
+		references: [user.id],
+	}),
+	routes: many(route),
 }));
 
 export const trip = pgTable('trip', {
