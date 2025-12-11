@@ -19,6 +19,9 @@
 
 	let newRouteName = $state('');
 	let newGroupName = $state('');
+	let isUngroupedOpen = $state(true);
+
+	import { slide } from 'svelte/transition';
 
 	const createNewRoute = async () => {
 		if (!newRouteName) return;
@@ -82,7 +85,7 @@
 		<div class="grid gap-8">
 			<!-- Groups Section -->
 			{#if groups.length > 0}
-				<div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+				<div class="flex flex-col gap-4">
 					{#each groups as group (group.id)}
 						<RouteGroup {group} allGroups={groups} />
 					{/each}
@@ -90,11 +93,55 @@
 				<hr class="border-slate-200" />
 			{/if}
 
-			<div class="grid gap-4 lg:grid-cols-3">
-				{#each routes as route (route.id)}
-					<RouteCard {route} {groups} />
-				{/each}
-			</div>
+			{#if routes.length > 0}
+				<div
+					class="border-2 border-slate-200 rounded-xl bg-slate-50/50 overflow-hidden transition-all"
+				>
+					<!-- Header -->
+					<div
+						class="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-100 transition-colors select-none"
+						onclick={() => (isUngroupedOpen = !isUngroupedOpen)}
+						onkeydown={(e) => e.key === 'Enter' && (isUngroupedOpen = !isUngroupedOpen)}
+						role="button"
+						tabindex="0"
+						aria-expanded={isUngroupedOpen}
+					>
+						<div class="flex items-center gap-3">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2.5"
+								stroke="currentColor"
+								class="size-5 text-slate-400 transition-transform duration-200 {isUngroupedOpen
+									? 'rotate-90'
+									: ''}"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="m8.25 4.5 7.5 7.5-7.5 7.5"
+								/>
+							</svg>
+							<h2 class="text-lg font-bold text-slate-800">
+								Ungrouped Routes <span class="text-sm font-normal text-slate-500"
+									>({routes.length})</span
+								>
+							</h2>
+						</div>
+					</div>
+
+					{#if isUngroupedOpen}
+						<div transition:slide class="border-t border-slate-200 bg-white">
+							<div class="grid gap-4 p-4 lg:grid-cols-2 xl:grid-cols-3">
+								{#each routes as route (route.id)}
+									<RouteCard {route} {groups} />
+								{/each}
+							</div>
+						</div>
+					{/if}
+				</div>
+			{/if}
 
 			<div class="grid gap-4 lg:grid-cols-3">
 				<!-- Create Forms Column -->

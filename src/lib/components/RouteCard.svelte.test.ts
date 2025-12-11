@@ -12,7 +12,8 @@ describe('RouteCard editing functionality', () => {
 	const mockRoute: Route & { trips: Trip[] } = {
 		id: 1,
 		name: 'Test Route',
-		userId: 1,
+		userId: '1',
+		routeGroupId: null,
 		createdAt: new Date(),
 		updatedAt: new Date(),
 		trips: [

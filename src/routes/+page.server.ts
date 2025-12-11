@@ -160,13 +160,13 @@ export const actions = {
 
 			// Check user authentication
 			const session = locals.session;
-			if (!session?.user?.email) {
+			if (!session?.userId) {
 				return fail(401, { error: 'Authentication required' });
 			}
 
 			// Get the user
 			const dbUser = await db.query.user.findFirst({
-				where: eq(user.email, session.user.email)
+				where: eq(user.id, session.userId)
 			});
 
 			if (!dbUser) {

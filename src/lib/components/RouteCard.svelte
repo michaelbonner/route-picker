@@ -27,6 +27,10 @@
 	let editButton = $state<HTMLButtonElement>();
 	let statusAnnouncement = $state('');
 
+	import { slide } from 'svelte/transition';
+	let isTripsOpen = $state(false);
+	let isMovingRoute = $state(false);
+
 	const convertSecondsToHoursMinutesSeconds = (seconds: number) => {
 		const durationHours = Math.floor(seconds / 60 / 60);
 		const durationMinutes = Math.floor((seconds / 60) % 60);
@@ -376,25 +380,75 @@
 		</div>
 
 		{#if props.groups && props.groups.length > 0}
-			<div class="flex justify-center mt-2">
-				<form method="POST" action="?/moveRouteToGroup" use:enhance>
-					<input type="hidden" name="routeId" value={route.id} />
-					<div class="grid gap-2 border p-2">
-						<label for="groupId" class="text-sm font-medium">Move route to group</label>
-						<select
-							id="groupId"
-							name="groupId"
-							class="text-xs border rounded px-2 py-1 bg-white"
-							onchange={(e) => e.currentTarget.form?.requestSubmit()}
-							value={route.routeGroupId || ''}
+			<div class="flex justify-center mt-2 relative">
+				{#if !isMovingRoute}
+					<button
+						class="text-xs text-slate-400 hover:text-blue-600 flex items-center gap-1 transition-colors py-1 px-2 rounded hover:bg-slate-50"
+						onclick={() => (isMovingRoute = true)}
+						title="Move route to a different group"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="size-4"
 						>
-							<option value="">No Group</option>
-							{#each props.groups as group}
-								<option value={group.id}>{group.name}</option>
-							{/each}
-						</select>
-					</div>
-				</form>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+							/>
+						</svg>
+						Move to group
+					</button>
+				{:else}
+					<form
+						method="POST"
+						action="?/moveRouteToGroup"
+						use:enhance={() => {
+							return async ({ update }) => {
+								await update();
+								isMovingRoute = false;
+							};
+						}}
+						class="flex gap-1 items-center bg-white p-1 rounded border shadow-sm"
+					>
+						<input type="hidden" name="routeId" value={route.id} />
+						<div class="grid gap-1">
+							<select
+								id="groupId"
+								name="groupId"
+								class="text-xs border rounded pl-2 pr-6 py-1 bg-white focus:outline-none focus:border-blue-500 max-w-[150px]"
+								onchange={(e) => e.currentTarget.form?.requestSubmit()}
+								value={route.routeGroupId || ''}
+							>
+								<option value="">No Group</option>
+								{#each props.groups as group}
+									<option value={group.id}>{group.name}</option>
+								{/each}
+							</select>
+						</div>
+						<button
+							type="button"
+							class="text-slate-400 hover:text-slate-600 p-1"
+							onclick={() => (isMovingRoute = false)}
+							aria-label="Cancel move"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								class="size-4"
+							>
+								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+							</svg>
+						</button>
+					</form>
+				{/if}
 			</div>
 		{/if}
 
@@ -431,32 +485,71 @@
 	</div>
 
 	<div class="grid gap-4">
-		<div class="overflow-auto border max-h-[20vh]">
-			{#each route.trips as trip (trip.id)}
-				<div class="flex gap-2 justify-end items-center py-1 px-2 text-sm border-b">
-					<div class="text-xs flex-1">
-						{getTimeFormatted(trip.startTime, trip.endTime)}
+		{#if route.trips.length > 0}
+			<div class="border rounded-lg overflow-hidden">
+				<button
+					class="w-full flex items-center justify-between p-2 bg-slate-50 hover:bg-slate-100 transition-colors text-sm font-medium text-slate-600"
+					onclick={() => (isTripsOpen = !isTripsOpen)}
+					aria-expanded={isTripsOpen}
+				>
+					<span>View history ({route.trips.length})</span>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						class="size-4 transition-transform duration-200 {isTripsOpen ? 'rotate-180' : ''}"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+					</svg>
+				</button>
+
+				{#if isTripsOpen}
+					<div transition:slide class="max-h-[20vh] overflow-auto border-t">
+						{#each route.trips as trip (trip.id)}
+							<div
+								class="flex gap-2 justify-end items-center py-1 px-2 text-sm border-b last:border-0 hover:bg-slate-50"
+							>
+								<div class="text-xs flex-1">
+									{getTimeFormatted(trip.startTime, trip.endTime)}
+								</div>
+								<div class="text-xs font-mono">
+									{#if trip.endTime}
+										{convertSecondsToHoursMinutesSeconds(
+											(trip.endTime.getTime() - trip.startTime.getTime()) / 1000
+										)}
+									{/if}
+								</div>
+								<div>
+									<button
+										class="text-red-400 hover:text-red-600 p-1 rounded hover:bg-red-50 transition-colors"
+										onclick={() => deleteTrip(trip.id)}
+										aria-label="Delete trip from {getTimeFormatted(trip.startTime, trip.endTime)}"
+										title="Delete this trip"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+											class="size-4"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M6 18 18 6M6 6l12 12"
+											/>
+										</svg>
+									</button>
+								</div>
+							</div>
+						{/each}
 					</div>
-					<div class="text-xs">
-						{#if trip.endTime}
-							Total: {convertSecondsToHoursMinutesSeconds(
-								(trip.endTime.getTime() - trip.startTime.getTime()) / 1000
-							)}
-						{/if}
-					</div>
-					<div>
-						<button
-							class="text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50 rounded px-1"
-							onclick={() => deleteTrip(trip.id)}
-							aria-label="Delete trip from {getTimeFormatted(trip.startTime, trip.endTime)}"
-							title="Delete this trip"
-						>
-							x
-						</button>
-					</div>
-				</div>
-			{/each}
-		</div>
+				{/if}
+			</div>
+		{/if}
 
 		<div class="px-4">
 			<Timer routeId={route.id} />
