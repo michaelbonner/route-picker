@@ -22,7 +22,7 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.1",
-		"@sveltejs/kit": "^2.49.4",
+		"@sveltejs/kit": "^2.49.5",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/postcss": "^4.1.18",
 		"@testing-library/jest-dom": "^6.9.1",
@@ -36,13 +36,13 @@
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.14.0",
 		"globals": "^17.0.0",
-		"happy-dom": "^20.1.0",
+		"happy-dom": "^20.3.1",
 		"jsdom": "^27.4.0",
 		"postcss": "^8.5.6",
-		"prettier": "^3.7.4",
+		"prettier": "^3.8.0",
 		"prettier-plugin-svelte": "^3.4.1",
 		"prettier-plugin-tailwindcss": "^0.7.2",
-		"svelte": "^5.46.3",
+		"svelte": "^5.46.4",
 		"svelte-check": "^4.3.5",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
@@ -54,12 +54,12 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-node": "^5.5.0",
+		"@sveltejs/adapter-node": "^5.5.1",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.18",
-		"better-auth": "^1.4.12",
+		"better-auth": "^1.4.13",
 		"date-fns": "^4.1.0",
 		"drizzle-orm": "^0.45.1",
-		"pg": "^8.16.3"
+		"pg": "^8.17.1"
 	}
 }
