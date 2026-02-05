@@ -1,0 +1,5 @@
+pre-commit:
+  jobs:
+    - name: prettier
+      glob: '*.{js,ts,svelte,css,html,json,md,yml,yaml}'
+      run: bunx prettier --check {staged_files}
