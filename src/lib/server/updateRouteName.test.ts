@@ -66,7 +66,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 
 			const mockUser = {
@@ -112,7 +112,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 
 			const mockUser = {
@@ -194,7 +194,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 			(db.query.user.findFirst as any).mockResolvedValue(null);
 
@@ -216,7 +216,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 
 			const mockUser = {
@@ -247,7 +247,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 
 			const mockUser = {
@@ -386,7 +386,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 
 			const mockUser = {
@@ -450,7 +450,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 
 			// Simulate database error during user lookup
@@ -476,7 +476,7 @@ describe('updateRouteName server action', () => {
 			]);
 			mockRequest.formData.mockResolvedValue(formData);
 
-			const mockSession = { user: { email: 'test@example.com' } };
+			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
 
 			const mockUser = {
