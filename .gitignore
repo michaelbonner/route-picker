@@ -13,3 +13,4 @@ vite.config.ts.timestamp-*
 .env*.local
 
 .dokploy
+.mcp.json
