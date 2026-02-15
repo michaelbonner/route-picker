@@ -1,24 +1,12 @@
 <script lang="ts">
 	import { invalidateAll } from '$app/navigation';
+	import type { Location } from '$lib/types';
 
 	interface Props {
 		routeId: number;
 	}
 
 	const { routeId }: Props = $props();
-
-	interface Location {
-		coords: {
-			accuracy: number;
-			altitude: number | null;
-			altitudeAccuracy: number | null;
-			heading: number | null;
-			latitude: number;
-			longitude: number;
-			speed: number | null;
-		};
-		timestamp: number;
-	}
 
 	let currentState = $state('stopped');
 	let startTime = $state(new Date());
