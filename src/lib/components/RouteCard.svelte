@@ -2,7 +2,9 @@
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 	import Timer from '$lib/components/Timer.svelte';
+	import TripMap from '$lib/components/TripMap.svelte';
 	import type { Route, RouteGroup, Trip } from '$lib/server/db/schema';
+	import type { Location } from '$lib/types';
 	import type { ActionResult } from '@sveltejs/kit';
 	import { format, isSameDay, isSameHour, isSameYear } from 'date-fns';
 
@@ -30,6 +32,24 @@
 	import { slide } from 'svelte/transition';
 	let isTripsOpen = $state(false);
 	let isMovingRoute = $state(false);
+	let isMapOpen = $state(false);
+
+	const isValidLocation = (loc: unknown): loc is Location => {
+		if (!loc || typeof loc !== 'object') return false;
+		const l = loc as Record<string, unknown>;
+		if (!l.coords || typeof l.coords !== 'object') return false;
+		const c = l.coords as Record<string, unknown>;
+		return typeof c.latitude === 'number' && typeof c.longitude === 'number';
+	};
+
+	const hasLocationData = $derived(
+		route.trips.some(
+			(trip) =>
+				isValidLocation(trip.startLocation) ||
+				isValidLocation(trip.endLocation) ||
+				(Array.isArray(trip.path) && trip.path.some(isValidLocation))
+		)
+	);
 
 	const convertSecondsToHoursMinutesSeconds = (seconds: number) => {
 		const durationHours = Math.floor(seconds / 60 / 60);
@@ -546,6 +566,50 @@
 								</div>
 							</div>
 						{/each}
+					</div>
+				{/if}
+			</div>
+		{/if}
+
+		{#if route.trips.length > 0 && hasLocationData}
+			<div class="border rounded-lg overflow-hidden">
+				<button
+					class="w-full flex items-center justify-between p-2 bg-slate-50 hover:bg-slate-100 transition-colors text-sm font-medium text-slate-600"
+					onclick={() => (isMapOpen = !isMapOpen)}
+					aria-expanded={isMapOpen}
+				>
+					<span class="flex items-center gap-1.5">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="size-4"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"
+							/>
+						</svg>
+						View map</span
+					>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						class="size-4 transition-transform duration-200 {isMapOpen ? 'rotate-180' : ''}"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+					</svg>
+				</button>
+
+				{#if isMapOpen}
+					<div transition:slide class="border-t p-2">
+						<TripMap trips={route.trips} />
 					</div>
 				{/if}
 			</div>
