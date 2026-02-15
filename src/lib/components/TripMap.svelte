@@ -38,10 +38,13 @@
 	$effect(() => {
 		if (!mapContainer || !hasData) return;
 
-		let map: L.Map | undefined;
+		let cancelled = false;
+		let localMap: L.Map | undefined;
 
 		const init = async () => {
 			const L = await import('leaflet');
+
+			if (cancelled) return;
 
 			// Inject Leaflet CSS from CDN (dedup by id)
 			if (!document.getElementById('leaflet-css')) {
@@ -52,20 +55,21 @@
 				document.head.appendChild(link);
 			}
 
-			map = L.map(mapContainer!).setView([0, 0], 2);
+			localMap = L.map(mapContainer!).setView([0, 0], 2);
 
 			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-			}).addTo(map);
+			}).addTo(localMap);
 
 			const allBounds: [number, number][] = [];
 
 			validTrips.forEach((trip, i) => {
+				if (cancelled) return;
 				const color = COLORS[i % COLORS.length];
 				const pathCoords = getPathCoords(trip.path);
 
 				if (pathCoords.length > 0) {
-					L.polyline(pathCoords, { color, weight: 3, opacity: 0.8 }).addTo(map!);
+					L.polyline(pathCoords, { color, weight: 3, opacity: 0.8 }).addTo(localMap!);
 					allBounds.push(...pathCoords);
 				}
 
@@ -80,7 +84,7 @@
 						color: '#fff',
 						weight: 2,
 						fillOpacity: 1
-					}).addTo(map!);
+					}).addTo(localMap!);
 					allBounds.push(pos);
 				}
 
@@ -95,20 +99,21 @@
 						color: '#fff',
 						weight: 2,
 						fillOpacity: 1
-					}).addTo(map!);
+					}).addTo(localMap!);
 					allBounds.push(pos);
 				}
 			});
 
-			if (allBounds.length > 0) {
-				map.fitBounds(allBounds, { padding: [20, 20] });
+			if (!cancelled && allBounds.length > 0) {
+				localMap.fitBounds(allBounds, { padding: [20, 20] });
 			}
 		};
 
 		init();
 
 		return () => {
-			map?.remove();
+			cancelled = true;
+			localMap?.remove();
 		};
 	});
 </script>
