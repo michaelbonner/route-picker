@@ -1,7 +1,7 @@
 import { db } from '$lib/server/db';
 import { route, routeGroup, trip, user } from '$lib/server/db/schema';
 import { fail } from '@sveltejs/kit';
-import { eq, desc, asc, and, isNull } from 'drizzle-orm';
+import { and, asc, desc, eq, isNull } from 'drizzle-orm';
 import type { PageServerLoadEvent } from './$types';
 
 /** @type {import('./$types').PageServerLoad} */
@@ -112,14 +112,22 @@ export const actions = {
 		if (typeof data.get('startTime') !== 'string' || typeof data.get('endTime') !== 'string') {
 			return { success: false, error: 'Invalid date provided' };
 		}
-		await db.insert(trip).values({
-			routeId: +(data.get('routeId') || 0),
-			startTime: new Date(data.get('startTime') as string),
-			endTime: new Date(data.get('endTime') as string),
-			startLocation: JSON.parse(data.get('startLocation') as string),
-			endLocation: JSON.parse(data.get('endLocation') as string),
-			path: JSON.parse(data.get('path') as string)
-		});
+		try {
+			await db.insert(trip).values({
+				routeId: +(data.get('routeId') || 0),
+				startTime: new Date(data.get('startTime') as string),
+				endTime: new Date(data.get('endTime') as string),
+				startLocation: JSON.parse(data.get('startLocation') as string),
+				endLocation: JSON.parse(data.get('endLocation') as string),
+				path: JSON.parse(data.get('path') as string)
+			});
+		} catch (error) {
+			console.error('postTrip insert failed:', error);
+			if (error instanceof Error && error.cause) {
+				console.error('Underlying DB error:', error.cause);
+			}
+			throw error;
+		}
 		return { success: true };
 	},
 	deleteTrip: async ({ request }: { request: Request }) => {
@@ -187,9 +195,7 @@ export const actions = {
 			}
 
 			// Update the route name
-			await db.update(route)
-				.set({ name: sanitizedName })
-				.where(eq(route.id, routeIdNum));
+			await db.update(route).set({ name: sanitizedName }).where(eq(route.id, routeIdNum));
 
 			return { success: true };
 		} catch (error) {
@@ -263,7 +269,8 @@ export const actions = {
 		const routeToCheck = await db.query.route.findFirst({
 			where: eq(route.id, +routeId)
 		});
-		if (!routeToCheck || routeToCheck.userId !== session.userId) return fail(403, { error: 'Forbidden' });
+		if (!routeToCheck || routeToCheck.userId !== session.userId)
+			return fail(403, { error: 'Forbidden' });
 
 		// If groupId is provided, verify group ownership
 		if (groupId) {
@@ -273,7 +280,8 @@ export const actions = {
 			if (!group || group.userId !== session.userId) return fail(403, { error: 'Forbidden' });
 		}
 
-		await db.update(route)
+		await db
+			.update(route)
 			.set({ routeGroupId: groupId ? +groupId : null })
 			.where(eq(route.id, +routeId));
 		return { success: true };
