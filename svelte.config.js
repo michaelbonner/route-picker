@@ -1,11 +1,39 @@
 import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { transformWithEsbuild } from 'vite';
+
+const transpileTypeScriptScripts = {
+	name: 'transpile-typescript-scripts',
+	async script({ attributes, content, filename = '' }) {
+		if (attributes.lang !== 'ts') return;
+
+		const { code, map } = await transformWithEsbuild(content, filename, {
+			loader: 'ts',
+			target: 'esnext',
+			tsconfigRaw: {
+				compilerOptions: {
+					importsNotUsedAsValues: 'preserve',
+					preserveValueImports: true
+				}
+			}
+		});
+
+		return {
+			code,
+			map,
+			attributes: {
+				...attributes,
+				lang: undefined
+			}
+		};
+	}
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: vitePreprocess(),
+	preprocess: [transpileTypeScriptScripts, vitePreprocess()],
 
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
