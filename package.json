@@ -56,6 +56,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@better-auth/drizzle-adapter": "^1.5.3",
 		"@sveltejs/adapter-node": "^5.5.4",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.2.1",
