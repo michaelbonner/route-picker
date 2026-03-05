@@ -59,10 +59,10 @@
 		"@sveltejs/adapter-node": "^5.5.4",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.2.1",
-		"better-auth": "^1.5.2",
+		"better-auth": "^1.5.3",
 		"date-fns": "^4.1.0",
 		"drizzle-orm": "^0.45.1",
 		"leaflet": "^1.9.4",
-		"pg": "^8.19.0"
+		"pg": "^8.20.0"
 	}
 }
