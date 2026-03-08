@@ -17,7 +17,7 @@
 		script.async = true;
 		script.dataset.label = 'Send feedback';
 		script.dataset.position = 'right';
-		script.dataset.color = '#111827';
+		script.dataset.color = '#f58717';
 		if (data?.user?.name) script.dataset.name = data.user.name;
 		if (data?.user?.email) script.dataset.email = data.user.email;
 		if (data?.user?.id) script.dataset.userId = data.user.id;
