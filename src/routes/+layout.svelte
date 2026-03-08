@@ -6,9 +6,24 @@
 	import '../app.css';
 	interface Props {
 		children?: import('svelte').Snippet;
+		data?: { user?: { id?: string; name?: string; email?: string } };
 	}
 
-	const { children }: Props = $props();
+	const { children, data }: Props = $props();
+
+	$effect(() => {
+		const script = document.createElement('script');
+		script.src = 'https://easycustomerfeedback.com/widget/85729a4b50ca4f04ba871765c4f8185e/embed';
+		script.async = true;
+		script.dataset.label = 'Send feedback';
+		script.dataset.position = 'right';
+		script.dataset.color = '#111827';
+		if (data?.user?.name) script.dataset.name = data.user.name;
+		if (data?.user?.email) script.dataset.email = data.user.email;
+		if (data?.user?.id) script.dataset.userId = data.user.id;
+		document.head.appendChild(script);
+		return () => script.remove();
+	});
 </script>
 
 <svelte:head>
