@@ -32,7 +32,6 @@
 		"@types/pg": "^8.20.0",
 		"@vitest/browser": "^4.1.6",
 		"concurrently": "^9.2.1",
-		"drizzle-kit": "^0.31.10",
 		"eslint": "^10.3.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.17.1",
@@ -62,6 +61,7 @@
 		"@tailwindcss/vite": "^4.3.0",
 		"better-auth": "^1.6.10",
 		"date-fns": "^4.1.0",
+		"drizzle-kit": "^0.31.10",
 		"drizzle-orm": "^0.45.2",
 		"leaflet": "^1.9.4",
 		"pg": "^8.20.0"
