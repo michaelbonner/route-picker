@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 
-const SITE_URL = 'https://whichrouteisfaster.com';
+const SITE_URL = 'https://www.whichrouteisfaster.com';
 
 const pages = ['', '/policies'];
 
