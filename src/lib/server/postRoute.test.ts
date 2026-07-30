@@ -31,7 +31,14 @@ describe('postRoute server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		const mockUser = { id: 'user-1', email: 'test@example.com', name: 'Test', emailVerified: true, createdAt: new Date(), updatedAt: new Date() };
+		const mockUser = {
+			id: 'user-1',
+			email: 'test@example.com',
+			name: 'Test',
+			emailVerified: true,
+			createdAt: new Date(),
+			updatedAt: new Date()
+		};
 		(db.query.user.findFirst as any).mockResolvedValue(mockUser);
 
 		const { valuesMock } = mockInsertChain();
@@ -57,9 +64,20 @@ describe('postRoute server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		const mockUser = { id: 'user-1', email: 'test@example.com', name: 'Test', emailVerified: true, createdAt: new Date(), updatedAt: new Date() };
+		const mockUser = {
+			id: 'user-1',
+			email: 'test@example.com',
+			name: 'Test',
+			emailVerified: true,
+			createdAt: new Date(),
+			updatedAt: new Date()
+		};
 		(db.query.user.findFirst as any).mockResolvedValue(mockUser);
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({ id: 5, userId: 'user-1', name: 'Group' });
+		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+			id: 5,
+			userId: 'user-1',
+			name: 'Group'
+		});
 
 		const { valuesMock } = mockInsertChain();
 
@@ -84,7 +102,14 @@ describe('postRoute server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		const mockUser = { id: 'user-1', email: 'test@example.com', name: 'Test', emailVerified: true, createdAt: new Date(), updatedAt: new Date() };
+		const mockUser = {
+			id: 'user-1',
+			email: 'test@example.com',
+			name: 'Test',
+			emailVerified: true,
+			createdAt: new Date(),
+			updatedAt: new Date()
+		};
 		(db.query.user.findFirst as any).mockResolvedValue(mockUser);
 		(db.query.routeGroup.findFirst as any).mockResolvedValue(null);
 

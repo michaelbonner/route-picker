@@ -198,9 +198,9 @@
 		<div>
 			<span>
 				<span>
-					<strong>What personal information do we process?</strong> When you visit, use, or navigate
-					our Services, we may process personal information depending on how you interact with us and
-					the Services, the choices you make, and the products and features you use. Learn more about&nbsp;</span
+					<strong>What personal information do we process?</strong> When you visit, use, or navigate our
+					Services, we may process personal information depending on how you interact with us and the
+					Services, the choices you make, and the products and features you use. Learn more about&nbsp;</span
 				>
 			</span>
 			<a href="#personalinfo">
@@ -284,8 +284,8 @@
 					and technical processes and procedures in place to protect your personal information. However,
 					no electronic transmission over the internet or information storage technology can be guaranteed
 					to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other
-					<bdt> </bdt>unauthorized<bdt class="statement-end-if-in-editor"> </bdt> third parties will
-					not be able to defeat our security and improperly collect, access, steal, or modify your information.
+					<bdt> </bdt>unauthorized<bdt class="statement-end-if-in-editor"> </bdt> third parties will not
+					be able to defeat our security and improperly collect, access, steal, or modify your information.
 					Learn more about&nbsp;</span
 				>
 			</span>
@@ -1715,9 +1715,9 @@
 																																			other legal requirements).<bdt
 																																			>
 																																			</bdt>
-																																			No purpose in this notice will
-																																			require us keeping your personal
-																																			information for longer than
+																																			No purpose in this notice will require
+																																			us keeping your personal information
+																																			for longer than
 																																			<span>
 																																				<span>
 																																					<span>
@@ -1836,9 +1836,9 @@
 																																			we process. However, despite our
 																																			safeguards and efforts to secure
 																																			your information, no electronic
-																																			transmission over the Internet
-																																			or information storage technology
-																																			can be guaranteed to be 100% secure,
+																																			transmission over the Internet or
+																																			information storage technology can
+																																			be guaranteed to be 100% secure,
 																																			so we cannot promise or guarantee
 																																			that hackers, cybercriminals, or
 																																			other
@@ -1846,8 +1846,8 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			third parties will not be able
-																																			to defeat our security and improperly
+																																			third parties will not be able to
+																																			defeat our security and improperly
 																																			collect, access, steal, or modify
 																																			your information. Although we will
 																																			do our best to protect your personal
@@ -2042,11 +2042,11 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			you have the right to withdraw
-																																			your consent at any time. You can
-																																			withdraw your consent at any time
-																																			by contacting us by using the contact
-																																			details provided in the section
+																																			you have the right to withdraw your
+																																			consent at any time. You can withdraw
+																																			your consent at any time by contacting
+																																			us by using the contact details
+																																			provided in the section
 																																			<bdt> </bdt>"<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -2090,11 +2090,10 @@
 																																			class="statement-end-if-in-editor"
 																																		>
 																																		</bdt>
-																																		will it affect the processing of
-																																		your personal information conducted
-																																		in reliance on lawful processing
-																																		grounds other than consent.<bdt>
-																																		</bdt>
+																																		will it affect the processing of your
+																																		personal information conducted in
+																																		reliance on lawful processing grounds
+																																		other than consent.<bdt> </bdt>
 																																	</span>
 																																</span>
 																																<bdt>
@@ -3663,8 +3662,8 @@
 																																		of all third parties with which we
 																																		shared personal information in the
 																																		immediately preceding calendar year.
-																																		If you are a California resident
-																																		and would like to make such a request,
+																																		If you are a California resident and
+																																		would like to make such a request,
 																																		please submit your request in writing
 																																		to us using the contact information
 																																		provided below.</span
@@ -3821,9 +3820,9 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			applies to you, we must adhere
-																																			to certain rights and obligations
-																																			regarding your personal information.</span
+																																			applies to you, we must adhere to
+																																			certain rights and obligations regarding
+																																			your personal information.</span
 																																		>
 																																	</span>
 																																</div>
@@ -4434,8 +4433,7 @@
 																																				phone or email) that you have
 																																				previously provided to us. We
 																																				may also use other verification
-																																				methods as the circumstances
-																																				dictate.</span
+																																				methods as the circumstances dictate.</span
 																																			>
 																																		</span>
 																																	</span>
@@ -4650,8 +4648,8 @@
 																																						class="statement-end-if-in-editor"
 																																					>
 																																					</bdt>
-																																					agent that does not submit
-																																					proof that they have been validly
+																																					agent that does not submit proof
+																																					that they have been validly
 																																					<bdt> </bdt>authorized<bdt
 																																						class="statement-end-if-in-editor"
 																																					>
@@ -5538,9 +5536,9 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			applies to you, we must adhere
-																																			to certain rights and obligations
-																																			regarding your personal data.</span
+																																			applies to you, we must adhere to
+																																			certain rights and obligations regarding
+																																			your personal data.</span
 																																		>
 																																	</span>
 																																</div>
@@ -5747,8 +5745,8 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			agent to exercise your rights,
-																																			we may deny a request if the
+																																			agent to exercise your rights, we
+																																			may deny a request if the
 																																			<bdt> </bdt>authorized<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -6005,17 +6003,16 @@
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
-																																				date and the updated version
-																																				will be effective as soon as
-																																				it is accessible. If we make
-																																				material changes to this privacy
-																																				notice, we may notify you either
-																																				by prominently posting a notice
-																																				of such changes or by directly
-																																				sending you a notification. We
-																																				encourage you to review this
-																																				privacy notice frequently to
-																																				be informed of how we are protecting
+																																				date and the updated version will
+																																				be effective as soon as it is
+																																				accessible. If we make material
+																																				changes to this privacy notice,
+																																				we may notify you either by prominently
+																																				posting a notice of such changes
+																																				or by directly sending you a notification.
+																																				We encourage you to review this
+																																				privacy notice frequently to be
+																																				informed of how we are protecting
 																																				your information.</span
 																																			>
 																																		</span>

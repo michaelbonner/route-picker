@@ -1,27 +1,27 @@
 {
-  "version": "7",
-  "dialect": "postgresql",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "7",
-      "when": 1763674813836,
-      "tag": "0000_wonderful_molly_hayes",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1763677937987,
-      "tag": "0001_fixed_lady_deathstrike",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1764106579506,
-      "tag": "0002_hot_mole_man",
-      "breakpoints": true
-    }
-  ]
+	"version": "7",
+	"dialect": "postgresql",
+	"entries": [
+		{
+			"idx": 0,
+			"version": "7",
+			"when": 1763674813836,
+			"tag": "0000_wonderful_molly_hayes",
+			"breakpoints": true
+		},
+		{
+			"idx": 1,
+			"version": "7",
+			"when": 1763677937987,
+			"tag": "0001_fixed_lady_deathstrike",
+			"breakpoints": true
+		},
+		{
+			"idx": 2,
+			"version": "7",
+			"when": 1764106579506,
+			"tag": "0002_hot_mole_man",
+			"breakpoints": true
+		}
+	]
 }
