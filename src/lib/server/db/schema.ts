@@ -1,4 +1,14 @@
-import { pgTable, serial, text, integer, timestamp, json, index, unique, boolean } from 'drizzle-orm/pg-core';
+import {
+	pgTable,
+	serial,
+	text,
+	integer,
+	timestamp,
+	json,
+	index,
+	unique,
+	boolean
+} from 'drizzle-orm/pg-core';
 import { relations, type InferSelectModel } from 'drizzle-orm';
 
 export type User = InferSelectModel<typeof user>;
@@ -57,49 +67,70 @@ export const verification = pgTable('verification', {
 });
 
 export const userRelations = relations(user, ({ many }) => ({
-	routes: many(route),
+	routes: many(route)
 }));
 
-export const route = pgTable('route', {
-	id: serial('id').primaryKey(),
-	name: text('name').notNull(),
-	userId: text('userId').notNull().references(() => user.id, { onDelete: 'restrict', onUpdate: 'cascade' }),
-	routeGroupId: integer('routeGroupId').references(() => routeGroup.id, { onDelete: 'set null', onUpdate: 'cascade' }),
-	createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
-	updatedAt: timestamp('updatedAt', { mode: 'date' }).defaultNow().notNull().$onUpdate(() => new Date()),
-}, (t) => ({
-	userIdIdx: index('userId').on(t.userId),
-	routeGroupIdIdx: index('routeGroupId').on(t.routeGroupId),
-}));
+export const route = pgTable(
+	'route',
+	{
+		id: serial('id').primaryKey(),
+		name: text('name').notNull(),
+		userId: text('userId')
+			.notNull()
+			.references(() => user.id, { onDelete: 'restrict', onUpdate: 'cascade' }),
+		routeGroupId: integer('routeGroupId').references(() => routeGroup.id, {
+			onDelete: 'set null',
+			onUpdate: 'cascade'
+		}),
+		createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
+		updatedAt: timestamp('updatedAt', { mode: 'date' })
+			.defaultNow()
+			.notNull()
+			.$onUpdate(() => new Date())
+	},
+	(t) => ({
+		userIdIdx: index('userId').on(t.userId),
+		routeGroupIdIdx: index('routeGroupId').on(t.routeGroupId)
+	})
+);
 
 export const routeRelations = relations(route, ({ one, many }) => ({
 	user: one(user, {
 		fields: [route.userId],
-		references: [user.id],
+		references: [user.id]
 	}),
 	group: one(routeGroup, {
 		fields: [route.routeGroupId],
-		references: [routeGroup.id],
+		references: [routeGroup.id]
 	}),
-	trips: many(trip),
+	trips: many(trip)
 }));
 
-export const routeGroup = pgTable('route_group', {
-	id: serial('id').primaryKey(),
-	name: text('name').notNull(),
-	userId: text('userId').notNull().references(() => user.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
-	createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
-	updatedAt: timestamp('updatedAt', { mode: 'date' }).defaultNow().notNull().$onUpdate(() => new Date()),
-}, (t) => ({
-	userIdIdx: index('route_group_userId_idx').on(t.userId),
-}));
+export const routeGroup = pgTable(
+	'route_group',
+	{
+		id: serial('id').primaryKey(),
+		name: text('name').notNull(),
+		userId: text('userId')
+			.notNull()
+			.references(() => user.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+		createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
+		updatedAt: timestamp('updatedAt', { mode: 'date' })
+			.defaultNow()
+			.notNull()
+			.$onUpdate(() => new Date())
+	},
+	(t) => ({
+		userIdIdx: index('route_group_userId_idx').on(t.userId)
+	})
+);
 
 export const routeGroupRelations = relations(routeGroup, ({ one, many }) => ({
 	user: one(user, {
 		fields: [routeGroup.userId],
-		references: [user.id],
+		references: [user.id]
 	}),
-	routes: many(route),
+	routes: many(route)
 }));
 
 export const trip = pgTable('trip', {
@@ -109,14 +140,19 @@ export const trip = pgTable('trip', {
 	startLocation: json('startLocation').default({}).notNull(),
 	endLocation: json('endLocation').default({}).notNull(),
 	path: json('path').default({}).notNull(),
-	routeId: integer('routeId').notNull().references(() => route.id, { onDelete: 'restrict', onUpdate: 'cascade' }),
+	routeId: integer('routeId')
+		.notNull()
+		.references(() => route.id, { onDelete: 'restrict', onUpdate: 'cascade' }),
 	createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
-	updatedAt: timestamp('updatedAt', { mode: 'date' }).defaultNow().notNull().$onUpdate(() => new Date()),
+	updatedAt: timestamp('updatedAt', { mode: 'date' })
+		.defaultNow()
+		.notNull()
+		.$onUpdate(() => new Date())
 });
 
 export const tripRelations = relations(trip, ({ one }) => ({
 	route: one(route, {
 		fields: [trip.routeId],
-		references: [route.id],
-	}),
+		references: [route.id]
+	})
 }));
