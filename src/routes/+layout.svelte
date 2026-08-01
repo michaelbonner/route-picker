@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import SignInOut from '$lib/components/SignInOut.svelte';
 	import car from '$lib/images/car.svg';
 
@@ -10,6 +11,8 @@
 	}
 
 	const { children, data }: Props = $props();
+
+	const canonical = $derived(`https://www.whichrouteisfaster.com${page.url.pathname}`);
 
 	$effect(() => {
 		const script = document.createElement('script');
@@ -37,7 +40,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 	<link rel="manifest" href="/site.webmanifest" />
-	<link rel="canonical" href="https://www.whichrouteisfaster.com/" />
+	<link rel="canonical" href={canonical} />
 </svelte:head>
 
 <div class="grid gap-8 py-8 lg:gap-12">

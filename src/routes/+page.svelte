@@ -77,7 +77,6 @@
 		content="Helping you figure out which route is faster, the most boring way possible"
 	/>
 	<meta property="og:url" content="https://www.whichrouteisfaster.com/" />
-	<link rel="canonical" href="https://www.whichrouteisfaster.com/" />
 </svelte:head>
 
 <div>
