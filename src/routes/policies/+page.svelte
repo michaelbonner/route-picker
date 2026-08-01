@@ -1,6 +1,5 @@
 <svelte:head>
 	<title>Policies | Which Route Is Faster</title>
-	<link rel="canonical" href="https://www.whichrouteisfaster.com/" />
 </svelte:head>
 
 <div class="prose lg:prose-xl">
