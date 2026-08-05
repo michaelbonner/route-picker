@@ -419,21 +419,50 @@ tgt_restore() {
 
 # --single-transaction implies --exit-on-error, so a partial restore rolls all
 # the way back rather than leaving a half-populated preview database.
-if tgt_restore \
-	--no-owner \
-	--no-privileges \
-	--single-transaction \
-	"$DUMP_PATH" >"$restore_log" 2>&1; then
-	ok "restored"
-	if [[ -s $restore_log ]]; then
-		note "$(head -20 "$restore_log")"
+restore_once() {
+	tgt_restore \
+		--no-owner \
+		--no-privileges \
+		--single-transaction \
+		"$DUMP_PATH" >"$restore_log" 2>&1
+}
+
+# A dropped connection mid-restore is worth another go — but a schema or data
+# error isn't, and re-running a large restore twice more to reach the same
+# failure just wastes time. Only the transport-level messages get a retry.
+restore_died_on_connection() {
+	grep -qiE 'could not connect|connection to server|connection to the server|server closed the connection|connection (was )?lost|SSL SYSCALL error|timeout expired|EOF detected' \
+		"$restore_log"
+}
+
+attempt=1
+while :; do
+	if restore_once; then
+		ok "restored"
+		if [[ -s $restore_log ]]; then
+			note "$(head -20 "$restore_log")"
+		fi
+		break
 	fi
-else
-	echo
-	cat "$restore_log" >&2
-	KEEP_DUMP=1
-	die "pg_restore failed and rolled back; $TGT_DB is empty"
-fi
+
+	if [[ $attempt -ge 3 ]] || ! restore_died_on_connection; then
+		echo
+		cat "$restore_log" >&2
+		KEEP_DUMP=1
+		die "pg_restore failed and rolled back; $TGT_DB is empty"
+	fi
+
+	warn "restore attempt $attempt lost its connection — retrying"
+	attempt=$((attempt + 1))
+	sleep 3
+
+	# The rollback leaves the target empty, so a retry is safe. Recreate it
+	# anyway: if the connection died in the window after COMMIT landed, the
+	# objects are already there and a second restore would collide with them.
+	recreate_err=$(retry 3 recreate_target) ||
+		die "could not recreate $TGT_DB for another restore attempt:
+    ${recreate_err#psql: error: }"
+done
 
 # ----------------------------------------------------------------- verify -----
 
@@ -441,23 +470,53 @@ step "Verifying"
 TGT_COUNTS=$(retry 3 tgt_psql -d "$TGT_DB" -tAF'|' -c "$ROW_COUNT_SQL") ||
 	die "could not count preview tables"
 
+# Production keeps taking writes while we dump and restore, so the counts read
+# before the dump don't necessarily describe the snapshot pg_dump captured —
+# preview can be a faithful copy and still disagree with them. Reading the
+# source a second time brackets the snapshot: it was taken between the two
+# readings, so a preview count that falls in that range is source drift rather
+# than a bad restore. Only counts outside the range are a real problem.
+SRC_COUNTS_AFTER=$(retry 3 src_psql -d "$SRC_DB" -tAF'|' -c "$ROW_COUNT_SQL") ||
+	die "could not re-count production tables"
+
+count_for() { printf '%s\n' "$1" | awk -F'|' -v r="$2" '$1 == r {print $2}'; }
+
+between() {
+	local v=$1 a=$2 b=$3 lo=$2 hi=$3
+	[[ $a -le $b ]] || { lo=$b hi=$a; }
+	[[ $v -ge $lo && $v -le $hi ]]
+}
+
 mismatch=0
+drift=0
 while IFS='|' read -r rel n; do
 	[[ -n $rel ]] || continue
-	got=$(printf '%s\n' "$TGT_COUNTS" | awk -F'|' -v r="$rel" '$1 == r {print $2}')
+	got=$(count_for "$TGT_COUNTS" "$rel")
+	now=$(count_for "$SRC_COUNTS_AFTER" "$rel")
+
 	if [[ -z $got ]]; then
-		printf '    %-28s %8s  %smissing in preview%s\n' "$rel" "$n" "$RED" "$R"
-		mismatch=1
-	elif [[ $got != "$n" ]]; then
+		if [[ -z $now ]]; then
+			printf '    %-28s %8s  %sdropped from production mid-copy%s\n' "$rel" "$n" "$YLW" "$R"
+			drift=1
+		else
+			printf '    %-28s %8s  %smissing in preview%s\n' "$rel" "$n" "$RED" "$R"
+			mismatch=1
+		fi
+	elif [[ $got == "$n" ]]; then
+		printf '    %-28s %8s  %s✓%s\n' "$rel" "$n" "$GRN" "$R"
+	elif [[ -n $now ]] && between "$got" "$n" "$now"; then
+		printf '    %-28s %8s  %s~ %s (production now %s)%s\n' "$rel" "$n" "$YLW" "$got" "$now" "$R"
+		drift=1
+	else
 		printf '    %-28s %8s  %s!= %s%s\n' "$rel" "$n" "$RED" "$got" "$R"
 		mismatch=1
-	else
-		printf '    %-28s %8s  %s✓%s\n' "$rel" "$n" "$GRN" "$R"
 	fi
 done <<<"$SRC_COUNTS"
 
+# A table created in production between the first count and the dump is in the
+# dump, so it's legitimately in preview. Both readings count as "in production".
 extra=$(comm -13 \
-	<(printf '%s\n' "$SRC_COUNTS" | cut -d'|' -f1 | sort) \
+	<(printf '%s\n%s\n' "$SRC_COUNTS" "$SRC_COUNTS_AFTER" | cut -d'|' -f1 | sort -u) \
 	<(printf '%s\n' "$TGT_COUNTS" | cut -d'|' -f1 | sort) | grep -c . || true)
 [[ $extra == 0 ]] || {
 	warn "$extra table(s) exist in preview but not production"
@@ -466,7 +525,12 @@ extra=$(comm -13 \
 
 echo
 if [[ $mismatch == 0 ]]; then
-	ok "$TGT_DB is now a copy of $SRC_DB ($SRC_TABLES tables, $SRC_ROWS rows)"
+	if [[ $drift != 0 ]]; then
+		note "production changed while the copy ran — preview matches the dump snapshot, not production as it stands now"
+	fi
+	TGT_TABLES=$(printf '%s\n' "$TGT_COUNTS" | grep -c . || true)
+	TGT_ROWS=$(printf '%s\n' "$TGT_COUNTS" | awk -F'|' '{t += $2} END {print t + 0}')
+	ok "$TGT_DB is now a copy of $SRC_DB ($TGT_TABLES tables, $TGT_ROWS rows)"
 else
 	die "row counts do not match — see above"
 fi
