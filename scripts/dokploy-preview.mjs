@@ -44,7 +44,7 @@ const APP_PORT = 3000;
 
 // Values in previewEnv that must resolve to this PR's own host. Anything left
 // pointing at production would send preview auth callbacks to the live site.
-const HOST_DEPENDENT_KEYS = ['BETTER_AUTH_URL'];
+const HOST_DEPENDENT_KEYS = ["BETTER_AUTH_URL"];
 
 function required(name, value) {
 	if (!value) {
@@ -71,12 +71,23 @@ async function call(path, { method = 'POST', query, body } = {}) {
 		body: method === 'POST' ? JSON.stringify(body ?? {}) : undefined
 	});
 	const text = await res.text();
-	if (!res.ok) throw new Error(`${method} /api/${path} -> ${res.status}: ${text.slice(0, 500)}`);
 	let json;
 	try {
 		json = text ? JSON.parse(text) : null;
 	} catch {
 		json = text;
+	}
+
+	// Never put the raw body in the error. application.one returns the app's
+	// whole env, so echoing a response into a CI log could publish every secret
+	// this app holds. Dokploy's errors carry a message/code, which is the useful
+	// part anyway; anything else degrades to the status alone.
+	if (!res.ok) {
+		const detail =
+			json && typeof json === 'object'
+				? [json.message, json.code].filter(Boolean).join(' ') || '(no message)'
+				: '(no message)';
+		throw new Error(`${method} /api/${path} -> ${res.status}: ${detail}`);
 	}
 	// Unwrap the { success, message, data } envelope when present.
 	return json && typeof json === 'object' && 'data' in json ? json.data : json;
@@ -155,7 +166,7 @@ function materializePreviewEnv(env) {
 // string equality is not enough to tell a preview DB from the production one.
 //
 // WHATWG URL splits userinfo on the LAST '@', so a literal unescaped '@' in the
-// password (ours has one) still leaves the host and database name intact.
+// password (some of these have one) still leaves host and database name intact.
 function dbTarget(url) {
 	try {
 		const u = new URL(url);

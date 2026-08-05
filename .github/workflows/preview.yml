@@ -48,13 +48,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      # Only the image ref: the preview host is the script's to decide, and the PR
-      # comment reads it back from the deploy step's preview_url output. Computing
-      # it a second time here would let the two drift.
-      - name: Compute identifiers
+      # Only the image ref: the preview host is the script's to decide, and the
+      # PR comment reads it back from the deploy step's preview_url output.
+      # Computing it a second time here would let the two drift.
+      - name: Compute image name
         id: vars
-        run: |
-          echo "image=$(echo "${IMAGE}" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+        run: echo "image=$(echo "${IMAGE}" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
@@ -133,8 +132,12 @@ jobs:
             const marker = '<!-- dokploy-preview -->';
             const body = `${marker}\n🚀 **Preview deployed:** ${url}\n\n` +
               `_Built off-server in CI and deployed to Dokploy. Updated on every push; removed when this PR closes._`;
-            const { data: comments } = await github.rest.issues.listComments({
+            // Paginated: listComments returns only the first page, so on a long
+            // PR the marker could sit past it and every run would add another
+            // comment instead of editing the one already there.
+            const comments = await github.paginate(github.rest.issues.listComments, {
               owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              per_page: 100,
             });
             const existing = comments.find(c => c.body && c.body.includes(marker));
             if (existing) {
@@ -158,8 +161,8 @@ jobs:
         uses: actions/checkout@v5
 
       # Same trusted-script rule as the deploy job, and the same reason to fail
-      # closed: teardown runs with DOKPLOY_API_KEY and deletes an application, so
-      # it is the last place to run PR-controlled code.
+      # closed: teardown runs with DOKPLOY_API_KEY and deletes an application,
+      # so it is the last place to run PR-controlled code.
       - name: Use trusted orchestration script (base branch)
         env:
           BASE_REF: ${{ github.base_ref }}
@@ -193,8 +196,12 @@ jobs:
           script: |
             const marker = '<!-- dokploy-preview -->';
             const body = `${marker}\n🧹 Preview environment for this PR has been torn down.`;
-            const { data: comments } = await github.rest.issues.listComments({
+            // Paginated: listComments returns only the first page, so on a long
+            // PR the marker could sit past it and every run would add another
+            // comment instead of editing the one already there.
+            const comments = await github.paginate(github.rest.issues.listComments, {
               owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              per_page: 100,
             });
             const existing = comments.find(c => c.body && c.body.includes(marker));
             if (existing) {
