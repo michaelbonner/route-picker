@@ -7,6 +7,7 @@ import {
 	json,
 	index,
 	unique,
+	uniqueIndex,
 	boolean
 } from 'drizzle-orm/pg-core';
 import { relations, type InferSelectModel } from 'drizzle-orm';
@@ -41,6 +42,7 @@ export const session = pgTable('session', {
 
 export const account = pgTable('account', {
 	id: text('id').primaryKey(),
+	issuer: text('issuer').notNull(),
 	accountId: text('accountId').notNull(),
 	providerId: text('providerId').notNull(),
 	userId: text('userId')
@@ -55,7 +57,9 @@ export const account = pgTable('account', {
 	password: text('password'),
 	createdAt: timestamp('createdAt').notNull(),
 	updatedAt: timestamp('updatedAt').notNull()
-});
+}, (table) => [
+	uniqueIndex('account_issuer_accountId_uidx').on(table.issuer, table.accountId)
+]);
 
 export const verification = pgTable('verification', {
 	id: text('id').primaryKey(),
