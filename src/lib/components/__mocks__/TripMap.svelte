@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Trip } from '$lib/server/db/schema';
+	import type { Trip } from '#lib/server/db/schema.js';
 
 	interface Props {
 		trips: Trip[];

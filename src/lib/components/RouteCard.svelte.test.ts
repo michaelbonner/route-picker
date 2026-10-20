@@ -2,7 +2,7 @@
  * @vitest-environment happy-dom
  */
 
-import type { Route, Trip } from '$lib/server/db/schema';
+import type { Route, Trip } from '#lib/server/db/schema.js';
 import { render, screen, waitFor } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -36,11 +36,12 @@ describe('RouteCard editing functionality', () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 		// Mock fetch for form submissions
-		globalThis.fetch = vi.fn() as typeof fetch;
+		vi.stubGlobal('fetch', vi.fn());
 		user = userEvent.setup();
 	});
 
 	afterEach(() => {
+		vi.unstubAllGlobals();
 		vi.resetAllMocks();
 		// Clean up DOM between tests
 		document.body.innerHTML = '';
@@ -106,11 +107,14 @@ describe('RouteCard editing functionality', () => {
 
 		it('should show loading state during form submission', async () => {
 			// Mock a delayed fetch response
-			globalThis.fetch = vi.fn(
-				() =>
-					new Promise<Response>((resolve) =>
-						setTimeout(() => resolve(new Response('', { status: 200 })), 100)
-					)
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(
+					() =>
+						new Promise<Response>((resolve) =>
+							setTimeout(() => resolve(new Response('', { status: 200 })), 100)
+						)
+				)
 			);
 
 			render(RouteCard, { route: mockRoute });
@@ -148,12 +152,15 @@ describe('RouteCard editing functionality', () => {
 
 		it('should display error message when server returns error', async () => {
 			// Mock server error response
-			globalThis.fetch = vi.fn(() =>
-				Promise.resolve(
-					new Response(JSON.stringify({ error: 'Server error' }), {
-						status: 500,
-						headers: { 'Content-Type': 'application/json' }
-					})
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(() =>
+					Promise.resolve(
+						new Response(JSON.stringify({ error: 'Server error' }), {
+							status: 500,
+							headers: { 'Content-Type': 'application/json' }
+						})
+					)
 				)
 			);
 
@@ -177,7 +184,10 @@ describe('RouteCard editing functionality', () => {
 
 	describe('keyboard event handling and form submission', () => {
 		it('should save changes when Enter key is pressed', async () => {
-			globalThis.fetch = vi.fn(() => Promise.resolve(new Response('', { status: 200 })));
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(() => Promise.resolve(new Response('', { status: 200 })))
+			);
 
 			render(RouteCard, { route: mockRoute });
 
@@ -281,11 +291,14 @@ describe('RouteCard editing functionality', () => {
 	describe('error states and recovery behavior', () => {
 		it('should revert to original name on server error', async () => {
 			// Mock server error
-			globalThis.fetch = vi.fn(() =>
-				Promise.resolve(
-					new Response(JSON.stringify({ error: 'Server error' }), {
-						status: 500
-					})
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(() =>
+					Promise.resolve(
+						new Response(JSON.stringify({ error: 'Server error' }), {
+							status: 500
+						})
+					)
 				)
 			);
 
@@ -308,7 +321,10 @@ describe('RouteCard editing functionality', () => {
 
 		it('should handle network errors gracefully', async () => {
 			// Mock network error
-			globalThis.fetch = vi.fn(() => Promise.reject(new Error('Network error')));
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(() => Promise.reject(new Error('Network error')))
+			);
 
 			render(RouteCard, { route: mockRoute });
 
@@ -455,11 +471,14 @@ describe('RouteCard editing functionality', () => {
 
 		it('should have proper loading state announcement', async () => {
 			// Mock delayed response
-			globalThis.fetch = vi.fn(
-				() =>
-					new Promise<Response>((resolve) =>
-						setTimeout(() => resolve(new Response('', { status: 200 })), 100)
-					)
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(
+					() =>
+						new Promise<Response>((resolve) =>
+							setTimeout(() => resolve(new Response('', { status: 200 })), 100)
+						)
+				)
 			);
 
 			render(RouteCard, { route: mockRoute });
@@ -495,11 +514,14 @@ describe('RouteCard editing functionality', () => {
 
 		it('should disable edit button during submission', async () => {
 			// Mock delayed response
-			globalThis.fetch = vi.fn(
-				() =>
-					new Promise<Response>((resolve) =>
-						setTimeout(() => resolve(new Response('', { status: 200 })), 100)
-					)
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(
+					() =>
+						new Promise<Response>((resolve) =>
+							setTimeout(() => resolve(new Response('', { status: 200 })), 100)
+						)
+				)
 			);
 
 			render(RouteCard, { route: mockRoute });

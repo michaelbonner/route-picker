@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import SignInOut from '$lib/components/SignInOut.svelte';
-	import car from '$lib/images/car.svg';
+	import SignInOut from '#lib/components/SignInOut.svelte';
+	import car from '#lib/images/car.svg';
 
 	import '../app.css';
 	interface Props {
@@ -69,7 +69,7 @@
 			>
 		</p>
 		<p>
-			<a class="underline underline-offset-2" href={resolve('/policies')}>Policies</a>
+			<a class="underline underline-offset-2" href={resolve('policies')}>Policies</a>
 		</p>
 	</footer>
 </div>

@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('$lib/server/db', () => ({
+vi.mock('#lib/server/db/index.js', () => ({
 	db: {
 		delete: vi.fn()
 	}
 }));
 
-import { db } from '$lib/server/db';
+import { db } from '#lib/server/db/index.js';
 import { actions } from '../../routes/+page.server.js';
 
 describe('deleteRoute server action', () => {

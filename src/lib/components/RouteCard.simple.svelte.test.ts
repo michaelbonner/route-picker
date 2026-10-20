@@ -1,4 +1,4 @@
-import type { Route, Trip } from '$lib/server/db/schema';
+import type { Route, Trip } from '#lib/server/db/schema.js';
 import { render, screen } from '@testing-library/svelte';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import RouteCard from './RouteCard.svelte';
@@ -16,10 +16,11 @@ describe('RouteCard basic functionality', () => {
 
 	beforeEach(() => {
 		vi.clearAllMocks();
-		globalThis.fetch = vi.fn() as typeof fetch;
+		vi.stubGlobal('fetch', vi.fn());
 	});
 
 	afterEach(() => {
+		vi.unstubAllGlobals();
 		// Clean up DOM between tests
 		document.body.innerHTML = '';
 	});
