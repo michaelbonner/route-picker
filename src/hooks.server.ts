@@ -1,7 +1,7 @@
-import { auth } from '$lib/auth';
-import type { Handle } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit/hooks';
+import { auth } from '#lib/auth.js';
 import { svelteKitHandler } from 'better-auth/svelte-kit';
-import { building } from '$app/environment';
+import { building } from '$app/env';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	// Fetch current session from Better Auth

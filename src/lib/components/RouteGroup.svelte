@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
+	import { enhance, type ActionResult } from '$app/forms';
 	import RouteCard from './RouteCard.svelte';
-	import type { RouteGroup, Route, Trip } from '$lib/server/db/schema';
-	import type { ActionResult } from '@sveltejs/kit';
+	import type { RouteGroup, Route, Trip } from '#lib/server/db/schema.js';
 	import { slide } from 'svelte/transition';
 
 	interface Props {

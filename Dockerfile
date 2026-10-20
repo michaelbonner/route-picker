@@ -9,8 +9,8 @@
 # `vite build` and made deploys compete with the live site for RAM.
 #
 # The build needs NO database and NO real secrets: this app reads everything
-# private through `$env/dynamic/private` (process.env at container start) and
-# has no `$env/static/public` values, so it takes no build args at all.
+# private through dynamic `$app/env/private` vars (read at container start) and
+# has no static or public env vars, so it takes no build args at all.
 #
 # Both stages resolve the same base through this one ARG so they cannot drift
 # apart, and so there is a single place to pin. Override to pin an exact image:
@@ -54,7 +54,7 @@ RUN DATABASE_URL=postgres://build:build@127.0.0.1:5432/build \
 FROM ${BUN_IMAGE} AS runtime
 WORKDIR /app
 
-# HOST/PORT are what svelte-adapter-bun's server reads to bind.
+# HOST/PORT are what @sveltejs/adapter-bun's server reads to bind.
 ENV NODE_ENV=production \
     PORT=3000 \
     HOST=0.0.0.0

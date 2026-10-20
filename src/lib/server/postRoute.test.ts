@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('$lib/server/db', () => ({
+vi.mock('#lib/server/db/index.js', () => ({
 	db: {
 		query: {
 			user: { findFirst: vi.fn() },
@@ -10,7 +10,7 @@ vi.mock('$lib/server/db', () => ({
 	}
 }));
 
-import { db } from '$lib/server/db';
+import { db } from '#lib/server/db/index.js';
 import { actions } from '../../routes/+page.server.js';
 
 describe('postRoute server action', () => {

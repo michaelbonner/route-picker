@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { eq } from 'drizzle-orm';
 
 // Mock the db import
-vi.mock('$lib/server/db', () => ({
+vi.mock('#lib/server/db/index.js', () => ({
 	db: {
 		query: {
 			user: {
@@ -29,7 +29,7 @@ vi.mock('@sveltejs/kit', async () => {
 });
 
 // Import after mocking
-import { db } from '$lib/server/db';
+import { db } from '#lib/server/db/index.js';
 import { actions } from '../../routes/+page.server.js';
 
 describe('updateRouteName server action', () => {

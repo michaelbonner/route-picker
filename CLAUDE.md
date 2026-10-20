@@ -9,8 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 - **Dev server:** `bun run dev`
-- **Build:** `bun run build` (produces Node output in `build/`)
-- **Start production:** `bun run start` (runs `node build/index.js`)
+- **Build:** `bun run build` (runs Vite under Bun — `@sveltejs/adapter-bun` requires it — and writes the server to `build/`)
+- **Start production:** `bun run start` (runs `db:migrate`, then `bun run build/index.js`)
 - **Type check:** `bun run check`
 - **Lint:** `bun run lint` (prettier + eslint)
 - **Format:** `bun run format`
@@ -26,8 +26,10 @@ Package manager is **bun** (enforced via `preinstall` script — npm/yarn/pnpm w
 
 ## Tech Stack
 
-- **Framework:** SvelteKit (Svelte 5 with runes: `$state`, `$derived`, `$props`, `$effect`)
-- **Adapter:** `@sveltejs/adapter-node`
+- **Framework:** SvelteKit 3 (Svelte 5 with runes: `$state`, `$derived`, `$props`, `$effect`)
+- **Adapter:** `@sveltejs/adapter-bun`, configured in `vite.config.ts` (there is no `svelte.config.js` in SvelteKit 3)
+- **Imports:** `#lib/...` subpath imports (declared in `package.json` `imports`) with explicit extensions, e.g. `#lib/server/db/index.js`
+- **Env vars:** declared in `src/env.ts` (`defineEnvVars`) and imported from `$app/env/private`
 - **Styling:** Tailwind CSS v4 (via `@tailwindcss/vite` plugin + `@tailwindcss/postcss`)
 - **Database:** PostgreSQL 15 (Docker Compose), Drizzle ORM
 - **Auth:** better-auth with Google + GitHub social providers, integrated via SvelteKit hooks
@@ -69,7 +71,7 @@ Package manager is **bun** (enforced via `preinstall` script — npm/yarn/pnpm w
 - Component tests use `*.svelte.test.ts` suffix with happy-dom and `@testing-library/svelte`
 - Browser-level tests use `*.svelte.spec.ts` suffix with `vitest-browser-svelte`
 - Vitest requires assertions in every test (`expect.requireAssertions: true`)
-- Server action tests mock `$lib/server/db` and `@sveltejs/kit` fail function, then import actions from `+page.server.ts`
+- Server action tests mock `#lib/server/db` and `@sveltejs/kit` fail function, then import actions from `+page.server.ts`
 
 ### Environment Variables
 

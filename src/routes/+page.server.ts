@@ -1,5 +1,5 @@
-import { db } from '$lib/server/db';
-import { route, routeGroup, trip, user } from '$lib/server/db/schema';
+import { db } from '#lib/server/db/index.js';
+import { route, routeGroup, trip, user } from '#lib/server/db/schema.js';
 import { fail } from '@sveltejs/kit';
 import { and, asc, desc, eq, isNull } from 'drizzle-orm';
 import type { PageServerLoadEvent } from './$types';

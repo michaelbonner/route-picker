@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { invalidateAll } from '$app/navigation';
-	import type { Location } from '$lib/types';
+	import type { Location } from '#lib/types.js';
 
 	interface Props {
 		routeId: number;

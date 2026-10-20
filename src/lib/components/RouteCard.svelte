@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
+	import { enhance, type ActionResult } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
-	import Timer from '$lib/components/Timer.svelte';
-	import TripMap from '$lib/components/TripMap.svelte';
-	import type { Route, RouteGroup, Trip } from '$lib/server/db/schema';
-	import type { Location } from '$lib/types';
-	import type { ActionResult } from '@sveltejs/kit';
+	import Timer from '#lib/components/Timer.svelte';
+	import TripMap from '#lib/components/TripMap.svelte';
+	import type { Route, RouteGroup, Trip } from '#lib/server/db/schema.js';
+	import type { Location } from '#lib/types.js';
 	import { format, isSameDay, isSameHour, isSameYear } from 'date-fns';
 
 	interface Props {

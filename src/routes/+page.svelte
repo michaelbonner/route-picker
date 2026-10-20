@@ -1,10 +1,10 @@
 <script lang="ts">
-	import RouteGroup from '$lib/components/RouteGroup.svelte';
+	import RouteGroup from '#lib/components/RouteGroup.svelte';
 	import { page } from '$app/state';
-	import RouteCard from '$lib/components/RouteCard.svelte';
-	import whichRouteIsFaster from '$lib/images/car-route.svg';
-	import whichRouteIsFasterScreenshot from '$lib/images/which-route-is-faster-screenshot.avif';
-	import { authClient } from '$lib/auth-client';
+	import RouteCard from '#lib/components/RouteCard.svelte';
+	import whichRouteIsFaster from '#lib/images/car-route.svg';
+	import whichRouteIsFasterScreenshot from '#lib/images/which-route-is-faster-screenshot.avif';
+	import { authClient } from '#lib/auth-client.js';
 	import { invalidateAll } from '$app/navigation';
 
 	/**
