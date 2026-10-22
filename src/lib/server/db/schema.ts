@@ -6,8 +6,8 @@ import {
 	timestamp,
 	json,
 	index,
-	unique,
-	boolean
+	boolean,
+	doublePrecision
 } from 'drizzle-orm/pg-core';
 import { relations, type InferSelectModel } from 'drizzle-orm';
 
@@ -75,6 +75,8 @@ export const route = pgTable(
 	{
 		id: serial('id').primaryKey(),
 		name: text('name').notNull(),
+		stopLatitude: doublePrecision('stopLatitude'),
+		stopLongitude: doublePrecision('stopLongitude'),
 		userId: text('userId')
 			.notNull()
 			.references(() => user.id, { onDelete: 'restrict', onUpdate: 'cascade' }),

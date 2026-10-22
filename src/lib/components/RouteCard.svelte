@@ -4,6 +4,8 @@
 	import { postAction } from '#lib/actions.js';
 	import Timer from '#lib/components/Timer.svelte';
 	import TripMap from '#lib/components/TripMap.svelte';
+	import StopPinMap from '#lib/components/StopPinMap.svelte';
+	import { endpointOffsets, formatDistance, type Point } from '#lib/geo.js';
 	import type { Route, RouteGroup, Trip } from '#lib/server/db/schema.js';
 	import { formatDuration, formatTripDate, getRouteStats, tripSeconds } from '#lib/stats.js';
 	import type { Location } from '#lib/types.js';
@@ -33,6 +35,9 @@
 
 	let isTripsOpen = $state(false);
 	let isMapOpen = $state(false);
+	let isPinOpen = $state(false);
+	let pinError = $state('');
+	let savingPin = $state(false);
 	let moveForm = $state<HTMLFormElement>();
 
 	const isValidLocation = (loc: unknown): loc is Location => {
@@ -53,6 +58,30 @@
 	);
 
 	const stats = $derived(getRouteStats(route.trips));
+	const starts = $derived(endpointOffsets(route.trips, (trip) => trip.startLocation));
+	const ends = $derived(endpointOffsets(route.trips, (trip) => trip.endLocation));
+	const stopPin = $derived(
+		route.stopLatitude === null || route.stopLongitude === null
+			? null
+			: {
+					latitude: route.stopLatitude,
+					longitude: route.stopLongitude
+				}
+	);
+	const setStopPin = async (point: Point | null) => {
+		if (savingPin) return;
+		savingPin = true;
+		pinError = '';
+		const saved = await postAction('setStopPin', {
+			routeId: route.id,
+			...(point ? point : { clear: 'true' })
+		});
+		if (saved) {
+			route.stopLatitude = point?.latitude ?? null;
+			route.stopLongitude = point?.longitude ?? null;
+		} else pinError = 'Could not save the stop pin. Try again.';
+		savingPin = false;
+	};
 
 	const deleteRoute = async () => {
 		if (!confirm(`Delete "${route.name}"?`)) return;
@@ -421,9 +450,54 @@
 		</p>
 	{/if}
 
-	<Timer routeId={route.id} routeName={route.name} />
+	<Timer routeId={route.id} routeName={route.name} {stopPin} />
+
+	<div class="rounded-xl border border-slate-200 p-3">
+		<div class="flex items-center justify-between gap-2">
+			<div>
+				<p class="text-sm font-semibold text-slate-900">Auto-stop location</p>
+				<p class="text-xs text-slate-600">
+					{stopPin ? 'Pin set for new trips' : 'Stop the timer when you reach a pin'}
+				</p>
+			</div>
+			<button
+				type="button"
+				class="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700"
+				onclick={() => (isPinOpen = !isPinOpen)}
+				aria-expanded={isPinOpen}
+			>
+				{isPinOpen ? 'Close map' : stopPin ? 'Move pin' : 'Set pin'}
+			</button>
+		</div>
+		{#if isPinOpen}
+			<p class="mt-3 text-xs text-slate-600">
+				Tap the destination on the map. Red dots show earlier trip ends. Auto-stop works while this
+				page receives location updates.
+			</p>
+			<div class="mt-2"><StopPinMap trips={route.trips} pin={stopPin} onselect={setStopPin} /></div>
+			{#if savingPin}<p class="mt-2 text-sm text-slate-600" role="status">Saving pin…</p>{/if}
+			{#if stopPin}<button
+					type="button"
+					class="mt-2 text-sm font-medium text-red-700"
+					onclick={() => setStopPin(null)}
+					disabled={savingPin}>Remove stop pin</button
+				>{/if}
+			{#if pinError}<p role="alert" class="mt-2 text-sm text-red-700">{pinError}</p>{/if}
+		{/if}
+	</div>
 
 	{#if route.trips.length > 0}
+		{#if starts.count > 1 || ends.count > 1}
+			<p class="text-sm text-slate-600">
+				Recorded points vary from their average:
+				{#if starts.count > 1 && starts.maxMeters !== null}
+					starts up to <strong>{formatDistance(starts.maxMeters)}</strong
+					>{/if}{#if starts.count > 1 && ends.count > 1};{/if}
+				{#if ends.count > 1 && ends.maxMeters !== null}
+					ends up to <strong>{formatDistance(ends.maxMeters)}</strong>{/if}. Open trip history to
+				find an outlier.
+			</p>
+		{/if}
 		<div class="divide-y divide-slate-100 rounded-xl border border-slate-200">
 			<div>
 				<button
@@ -450,11 +524,19 @@
 
 				{#if isTripsOpen}
 					<ul transition:slide class="max-h-72 divide-y divide-slate-100 overflow-auto">
-						{#each route.trips as trip (trip.id)}
+						{#each route.trips as trip, index (trip.id)}
 							{@const seconds = tripSeconds(trip)}
 							<li class="flex items-center gap-2 py-1.5 pr-1.5 pl-3 text-sm">
 								<span class="min-w-0 flex-1 text-slate-600">
 									{formatTripDate(trip.startTime, trip.endTime)}
+									<span class="block text-xs text-slate-500">
+										Start {starts.offsets[index] === null
+											? 'unknown'
+											: formatDistance(starts.offsets[index]) + ' from average'} · End {ends
+											.offsets[index] === null
+											? 'unknown'
+											: formatDistance(ends.offsets[index]) + ' from average'}
+									</span>
 								</span>
 								{#if seconds !== null}
 									{#if seconds === stats.bestSeconds && stats.tripCount > 1}

@@ -7,6 +7,8 @@ describe('RouteCard basic functionality', () => {
 	const mockRoute: Route & { trips: Trip[] } = {
 		id: 1,
 		name: 'Test Route',
+		stopLatitude: null,
+		stopLongitude: null,
 		userId: '1',
 		routeGroupId: null,
 		trips: [],
