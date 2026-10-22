@@ -23,3 +23,10 @@
 		@apply cursor-pointer;
 	}
 }
+
+@layer base {
+	html {
+		@apply bg-slate-50 text-slate-900 antialiased;
+		-webkit-tap-highlight-color: transparent;
+	}
+}

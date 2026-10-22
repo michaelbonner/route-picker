@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
+	import ActiveTripBar from '#lib/components/ActiveTripBar.svelte';
 	import SignInOut from '#lib/components/SignInOut.svelte';
 	import car from '#lib/images/car.svg';
+	import { tripTimers } from '#lib/trip-timer.svelte.js';
 
 	import '../app.css';
 	interface Props {
@@ -13,6 +15,9 @@
 	const { children, data }: Props = $props();
 
 	const canonical = $derived(`https://www.whichrouteisfaster.com${page.url.pathname}`);
+
+	// restore any trip that was being timed before a reload
+	$effect(() => tripTimers.load());
 
 	$effect(() => {
 		const script = document.createElement('script');
@@ -43,33 +48,46 @@
 	<link rel="canonical" href={canonical} />
 </svelte:head>
 
-<div class="grid gap-8 py-8 lg:gap-12">
-	<header
-		class="flex flex-wrap gap-4 justify-center px-4 mx-auto w-full max-w-7xl md:justify-between"
-	>
-		<h1 class="text-2xl font-bold underline lg:text-3xl 2xl:text-3xl shink-0">
-			<a class="flex gap-4 items-end" href={resolve('/')}>
-				<img class="h-10" src={car} alt="Which Route Is Faster Car" />
-				<span> Which Route Is Faster </span>
+<div class="flex min-h-dvh flex-col">
+	<header class="border-b border-slate-200 bg-white/80 backdrop-blur">
+		<div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
+			<a
+				class="flex min-w-0 items-center gap-2.5 rounded-lg text-slate-900 focus-visible:outline-2 focus-visible:outline-teal-600"
+				href={resolve('/')}
+			>
+				<img class="h-8 shrink-0" src={car} alt="" />
+				<span class="truncate text-base font-bold tracking-tight sm:text-xl"
+					>Which Route Is Faster</span
+				>
 			</a>
-		</h1>
 
-		<SignInOut />
+			<SignInOut />
+		</div>
 	</header>
 
-	<main class="px-4 mx-auto w-full max-w-7xl">
+	<main class="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-10">
 		{@render children?.()}
 	</main>
 
-	<footer class="flex flex-wrap justify-between px-4 mx-auto w-full max-w-7xl text-sm font-light">
-		<p>
-			&copy;2023-{new Date().getFullYear()}
-			<a class="underline underline-offset-2" href="https://michaelbonner.dev" target="_blank"
-				>Michael Bonner</a
-			>
-		</p>
-		<p>
-			<a class="underline underline-offset-2" href={resolve('policies')}>Policies</a>
-		</p>
+	<footer class="border-t border-slate-200">
+		<div
+			class="mx-auto flex w-full max-w-6xl flex-wrap justify-between gap-2 px-4 py-6 text-sm text-slate-500"
+		>
+			<p>
+				&copy;2023-{new Date().getFullYear()}
+				<a
+					class="underline underline-offset-2 hover:text-slate-800"
+					href="https://michaelbonner.dev"
+					target="_blank">Michael Bonner</a
+				>
+			</p>
+			<p>
+				<a class="underline underline-offset-2 hover:text-slate-800" href={resolve('/policies')}
+					>Policies</a
+				>
+			</p>
+		</div>
 	</footer>
+
+	<ActiveTripBar />
 </div>

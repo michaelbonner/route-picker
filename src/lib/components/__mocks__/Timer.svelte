@@ -1,6 +1,7 @@
 <script lang="ts">
 	interface Props {
 		routeId: number;
+		routeName: string;
 	}
 
 	const props: Props = $props();
