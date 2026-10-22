@@ -26,6 +26,13 @@ const geolocationOptions: PositionOptions = {
 	maximumAge: 5 * 1000 // allow cached positions for 5 seconds
 };
 
+// No timeout while watching: a stationary phone may not report a new fix for a
+// while, and browsers surface that as a TIMEOUT error on every watch interval.
+const watchOptions: PositionOptions = {
+	enableHighAccuracy: true,
+	maximumAge: 5 * 1000
+};
+
 const toLocation = (position: GeolocationPosition): Location => ({
 	coords: {
 		accuracy: position.coords.accuracy,
@@ -196,7 +203,7 @@ class TripTimers {
 				this.locationErrors[routeId] =
 					'Location updates stopped. Check location permission or stop this trip manually.';
 			},
-			geolocationOptions
+			watchOptions
 		);
 		this.#pathWatchIds.set(routeId, id);
 	}

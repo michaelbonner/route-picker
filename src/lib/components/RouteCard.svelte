@@ -490,10 +490,10 @@
 		{#if starts.count > 1 || ends.count > 1}
 			<p class="text-sm text-slate-600">
 				Recorded points vary from their average:
-				{#if starts.maxMeters !== null}
+				{#if starts.count > 1 && starts.maxMeters !== null}
 					starts up to <strong>{formatDistance(starts.maxMeters)}</strong
-					>{/if}{#if starts.maxMeters !== null && ends.maxMeters !== null};{/if}
-				{#if ends.maxMeters !== null}
+					>{/if}{#if starts.count > 1 && ends.count > 1};{/if}
+				{#if ends.count > 1 && ends.maxMeters !== null}
 					ends up to <strong>{formatDistance(ends.maxMeters)}</strong>{/if}. Open trip history to
 				find an outlier.
 			</p>
