@@ -2,6 +2,7 @@ import { browser } from '$app/env';
 import { invalidateAll } from '$app/navigation';
 import { postAction } from '#lib/actions.js';
 import type { Location } from '#lib/types.js';
+import { advanceArrival, type Point } from '#lib/geo.js';
 
 export interface ActiveTrip {
 	routeId: number;
@@ -12,6 +13,8 @@ export interface ActiveTrip {
 	startLocation: Location | null;
 	endLocation: Location | null;
 	path: Location[];
+	stopPin: Point | null;
+	hasLeftStopArea: boolean;
 }
 
 const STORAGE_KEY = 'route-picker:active-trips';
@@ -54,9 +57,11 @@ class TripTimers {
 	now = $state(Date.now());
 	savingIds = $state<number[]>([]);
 	errors = $state<Record<number, string>>({});
+	locationErrors = $state<Record<number, string>>({});
 
 	#tickId: number | null = null;
-	#pathSampleIds = new Map<number, number>();
+	#pathWatchIds = new Map<number, number>();
+	#arrivalFixes = new Map<number, number>();
 	#loaded = false;
 
 	load() {
@@ -88,7 +93,7 @@ class TripTimers {
 		return this.savingIds.includes(routeId);
 	}
 
-	start(routeId: number, routeName: string) {
+	start(routeId: number, routeName: string, stopPin: Point | null = null) {
 		if (this.get(routeId)) return;
 
 		this.now = Date.now();
@@ -99,35 +104,34 @@ class TripTimers {
 			endTime: null,
 			startLocation: null,
 			endLocation: null,
-			path: []
+			path: [],
+			stopPin,
+			hasLeftStopArea: false
 		});
 		delete this.errors[routeId];
+		delete this.locationErrors[routeId];
 
-		getPosition((location) => {
-			const trip = this.get(routeId);
-			if (trip) {
-				trip.startLocation = location;
-				this.#persist();
-			}
-		});
 		this.#startPathSampling(routeId);
 		this.#syncTick();
 		this.#persist();
 	}
 
-	stop(routeId: number) {
+	stop(routeId: number, location?: Location) {
 		const trip = this.get(routeId);
 		if (!trip || trip.endTime !== null) return;
 
 		trip.endTime = Date.now();
+		if (location) trip.endLocation = location;
 		this.#stopPathSampling(routeId);
-		getPosition((location) => {
-			const current = this.get(routeId);
-			if (current) {
-				current.endLocation = location;
-				this.#persist();
-			}
-		});
+		delete this.locationErrors[routeId];
+		if (!location)
+			getPosition((location) => {
+				const current = this.get(routeId);
+				if (current && current.endTime !== null) {
+					current.endLocation = location;
+					this.#persist();
+				}
+			});
 		this.#syncTick();
 		this.#persist();
 	}
@@ -136,6 +140,7 @@ class TripTimers {
 		this.#stopPathSampling(routeId);
 		this.trips = this.trips.filter((trip) => trip.routeId !== routeId);
 		delete this.errors[routeId];
+		delete this.locationErrors[routeId];
 		this.#syncTick();
 		this.#persist();
 	}
@@ -168,24 +173,55 @@ class TripTimers {
 	}
 
 	#startPathSampling(routeId: number) {
-		if (!browser || this.#pathSampleIds.has(routeId)) return;
-
-		const id = window.setInterval(() => {
-			getPosition((location) => {
+		if (!browser || this.#pathWatchIds.has(routeId)) return;
+		if (!navigator.geolocation) {
+			this.locationErrors[routeId] =
+				'Location is unavailable in this browser. Auto-stop cannot run.';
+			return;
+		}
+		const id = navigator.geolocation.watchPosition(
+			(position) => {
 				const trip = this.get(routeId);
-				if (trip && trip.endTime === null) {
+				if (!trip || trip.endTime !== null) return;
+				const location = toLocation(position);
+				delete this.locationErrors[routeId];
+				if (!trip.startLocation) trip.startLocation = location;
+				const lastSample = trip.path.at(-1);
+				if (!lastSample || location.timestamp - lastSample.timestamp >= PATH_SAMPLE_MS)
 					trip.path.push(location);
-					this.#persist();
-				}
-			});
-		}, PATH_SAMPLE_MS);
-		this.#pathSampleIds.set(routeId, id);
+				this.#checkArrival(trip, location);
+				this.#persist();
+			},
+			() => {
+				this.locationErrors[routeId] =
+					'Location updates stopped. Check location permission or stop this trip manually.';
+			},
+			geolocationOptions
+		);
+		this.#pathWatchIds.set(routeId, id);
 	}
 
 	#stopPathSampling(routeId: number) {
-		const id = this.#pathSampleIds.get(routeId);
-		if (id !== undefined) window.clearInterval(id);
-		this.#pathSampleIds.delete(routeId);
+		const id = this.#pathWatchIds.get(routeId);
+		if (id !== undefined) navigator.geolocation.clearWatch(id);
+		this.#pathWatchIds.delete(routeId);
+		this.#arrivalFixes.delete(routeId);
+	}
+
+	#checkArrival(trip: ActiveTrip, location: Location) {
+		if (!trip.stopPin) return;
+		const progress = advanceArrival(
+			{
+				hasLeft: trip.hasLeftStopArea,
+				insideFixes: this.#arrivalFixes.get(trip.routeId) ?? 0,
+				shouldStop: false
+			},
+			location,
+			trip.stopPin
+		);
+		trip.hasLeftStopArea = progress.hasLeft;
+		if (progress.shouldStop) this.stop(trip.routeId, location);
+		else this.#arrivalFixes.set(trip.routeId, progress.insideFixes);
 	}
 
 	// Only tick the shared clock while something is actually running.

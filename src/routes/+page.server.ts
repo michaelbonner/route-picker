@@ -130,14 +130,56 @@ export const actions = {
 		}
 		return { success: true };
 	},
-	deleteTrip: async ({ request }: { request: Request }) => {
+	deleteTrip: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
 		const data = await request.formData();
 		const idToDelete = data.get('id');
 		if (!idToDelete) {
 			return { success: false, error: 'No trip id provided' };
 		}
-		await db.delete(trip).where(eq(trip.id, +idToDelete));
+		const id = Number(idToDelete);
+		if (!Number.isSafeInteger(id) || id <= 0 || !locals.session?.userId) return { success: false };
+		const savedTrip = await db.query.trip.findFirst({
+			where: eq(trip.id, id),
+			with: { route: true }
+		});
+		if (!savedTrip || savedTrip.route.userId !== locals.session.userId) return { success: false };
+		await db.delete(trip).where(eq(trip.id, id));
 		return { success: true };
+	},
+	setStopPin: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
+		const userId = locals.session?.userId;
+		if (!userId) return { success: false };
+		const data = await request.formData();
+		const routeId = Number(data.get('routeId'));
+		if (!Number.isSafeInteger(routeId) || routeId <= 0) return { success: false };
+		const clear = data.get('clear') === 'true';
+		const latitudeRaw = data.get('latitude');
+		const longitudeRaw = data.get('longitude');
+		const latitude = Number(latitudeRaw);
+		const longitude = Number(longitudeRaw);
+		if (
+			!clear &&
+			(typeof latitudeRaw !== 'string' ||
+				latitudeRaw === '' ||
+				typeof longitudeRaw !== 'string' ||
+				longitudeRaw === '' ||
+				!Number.isFinite(latitude) ||
+				latitude < -90 ||
+				latitude > 90 ||
+				!Number.isFinite(longitude) ||
+				longitude < -180 ||
+				longitude > 180)
+		)
+			return { success: false };
+		const updated = await db
+			.update(route)
+			.set({
+				stopLatitude: clear ? null : latitude,
+				stopLongitude: clear ? null : longitude
+			})
+			.where(and(eq(route.id, routeId), eq(route.userId, userId)))
+			.returning({ id: route.id });
+		return { success: updated.length > 0 };
 	},
 	updateRouteName: async ({ request, locals }: { request: Request; locals: App.Locals }) => {
 		try {

@@ -1,18 +1,21 @@
 <script lang="ts">
 	import { formatClock } from '#lib/stats.js';
 	import { tripTimers } from '#lib/trip-timer.svelte.js';
+	import type { Point } from '#lib/geo.js';
 
 	interface Props {
 		routeId: number;
 		routeName: string;
+		stopPin: Point | null;
 	}
 
-	const { routeId, routeName }: Props = $props();
+	const { routeId, routeName, stopPin }: Props = $props();
 
 	const trip = $derived(tripTimers.get(routeId));
 	const isRunning = $derived(trip?.endTime === null);
 	const isSaving = $derived(tripTimers.isSaving(routeId));
 	const error = $derived(tripTimers.errors[routeId]);
+	const locationError = $derived(tripTimers.locationErrors[routeId]);
 
 	const discard = () => {
 		if (confirm('Discard this trip? Its time will not be saved.')) tripTimers.discard(routeId);
@@ -23,7 +26,7 @@
 	<button
 		type="button"
 		class="flex h-16 w-full items-center justify-center gap-2 rounded-xl bg-teal-600 text-lg font-semibold text-white shadow-sm transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 active:scale-[0.99]"
-		onclick={() => tripTimers.start(routeId, routeName)}
+		onclick={() => tripTimers.start(routeId, routeName, stopPin)}
 	>
 		<svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 			<path
@@ -68,6 +71,12 @@
 		</div>
 
 		{#if isRunning}
+			{#if trip.stopPin}
+				<p class="mt-2 px-1 text-sm text-teal-800">
+					Auto-stop is on. Keep this page open while driving; your browser may pause location
+					updates in the background.
+				</p>
+			{/if}
 			<button
 				type="button"
 				class="mt-3 flex h-16 w-full items-center justify-center gap-2 rounded-xl bg-red-600 text-lg font-semibold text-white shadow-sm transition hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 active:scale-[0.99]"
@@ -101,6 +110,9 @@
 
 		{#if error}
 			<p class="mt-2 px-1 text-sm text-red-700" role="alert">{error}</p>
+		{/if}
+		{#if isRunning && locationError}
+			<p class="mt-2 px-1 text-sm text-red-700" role="alert">{locationError}</p>
 		{/if}
 	</div>
 {/if}

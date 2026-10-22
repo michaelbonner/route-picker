@@ -2,7 +2,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('#lib/server/db/index.js', () => ({
 	db: {
-		delete: vi.fn()
+		delete: vi.fn(),
+		query: { trip: { findFirst: vi.fn() } }
 	}
 }));
 
@@ -14,7 +15,7 @@ describe('deleteTrip server action', () => {
 
 	const mockDeleteChain = () => {
 		const whereMock = vi.fn().mockResolvedValue({ success: true });
-		(db.delete as any).mockReturnValue({ where: whereMock });
+		vi.mocked(db.delete).mockReturnValue({ where: whereMock } as never);
 		return { whereMock };
 	};
 
@@ -26,9 +27,11 @@ describe('deleteTrip server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 
 		const { whereMock } = mockDeleteChain();
+		vi.mocked(db.query.trip.findFirst).mockResolvedValue({ route: { userId: 'owner' } } as never);
 
 		const result = await actions.deleteTrip({
-			request: mockRequest as unknown as Request
+			request: mockRequest as unknown as Request,
+			locals: { session: { userId: 'owner' } } as App.Locals
 		});
 
 		expect(result).toEqual({ success: true });
@@ -41,9 +44,23 @@ describe('deleteTrip server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 
 		const result = await actions.deleteTrip({
-			request: mockRequest as unknown as Request
+			request: mockRequest as unknown as Request,
+			locals: { session: { userId: 'owner' } } as App.Locals
 		});
 
 		expect(result).toEqual({ success: false, error: 'No trip id provided' });
+	});
+
+	it('does not delete another user’s trip', async () => {
+		mockRequest.formData.mockResolvedValue(new Map([['id', '99']]));
+		vi.mocked(db.query.trip.findFirst).mockResolvedValue({
+			route: { userId: 'someone-else' }
+		} as never);
+		const result = await actions.deleteTrip({
+			request: mockRequest as unknown as Request,
+			locals: { session: { userId: 'owner' } } as App.Locals
+		});
+		expect(result).toEqual({ success: false });
+		expect(db.delete).not.toHaveBeenCalled();
 	});
 });

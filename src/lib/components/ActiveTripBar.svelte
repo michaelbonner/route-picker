@@ -24,7 +24,13 @@
 					<a href="#route-{trip.routeId}-heading" class="min-w-0 flex-1">
 						<span class="block truncate text-sm font-medium text-slate-900">{trip.routeName}</span>
 						<span class="block text-xs text-slate-500">
-							{isRunning ? 'Timing trip' : 'Finished — not saved yet'}
+							{isRunning
+								? tripTimers.locationErrors[trip.routeId]
+									? 'Location unavailable · stop manually'
+									: trip.stopPin
+										? 'Timing trip · auto-stop on'
+										: 'Timing trip'
+								: 'Finished — not saved yet'}
 						</span>
 					</a>
 					<span class="font-mono text-xl font-semibold text-slate-900 tabular-nums">
