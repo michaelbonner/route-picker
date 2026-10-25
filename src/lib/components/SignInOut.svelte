@@ -23,7 +23,8 @@
 	<div class="flex shrink-0 items-center gap-3">
 		<span class="hidden text-right text-sm leading-tight sm:block">
 			<span class="block text-xs text-slate-500">Signed in as</span>
-			<span class="block max-w-56 truncate font-medium text-slate-800">{page.data.user?.email}</span
+			<span class="block max-w-56 truncate font-medium text-slate-800"
+				>{page.data.user?.name || page.data.user?.email}</span
 			>
 		</span>
 		<span
