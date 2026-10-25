@@ -12,8 +12,10 @@ export const auth = betterAuth({
 		provider: 'pg'
 	}),
 	socialProviders: {
-		github: { clientId: GITHUB_ID, clientSecret: GITHUB_SECRET },
-		google: { clientId: GOOGLE_ID, clientSecret: GOOGLE_SECRET }
+		// Refresh name/image on every sign-in; users migrated from auth.js were
+		// left with the placeholder name 'User'.
+		github: { clientId: GITHUB_ID, clientSecret: GITHUB_SECRET, overrideUserInfoOnSignIn: true },
+		google: { clientId: GOOGLE_ID, clientSecret: GOOGLE_SECRET, overrideUserInfoOnSignIn: true }
 	},
 	plugins: [sveltekitCookies(getRequestEvent)]
 });
