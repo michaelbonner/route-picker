@@ -15,11 +15,11 @@ import { actions } from '../../routes/+page.server.js';
 
 describe('postRoute server action', () => {
 	const mockRequest = { formData: vi.fn() };
-	const mockLocals = { session: null as any };
+	const mockLocals = { session: null as { userId: string | number } | null };
 
 	const mockInsertChain = () => {
 		const valuesMock = vi.fn().mockResolvedValue({ success: true });
-		(db.insert as any).mockReturnValue({ values: valuesMock });
+		(db.insert as ReturnType<typeof vi.fn>).mockReturnValue({ values: valuesMock });
 		return { valuesMock };
 	};
 
@@ -39,7 +39,7 @@ describe('postRoute server action', () => {
 			createdAt: new Date(),
 			updatedAt: new Date()
 		};
-		(db.query.user.findFirst as any).mockResolvedValue(mockUser);
+		(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
 
 		const { valuesMock } = mockInsertChain();
 
@@ -72,8 +72,8 @@ describe('postRoute server action', () => {
 			createdAt: new Date(),
 			updatedAt: new Date()
 		};
-		(db.query.user.findFirst as any).mockResolvedValue(mockUser);
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+		(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 5,
 			userId: 'user-1',
 			name: 'Group'
@@ -110,8 +110,8 @@ describe('postRoute server action', () => {
 			createdAt: new Date(),
 			updatedAt: new Date()
 		};
-		(db.query.user.findFirst as any).mockResolvedValue(mockUser);
-		(db.query.routeGroup.findFirst as any).mockResolvedValue(null);
+		(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 		const { valuesMock } = mockInsertChain();
 
@@ -146,7 +146,7 @@ describe('postRoute server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.user.findFirst as any).mockResolvedValue(null);
+		(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 		const result = await actions.postRoute({
 			request: mockRequest as unknown as Request,

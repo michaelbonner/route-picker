@@ -103,8 +103,9 @@
 						)}
 						class="grid gap-2"
 					>
-						<label for="new-route-name" class="text-sm font-medium text-slate-700">Route name</label
-						>
+						<label for="new-route-name" class="text-sm font-medium text-slate-700">
+							Route name
+						</label>
 						<div class="flex min-w-0 gap-2">
 							<input
 								id="new-route-name"
@@ -132,8 +133,9 @@
 					<li class="rounded-2xl border border-slate-200 bg-white/60 p-4">
 						<span
 							class="flex size-7 items-center justify-center rounded-full bg-teal-100 text-sm font-semibold text-teal-800"
-							>{i + 1}</span
 						>
+							{i + 1}
+						</span>
 						<h3 class="mt-3 font-semibold text-slate-900">{step.title}</h3>
 						<p class="mt-1 text-sm text-slate-600">{step.body}</p>
 					</li>
@@ -255,8 +257,9 @@
 					<li class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
 						<span
 							class="flex size-8 items-center justify-center rounded-full bg-teal-100 font-semibold text-teal-800"
-							>{i + 1}</span
 						>
+							{i + 1}
+						</span>
 						<h3 class="mt-4 font-semibold text-slate-900">{step.title}</h3>
 						<p class="mt-1 text-slate-600">{step.body}</p>
 					</li>
@@ -268,6 +271,7 @@
 			<a
 				href={whichRouteIsFasterScreenshot}
 				target="_blank"
+				rel="external noopener noreferrer"
 				class="block overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm"
 			>
 				<img

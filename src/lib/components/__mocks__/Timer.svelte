@@ -7,4 +7,6 @@
 	const props: Props = $props();
 </script>
 
-<div data-testid="timer-mock">Timer Mock for Route {props.routeId}</div>
+<div data-testid="timer-mock" aria-label={props.routeName}>
+	Timer Mock for Route {props.routeId}
+</div>

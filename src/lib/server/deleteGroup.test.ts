@@ -23,11 +23,11 @@ import { actions } from '../../routes/+page.server.js';
 
 describe('deleteGroup server action', () => {
 	const mockRequest = { formData: vi.fn() };
-	const mockLocals = { session: null as any };
+	const mockLocals = { session: null as { userId: string | number } | null };
 
 	const mockDeleteChain = () => {
 		const whereMock = vi.fn().mockResolvedValue({ success: true });
-		(db.delete as any).mockReturnValue({ where: whereMock });
+		(db.delete as ReturnType<typeof vi.fn>).mockReturnValue({ where: whereMock });
 		return { whereMock };
 	};
 
@@ -39,7 +39,7 @@ describe('deleteGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 3,
 			userId: 'user-1',
 			name: 'My Group'
@@ -88,7 +88,7 @@ describe('deleteGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.routeGroup.findFirst as any).mockResolvedValue(null);
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 		await actions.deleteGroup({
 			request: mockRequest as unknown as Request,
@@ -103,7 +103,7 @@ describe('deleteGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 3,
 			userId: 'user-2',
 			name: 'Not My Group'

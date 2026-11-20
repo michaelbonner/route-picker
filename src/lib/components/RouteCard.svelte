@@ -480,8 +480,10 @@
 					type="button"
 					class="mt-2 text-sm font-medium text-red-700"
 					onclick={() => setStopPin(null)}
-					disabled={savingPin}>Remove stop pin</button
-				>{/if}
+					disabled={savingPin}
+				>
+					Remove stop pin
+				</button>{/if}
 			{#if pinError}<p role="alert" class="mt-2 text-sm text-red-700">{pinError}</p>{/if}
 		{/if}
 	</div>
@@ -491,8 +493,9 @@
 			<p class="text-sm text-slate-600">
 				Recorded points vary from their average:
 				{#if starts.count > 1 && starts.maxMeters !== null}
-					starts up to <strong>{formatDistance(starts.maxMeters)}</strong
-					>{/if}{#if starts.count > 1 && ends.count > 1};{/if}
+					starts up to <strong>
+						{formatDistance(starts.maxMeters)}
+					</strong>{/if}{#if starts.count > 1 && ends.count > 1};{/if}
 				{#if ends.count > 1 && ends.maxMeters !== null}
 					ends up to <strong>{formatDistance(ends.maxMeters)}</strong>{/if}. Open trip history to
 				find an outlier.
@@ -542,12 +545,13 @@
 									{#if seconds === stats.bestSeconds && stats.tripCount > 1}
 										<span
 											class="rounded-full bg-emerald-100 px-1.5 text-xs font-medium text-emerald-800"
-											>Best</span
 										>
+											Best
+										</span>
 									{/if}
-									<span class="font-medium text-slate-900 tabular-nums"
-										>{formatDuration(seconds)}</span
-									>
+									<span class="font-medium text-slate-900 tabular-nums">
+										{formatDuration(seconds)}
+									</span>
 								{/if}
 								<button
 									class="rounded-md p-1.5 text-slate-400 transition-colors hover:bg-red-50 hover:text-red-600"

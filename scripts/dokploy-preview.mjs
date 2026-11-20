@@ -44,7 +44,7 @@ const APP_PORT = 3000;
 
 // Values in previewEnv that must resolve to this PR's own host. Anything left
 // pointing at production would send preview auth callbacks to the live site.
-const HOST_DEPENDENT_KEYS = ["BETTER_AUTH_URL"];
+const HOST_DEPENDENT_KEYS = ['BETTER_AUTH_URL'];
 
 function required(name, value) {
 	if (!value) {

@@ -30,21 +30,23 @@
 	<div>
 		<span>
 			<span>
-				<span
-					>This privacy notice for <bdt>Michael Bonner<bdt> </bdt> </bdt> (<bdt> </bdt>"<strong
-						>we</strong
-					>," "<strong>us</strong>," or "<strong>our</strong>"<bdt
+				<span>
+					This privacy notice for <bdt>Michael Bonner<bdt> </bdt> </bdt> (<bdt> </bdt>"<strong>
+						we
+					</strong>," "<strong>us</strong>," or "<strong>our</strong>"<bdt
 						class="statement-end-if-in-editor"
 					>
 					</bdt>
 				</span>
-				<span
-					>), describes how and why we might collect, store, use, and/or share (<bdt> </bdt>"<strong
-						>process</strong
-					>"<bdt class="statement-end-if-in-editor"> </bdt>) your information when you use our
-					services (<bdt> </bdt>"<strong>Services</strong>"<bdt class="statement-end-if-in-editor">
-					</bdt>), such as when you:</span
-				>
+				<span>
+					), describes how and why we might collect, store, use, and/or share (<bdt> </bdt>"<strong>
+						process
+					</strong>"<bdt class="statement-end-if-in-editor"> </bdt>) your information when you use
+					our services (<bdt> </bdt>"<strong>Services</strong>"<bdt
+						class="statement-end-if-in-editor"
+					>
+					</bdt>), such as when you:
+				</span>
 			</span>
 		</span>
 		<span>
@@ -64,9 +66,9 @@
 			Visit our website<bdt> </bdt> at
 			<span>
 				<bdt>
-					<a href="http://www.whichrouteisfaster.com" target="_blank"
-						>http://www.whichrouteisfaster.com</a
-					>
+					<a href="http://www.whichrouteisfaster.com" target="_blank">
+						http://www.whichrouteisfaster.com
+					</a>
 				</bdt>
 			</span>
 			<span>
@@ -74,9 +76,9 @@
 					<span>
 						<span>
 							<span>
-								<bdt class="statement-end-if-in-editor"
-									>, or any website of ours that links to this privacy notice</bdt
-								>
+								<bdt class="statement-end-if-in-editor">
+									, or any website of ours that links to this privacy notice
+								</bdt>
 							</span>
 						</span>
 					</span>
@@ -117,8 +119,8 @@
 			<li>
 				<span>
 					<span>
-						<span
-							>Engage with us in other related ways, including any sales, marketing, or events<span>
+						<span>
+							Engage with us in other related ways, including any sales, marketing, or events<span>
 								<span>
 									<span>
 										<span>
@@ -141,8 +143,8 @@
 						<strong>Questions or concerns?&nbsp;</strong>Reading this privacy notice will help you
 						understand your privacy rights and choices. If you do not agree with our policies and
 						practices, please do not use our Services.<bdt> </bdt> If you still have any questions
-						or concerns, please contact us at <bdt>whichrouteisfaster@michaelbonner.dev</bdt>.</span
-					>
+						or concerns, please contact us at <bdt>whichrouteisfaster@michaelbonner.dev</bdt>.
+					</span>
 				</span>
 			</span>
 		</div>
@@ -166,11 +168,11 @@
 			<span>
 				<span>
 					<strong>
-						<em
-							>This summary provides key points from our privacy notice, but you can find out more
+						<em>
+							This summary provides key points from our privacy notice, but you can find out more
 							details about any of these topics by clicking the link following each key point or by
-							using our&nbsp;</em
-						>
+							using our&nbsp;
+						</em>
 					</strong>
 				</span>
 			</span>
@@ -199,8 +201,8 @@
 				<span>
 					<strong>What personal information do we process?</strong> When you visit, use, or navigate our
 					Services, we may process personal information depending on how you interact with us and the
-					Services, the choices you make, and the products and features you use. Learn more about&nbsp;</span
-				>
+					Services, the choices you make, and the products and features you use. Learn more about&nbsp;
+				</span>
 			</span>
 			<a href="#personalinfo">
 				<span>
@@ -240,8 +242,8 @@
 					<strong>How do we process your information?</strong> We process your information to provide,
 					improve, and administer our Services, communicate with you, for security and fraud prevention,
 					and to comply with law. We may also process your information for other purposes with your consent.
-					We process your information only when we have a valid legal reason to do so. Learn more about&nbsp;</span
-				>
+					We process your information only when we have a valid legal reason to do so. Learn more about&nbsp;
+				</span>
 			</span>
 			<a href="#infouse">
 				<span>
@@ -256,12 +258,12 @@
 		<div>
 			<span>
 				<span>
-					<strong
-						>In what situations and with which <bdt> </bdt>parties do we share personal information?</strong
-					>
+					<strong>
+						In what situations and with which <bdt> </bdt>parties do we share personal information?
+					</strong>
 					We may share information in specific situations and with specific
-					<bdt> </bdt>third parties. Learn more about&nbsp;</span
-				>
+					<bdt> </bdt>third parties. Learn more about&nbsp;
+				</span>
 			</span>
 			<a href="#whoshare">
 				<span>
@@ -285,8 +287,8 @@
 					to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other
 					<bdt> </bdt>unauthorized<bdt class="statement-end-if-in-editor"> </bdt> third parties will not
 					be able to defeat our security and improperly collect, access, steal, or modify your information.
-					Learn more about&nbsp;</span
-				>
+					Learn more about&nbsp;
+				</span>
 			</span>
 			<a href="#infosafe">
 				<span>
@@ -308,8 +310,8 @@
 				<span>
 					<strong>What are your rights?</strong> Depending on where you are located geographically, the
 					applicable privacy law may mean you have certain rights regarding your personal information.
-					Learn more about&nbsp;</span
-				>
+					Learn more about&nbsp;
+				</span>
 			</span>
 			<a href="#privacyrights">
 				<span>
@@ -340,8 +342,8 @@
 			<span>
 				<span>
 					<bdt> </bdt>, or by contacting us. We will consider and act upon any request in accordance
-					with applicable data protection laws.</span
-				>
+					with applicable data protection laws.
+				</span>
 			</span>
 		</div>
 		<div>
@@ -642,20 +644,20 @@
 		<div>
 			<span>
 				<span>
-					<span
-						>We collect personal information that you voluntarily provide to us when you
-						<span> <bdt> </bdt> </span>register on the Services,&nbsp;</span
-					>
+					<span>
+						We collect personal information that you voluntarily provide to us when you
+						<span> <bdt> </bdt> </span>register on the Services,&nbsp;
+					</span>
 					<span>
 						<span>
 							<span>
 								<bdt class="statement-end-if-in-editor"> </bdt>
 							</span>
 						</span>
-						<span
-							>express an interest in obtaining information about us or our products and Services,
-							when you participate in activities on the Services, or otherwise when you contact us.</span
-						>
+						<span>
+							express an interest in obtaining information about us or our products and Services,
+							when you participate in activities on the Services, or otherwise when you contact us.
+						</span>
 					</span>
 				</span>
 			</span>
@@ -725,8 +727,8 @@
 			<span>
 				<span>
 					<strong>Sensitive Information.</strong> <bdt> </bdt>We do not process sensitive
-					information.</span
-				>
+					information.
+				</span>
 			</span>
 		</div>
 		<div>
@@ -772,8 +774,8 @@
 								</span>
 							</span>
 						</span>
-						<bdt> </bdt>"<bdt class="statement-end-if-in-editor"> </bdt> below.</span
-					>
+						<bdt> </bdt>"<bdt class="statement-end-if-in-editor"> </bdt> below.
+					</span>
 				</span>
 			</span>
 		</div>
@@ -797,10 +799,10 @@
 		<div>
 			<span>
 				<span>
-					<span
-						>All personal information that you provide to us must be true, complete, and accurate,
-						and you must notify us of any changes to such personal information.</span
-					>
+					<span>
+						All personal information that you provide to us must be true, complete, and accurate,
+						and you must notify us of any changes to such personal information.
+					</span>
 				</span>
 			</span>
 		</div>
@@ -848,11 +850,11 @@
 										<strong>
 											<em>&nbsp;</em>
 										</strong>
-										<em
-											>Some information — such as your Internet Protocol (IP) address and/or browser
+										<em>
+											Some information — such as your Internet Protocol (IP) address and/or browser
 											and device characteristics — is collected automatically when you visit our
-											Services.</em
-										>
+											Services.
+										</em>
 									</span>
 								</span>
 							</span>
@@ -867,16 +869,16 @@
 		<div>
 			<span>
 				<span>
-					<span
-						>We automatically collect certain information when you visit, use, or navigate the
+					<span>
+						We automatically collect certain information when you visit, use, or navigate the
 						Services. This information does not reveal your specific identity (like your name or
 						contact information) but may include device and usage information, such as your IP
 						address, browser and device characteristics, operating system, language preferences,
 						referring URLs, device name, country, location, information about how and when you use
 						our Services, and other technical information. This information is primarily needed to
 						maintain the security and operation of our Services, and for our internal analytics and
-						reporting purposes.</span
-					>
+						reporting purposes.
+					</span>
 				</span>
 			</span>
 		</div>
@@ -895,8 +897,8 @@
 		<div>
 			<span>
 				<span>
-					<span
-						>Like many businesses, we also collect information through cookies and similar
+					<span>
+						Like many businesses, we also collect information through cookies and similar
 						technologies. <bdt> </bdt>
 						<bdt> </bdt>
 					</span>
@@ -1001,9 +1003,9 @@
 								<span>
 									<span id="control">
 										<strong>
-											<span data-custom-class="heading_1"
-												>2. HOW DO WE PROCESS YOUR INFORMATION?</span
-											>
+											<span data-custom-class="heading_1">
+												2. HOW DO WE PROCESS YOUR INFORMATION?
+											</span>
 										</strong>
 									</span>
 								</span>
@@ -1025,12 +1027,12 @@
 												<strong>
 													<em>In Short:&nbsp;</em>
 												</strong>
-												<em
-													>We process your information to provide, improve, and administer our
+												<em>
+													We process your information to provide, improve, and administer our
 													Services, communicate with you, for security and fraud prevention, and to
 													comply with law. We may also process your information for other purposes
-													with your consent.</em
-												>
+													with your consent.
+												</em>
 											</span>
 										</span>
 									</span>
@@ -1046,10 +1048,10 @@
 					<span>
 						<span>
 							<span>
-								<strong
-									>We process your personal information for a variety of reasons, depending on how
-									you interact with our Services, including:</strong
-								>
+								<strong>
+									We process your personal information for a variety of reasons, depending on how
+									you interact with our Services, including:
+								</strong>
 								<bdt> </bdt>
 							</span>
 						</span>
@@ -1060,11 +1062,11 @@
 						<span>
 							<span>
 								<span>
-									<strong
-										>To facilitate account creation and authentication and otherwise manage user
-										accounts.&nbsp;</strong
-									>We may process your information so you can create and log in to your account, as
-									well as keep your account in working order.<span>
+									<strong>
+										To facilitate account creation and authentication and otherwise manage user
+										accounts.&nbsp;
+									</strong>We may process your information so you can create and log in to your
+									account, as well as keep your account in working order.<span>
 										<span>
 											<span>
 												<span>
@@ -1239,9 +1241,9 @@
 																										<li>
 																											<span>
 																												<span>
-																													<strong
-																														>To comply with our legal obligations.</strong
-																													>
+																													<strong>
+																														To comply with our legal obligations.
+																													</strong>
 																													We may process your information to comply with
 																													our legal obligations, respond to legal requests,
 																													and exercise, establish, or defend our legal
@@ -1293,9 +1295,10 @@
 																																<strong>
 																																	<span
 																																		data-custom-class="heading_1"
-																																		>3. WHEN AND WITH WHOM DO WE
-																																		SHARE YOUR PERSONAL INFORMATION?</span
 																																	>
+																																		3. WHEN AND WITH WHOM DO WE
+																																		SHARE YOUR PERSONAL INFORMATION?
+																																	</span>
 																																</strong>
 																															</span>
 																														</span>
@@ -1313,12 +1316,12 @@
 																														<strong>
 																															<em>In Short:</em>
 																														</strong>
-																														<em
-																															>&nbsp;We may share information in
+																														<em>
+																															&nbsp;We may share information in
 																															specific situations described in this
 																															section and/or with the following
-																															<bdt> </bdt>third parties.</em
-																														>
+																															<bdt> </bdt>third parties.
+																														</em>
 																													</span>
 																												</span>
 																											</span>
@@ -1337,11 +1340,11 @@
 																										</div>
 																										<div>
 																											<span>
-																												<span
-																													>We <bdt> </bdt>may need to share your
+																												<span>
+																													We <bdt> </bdt>may need to share your
 																													personal information in the following
-																													situations:</span
-																												>
+																													situations:
+																												</span>
 																											</span>
 																										</div>
 																										<ul>
@@ -1353,8 +1356,8 @@
 																														with, or during negotiations of, any merger,
 																														sale of company assets, financing, or acquisition
 																														of all or a portion of our business to another
-																														company.</span
-																													>
+																														company.
+																													</span>
 																												</span>
 																											</li>
 																										</ul>
@@ -1423,10 +1426,11 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>4. DO WE USE COOKIES
-																																							AND OTHER TRACKING
-																																							TECHNOLOGIES?</span
 																																						>
+																																							4. DO WE USE COOKIES
+																																							AND OTHER TRACKING
+																																							TECHNOLOGIES?
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -1444,12 +1448,12 @@
 																																			<strong>
 																																				<em>In Short:</em>
 																																			</strong>
-																																			<em
-																																				>&nbsp;We may use cookies
-																																				and other tracking
-																																				technologies to collect and
-																																				store your information.</em
-																																			>
+																																			<em>
+																																				&nbsp;We may use cookies and
+																																				other tracking technologies
+																																				to collect and store your
+																																				information.
+																																			</em>
 																																		</span>
 																																	</span>
 																																</span>
@@ -1460,17 +1464,16 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>We may use cookies and
-																																			similar tracking technologies
-																																			(like web beacons and pixels)
-																																			to access or store
-																																			information. Specific
-																																			information about how we use
-																																			such technologies and how you
-																																			can refuse certain cookies is
-																																			set out in our Cookie Notice<span
-																																			>
+																																		<span>
+																																			We may use cookies and similar
+																																			tracking technologies (like
+																																			web beacons and pixels) to
+																																			access or store information.
+																																			Specific information about how
+																																			we use such technologies and
+																																			how you can refuse certain
+																																			cookies is set out in our
+																																			Cookie Notice<span>
 																																				<span> <bdt> </bdt>.</span>
 																																				<span>
 																																					<span>
@@ -1524,9 +1527,10 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>5. HOW DO WE HANDLE
-																																							YOUR SOCIAL LOGINS?</span
 																																						>
+																																							5. HOW DO WE HANDLE
+																																							YOUR SOCIAL LOGINS?
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -1544,14 +1548,13 @@
 																																			<strong>
 																																				<em>In Short:&nbsp;</em>
 																																			</strong>
-																																			<em
-																																				>If you choose to register
-																																				or log in to our Services
-																																				using a social media
-																																				account, we may have access
-																																				to certain information about
-																																				you.</em
-																																			>
+																																			<em>
+																																				If you choose to register or
+																																				log in to our Services using
+																																				a social media account, we
+																																				may have access to certain
+																																				information about you.
+																																			</em>
 																																		</span>
 																																	</span>
 																																</span>
@@ -1562,8 +1565,8 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>Our Services offer you the
+																																		<span>
+																																			Our Services offer you the
 																																			ability to register and log in
 																																			using your third-party social
 																																			media account details (like
@@ -1598,18 +1601,18 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>We will use the information
-																																			we receive only for the
-																																			purposes that are described in
-																																			this privacy notice or that
-																																			are otherwise made clear to
-																																			you on the relevant Services.
-																																			Please note that we do not
-																																			control, and are not
-																																			responsible for, other uses of
-																																			your personal information by
-																																			your third-party social media
+																																		<span>
+																																			We will use the information we
+																																			receive only for the purposes
+																																			that are described in this
+																																			privacy notice or that are
+																																			otherwise made clear to you on
+																																			the relevant Services. Please
+																																			note that we do not control,
+																																			and are not responsible for,
+																																			other uses of your personal
+																																			information by your
+																																			third-party social media
 																																			provider. We recommend that
 																																			you review their privacy
 																																			notice to understand how they
@@ -1661,9 +1664,10 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>6. HOW LONG DO WE
-																																							KEEP YOUR INFORMATION?</span
 																																						>
+																																							6. HOW LONG DO WE KEEP
+																																							YOUR INFORMATION?
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -1681,17 +1685,17 @@
 																																			<strong>
 																																				<em>In Short:&nbsp;</em>
 																																			</strong>
-																																			<em
-																																				>We keep your information
-																																				for as long as necessary to
+																																			<em>
+																																				We keep your information for
+																																				as long as necessary to
 																																				<bdt> </bdt>fulfill<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
 																																				the purposes outlined in this
 																																				privacy notice unless otherwise
-																																				required by law.</em
-																																			>
+																																				required by law.
+																																			</em>
 																																		</span>
 																																	</span>
 																																</span>
@@ -1702,8 +1706,8 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>We will only keep your
+																																		<span>
+																																			We will only keep your
 																																			personal information for as
 																																			long as it is necessary for
 																																			the purposes set out in this
@@ -1711,8 +1715,7 @@
 																																			longer retention period is
 																																			required or permitted by law
 																																			(such as tax, accounting, or
-																																			other legal requirements).<bdt
-																																			>
+																																			other legal requirements).<bdt>
 																																			</bdt>
 																																			No purpose in this notice will require
 																																			us keeping your personal information
@@ -1722,8 +1725,8 @@
 																																					<span>
 																																						<bdt> </bdt>
 																																					</span>
-																																				</span>&nbsp;</span
-																																			>
+																																				</span>&nbsp;
+																																			</span>
 																																			<bdt> </bdt>the period of time
 																																			in which users have an account
 																																			with us<bdt> </bdt>
@@ -1734,8 +1737,8 @@
 																																						</bdt>
 																																					</span>
 																																				</span>
-																																			</span>.</span
-																																		>
+																																			</span>.
+																																		</span>
 																																	</span>
 																																</span>
 																															</div>
@@ -1745,8 +1748,8 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>When we have no ongoing
+																																		<span>
+																																			When we have no ongoing
 																																			legitimate business need to
 																																			process your personal
 																																			information, we will either
@@ -1781,9 +1784,10 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>7. HOW DO WE KEEP
-																																							YOUR INFORMATION SAFE?</span
 																																						>
+																																							7. HOW DO WE KEEP YOUR
+																																							INFORMATION SAFE?
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -1801,8 +1805,8 @@
 																																			<strong>
 																																				<em>In Short:&nbsp;</em>
 																																			</strong>
-																																			<em
-																																				>We aim to protect your
+																																			<em>
+																																				We aim to protect your
 																																				personal information through
 																																				a system of
 																																				<bdt>
@@ -1810,8 +1814,8 @@
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
-																																				and technical security measures.</em
-																																			>
+																																				and technical security measures.
+																																			</em>
 																																		</span>
 																																	</span>
 																																</span>
@@ -1822,8 +1826,8 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>We have implemented
+																																		<span>
+																																			We have implemented
 																																			appropriate and reasonable
 																																			technical and
 																																			<bdt> </bdt>organizational<bdt
@@ -1881,10 +1885,11 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>8. DO WE COLLECT
-																																							INFORMATION FROM
-																																							MINORS?</span
 																																						>
+																																							8. DO WE COLLECT
+																																							INFORMATION FROM
+																																							MINORS?
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -1902,15 +1907,15 @@
 																																			<strong>
 																																				<em>In Short:</em>
 																																			</strong>
-																																			<em
-																																				>&nbsp;We do not knowingly
+																																			<em>
+																																				&nbsp;We do not knowingly
 																																				collect data from or market
 																																				to <bdt> </bdt>children
 																																				under 18 years of age<bdt
 																																					class="else-block"
 																																				>
-																																				</bdt>.</em
-																																			>
+																																				</bdt>.
+																																			</em>
 																																			<bdt> </bdt>
 																																		</span>
 																																	</span>
@@ -1922,8 +1927,8 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>We do not knowingly solicit
+																																		<span>
+																																			We do not knowingly solicit
 																																			data from or market to
 																																			children under 18 years of
 																																			age. By using the Services,
@@ -1947,14 +1952,14 @@
 																																			<span>
 																																				<span>
 																																					<bdt> </bdt>
-																																					<bdt
-																																						>whichrouteisfaster@michaelbonner.dev</bdt
-																																					>
+																																					<bdt>
+																																						whichrouteisfaster@michaelbonner.dev
+																																					</bdt>
 																																					<bdt class="else-block">
 																																					</bdt>
 																																				</span>
-																																			</span>.</span
-																																		>
+																																			</span>.
+																																		</span>
 																																		<span>
 																																			<bdt class="else-block">
 																																				<bdt> </bdt>
@@ -1975,9 +1980,10 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>9. WHAT ARE YOUR
-																																							PRIVACY RIGHTS?</span
 																																						>
+																																							9. WHAT ARE YOUR
+																																							PRIVACY RIGHTS?
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -1995,19 +2001,19 @@
 																																			<strong>
 																																				<em>In Short:</em>
 																																			</strong>
-																																			<em
-																																				>&nbsp;<span>
+																																			<em>
+																																				&nbsp;<span>
 																																					<span>
 																																						<span>
 																																							<em>
 																																								<bdt> </bdt>
 																																							</em>
 																																						</span>
-																																					</span>&nbsp;</span
-																																				>You may review, change, or
-																																				terminate your account at
-																																				any time.</em
-																																			>
+																																					</span>&nbsp;
+																																				</span>You may review,
+																																				change, or terminate your
+																																				account at any time.
+																																			</em>
 																																			<span>
 																																				<span>
 																																					<bdt>
@@ -2027,13 +2033,12 @@
 																																	<span>
 																																		<span>
 																																			<strong>
-																																				<u
-																																					>Withdrawing your consent:</u
-																																				>
+																																				<u>
+																																					Withdrawing your consent:
+																																				</u>
 																																			</strong>
 																																			If we are relying on your consent
-																																			to process your personal information,<bdt
-																																			>
+																																			to process your personal information,<bdt>
 																																			</bdt>
 																																			which may be express and/or implied
 																																			consent depending on the applicable
@@ -2056,10 +2061,10 @@
 																																<a href="#contact">
 																																	<span>
 																																		<span>
-																																			<span
-																																				>HOW CAN YOU CONTACT US
-																																				ABOUT THIS NOTICE?</span
-																																			>
+																																			<span>
+																																				HOW CAN YOU CONTACT US ABOUT
+																																				THIS NOTICE?
+																																			</span>
 																																		</span>
 																																	</span>
 																																</a>
@@ -2070,8 +2075,8 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			below<bdt> </bdt>.</span
-																																		>
+																																			below<bdt> </bdt>.
+																																		</span>
 																																	</span>
 																																</span>
 																															</div>
@@ -2080,8 +2085,8 @@
 																															</div>
 																															<div>
 																																<span>
-																																	<span
-																																		>However, please note that this
+																																	<span>
+																																		However, please note that this
 																																		will not affect the lawfulness
 																																		of the processing before its
 																																		withdrawal nor,<bdt> </bdt> when
@@ -2109,9 +2114,9 @@
 																																	<span
 																																		data-custom-class="heading_2"
 																																	>
-																																		<strong
-																																			>Account Information</strong
-																																		>
+																																		<strong>
+																																			Account Information
+																																		</strong>
 																																	</span>
 																																</span>
 																															</div>
@@ -2120,11 +2125,11 @@
 																															</div>
 																															<div>
 																																<span>
-																																	<span
-																																		>If you would at any time like
-																																		to review or change the
-																																		information in your account or
-																																		terminate your account, you can:<bdt
+																																	<span>
+																																		If you would at any time like to
+																																		review or change the information
+																																		in your account or terminate
+																																		your account, you can:<bdt
 																																			class="forloop-component"
 																																		>
 																																		</bdt>
@@ -2135,11 +2140,10 @@
 																																<li>
 																																	<span>
 																																		<span>
-																																			<bdt
-																																				>Contact us using the
-																																				contact information
-																																				provided.</bdt
-																																			>
+																																			<bdt>
+																																				Contact us using the contact
+																																				information provided.
+																																			</bdt>
 																																		</span>
 																																	</span>
 																																</li>
@@ -2154,8 +2158,8 @@
 																															</div>
 																															<div>
 																																<span>
-																																	<span
-																																		>Upon your request to terminate
+																																	<span>
+																																		Upon your request to terminate
 																																		your account, we will deactivate
 																																		or delete your account and
 																																		information from our active
@@ -2166,8 +2170,8 @@
 																																		with any investigations, enforce
 																																		our legal terms and/or comply
 																																		with applicable legal
-																																		requirements.</span
-																																	>
+																																		requirements.
+																																	</span>
 																																</span>
 																																<bdt
 																																	class="statement-end-if-in-editor"
@@ -2206,10 +2210,10 @@
 																																	<span>
 																																		<span>
 																																			<strong>
-																																				<u
-																																					>Cookies and similar
-																																					technologies:</u
-																																				>
+																																				<u>
+																																					Cookies and similar
+																																					technologies:
+																																				</u>
 																																			</strong>
 																																			Most Web browsers are set to accept
 																																			cookies by default. If you prefer,
@@ -2258,14 +2262,14 @@
 																															</div>
 																															<div>
 																																<span>
-																																	<span
-																																		>If you have questions or
+																																	<span>
+																																		If you have questions or
 																																		comments about your privacy
 																																		rights, you may email us at
-																																		<bdt
-																																			>whichrouteisfaster@michaelbonner.dev</bdt
-																																		>.</span
-																																	>
+																																		<bdt>
+																																			whichrouteisfaster@michaelbonner.dev
+																																		</bdt>.
+																																	</span>
 																																</span>
 																																<bdt
 																																	class="statement-end-if-in-editor"
@@ -2287,9 +2291,10 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>10. CONTROLS FOR
-																																							DO-NOT-TRACK FEATURES</span
 																																						>
+																																							10. CONTROLS FOR
+																																							DO-NOT-TRACK FEATURES
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -2303,8 +2308,8 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>Most web browsers and some
+																																		<span>
+																																			Most web browsers and some
 																																			mobile operating systems and
 																																			mobile applications include a
 																																			Do-Not-Track (<bdt>
@@ -2356,11 +2361,12 @@
 																																					<strong>
 																																						<span
 																																							data-custom-class="heading_1"
-																																							>11. DO UNITED STATES
+																																						>
+																																							11. DO UNITED STATES
 																																							RESIDENTS HAVE
 																																							SPECIFIC PRIVACY
-																																							RIGHTS?</span
-																																						>
+																																							RIGHTS?
+																																						</span>
 																																					</strong>
 																																				</span>
 																																			</span>
@@ -2378,8 +2384,8 @@
 																																			<strong>
 																																				<em>In Short:&nbsp;</em>
 																																			</strong>
-																																			<em
-																																				>If you are a resident of
+																																			<em>
+																																				If you are a resident of
 																																				<bdt
 																																					class="forloop-component"
 																																				>
@@ -2441,8 +2447,9 @@
 																																				</bdt>
 																																				<bdt
 																																					class="forloop-component"
-																																					>, Connecticut</bdt
 																																				>
+																																					, Connecticut
+																																				</bdt>
 																																				<bdt
 																																					class="forloop-component"
 																																				>
@@ -2462,8 +2469,9 @@
 																																				</bdt>
 																																				<bdt
 																																					class="forloop-component"
-																																					>, Utah</bdt
 																																				>
+																																					, Utah
+																																				</bdt>
 																																				<bdt
 																																					class="forloop-component"
 																																				>
@@ -2505,8 +2513,8 @@
 																																				</bdt>, you are granted
 																																				specific rights regarding
 																																				access to your personal
-																																				information.</em
-																																			>
+																																				information.
+																																			</em>
 																																		</span>
 																																	</span>
 																																</span>
@@ -2518,10 +2526,10 @@
 																																<span>
 																																	<span>
 																																		<span>
-																																			<strong
-																																				>What categories of personal
-																																				information do we collect?</strong
-																																			>
+																																			<strong>
+																																				What categories of personal
+																																				information do we collect?
+																																			</strong>
 																																		</span>
 																																	</span>
 																																</span>
@@ -2532,12 +2540,12 @@
 																															<div>
 																																<span>
 																																	<span>
-																																		<span
-																																			>We have collected the
+																																		<span>
+																																			We have collected the
 																																			following categories of
 																																			personal information in the
-																																			past twelve (12) months:</span
-																																		>
+																																			past twelve (12) months:
+																																		</span>
 																																	</span>
 																																</span>
 																															</div>
@@ -2551,8 +2559,9 @@
 																																			<span>
 																																				<span>
 																																					<span>
-																																						<strong>Category</strong
-																																						>
+																																						<strong>
+																																							Category
+																																						</strong>
 																																					</span>
 																																				</span>
 																																			</span>
@@ -2561,8 +2570,9 @@
 																																			<span>
 																																				<span>
 																																					<span>
-																																						<strong>Examples</strong
-																																						>
+																																						<strong>
+																																							Examples
+																																						</strong>
 																																					</span>
 																																				</span>
 																																			</span>
@@ -2571,9 +2581,9 @@
 																																			<span>
 																																				<span>
 																																					<span>
-																																						<strong
-																																							>Collected</strong
-																																						>
+																																						<strong>
+																																							Collected
+																																						</strong>
 																																					</span>
 																																				</span>
 																																			</span>
@@ -2584,9 +2594,9 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>A. Identifiers</span
-																																						>
+																																						<span>
+																																							A. Identifiers
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2595,8 +2605,8 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Contact details, such
+																																						<span>
+																																							Contact details, such
 																																							as real name, alias,
 																																							postal address,
 																																							telephone or mobile
@@ -2606,8 +2616,8 @@
 																																							Internet Protocol
 																																							address, email
 																																							address, and account
-																																							name</span
-																																						>
+																																							name
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2648,13 +2658,13 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>B. Personal
+																																						<span>
+																																							B. Personal
 																																							information as defined
 																																							in the California
 																																							Customer Records
-																																							statute</span
-																																						>
+																																							statute
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2663,14 +2673,14 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Name, contact
+																																						<span>
+																																							Name, contact
 																																							information,
 																																							education, employment,
 																																							employment history,
 																																							and financial
-																																							information</span
-																																						>
+																																							information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2687,8 +2697,8 @@
 																																								class="forloop-component"
 																																							>
 																																								<bdt>
-																																									<bdt
-																																										>NO<bdt
+																																									<bdt>
+																																										NO<bdt
 																																											class="statement-end-if-in-editor"
 																																										>
 																																											<bdt> </bdt>
@@ -2724,8 +2734,8 @@
 																																							</bdt>. Protected
 																																							classification
 																																							characteristics under
-																																							state or federal law</span
-																																						>
+																																							state or federal law
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2734,10 +2744,10 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Gender and date of
-																																							birth</span
-																																						>
+																																						<span>
+																																							Gender and date of
+																																							birth
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2775,8 +2785,8 @@
 																																								class="else-block"
 																																							>
 																																							</bdt>. Commercial
-																																							information</span
-																																						>
+																																							information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2785,13 +2795,13 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Transaction
+																																						<span>
+																																							Transaction
 																																							information, purchase
 																																							history, financial
 																																							details, and payment
-																																							information</span
-																																						>
+																																							information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2829,8 +2839,8 @@
 																																								class="else-block"
 																																							>
 																																							</bdt>. Biometric
-																																							information</span
-																																						>
+																																							information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2839,10 +2849,10 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Fingerprints and
-																																							voiceprints</span
-																																						>
+																																						<span>
+																																							Fingerprints and
+																																							voiceprints
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2883,8 +2893,8 @@
 																																							>
 																																							</bdt>. Internet or
 																																							other similar network
-																																							activity</span
-																																						>
+																																							activity
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2893,8 +2903,8 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Browsing history,
+																																						<span>
+																																							Browsing history,
 																																							search history, online
 																																							<bdt>
 																																							</bdt>behavior<bdt
@@ -2905,8 +2915,8 @@
 																																							our and other
 																																							websites,
 																																							applications, systems,
-																																							and advertisements</span
-																																						>
+																																							and advertisements
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2944,8 +2954,8 @@
 																																								class="else-block"
 																																							>
 																																							</bdt>. Geolocation
-																																							data</span
-																																						>
+																																							data
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2954,9 +2964,9 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Device location</span
-																																						>
+																																						<span>
+																																							Device location
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -2996,8 +3006,8 @@
 																																							</bdt>. Audio,
 																																							electronic, visual,
 																																							thermal, olfactory, or
-																																							similar information</span
-																																						>
+																																							similar information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3006,13 +3016,13 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Images and audio,
+																																						<span>
+																																							Images and audio,
 																																							video or call
 																																							recordings created in
 																																							connection with our
-																																							business activities</span
-																																						>
+																																							business activities
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3051,8 +3061,8 @@
 																																							>
 																																							</bdt>. Professional
 																																							or employment-related
-																																							information</span
-																																						>
+																																							information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3061,8 +3071,8 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Business contact
+																																						<span>
+																																							Business contact
 																																							details in order to
 																																							provide you our
 																																							Services at a business
@@ -3071,8 +3081,8 @@
 																																							professional
 																																							qualifications if you
 																																							apply for a job with
-																																							us</span
-																																						>
+																																							us
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3110,8 +3120,8 @@
 																																								class="else-block"
 																																							>
 																																							</bdt>. Education
-																																							Information</span
-																																						>
+																																							Information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3120,10 +3130,10 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Student records and
-																																							directory information</span
-																																						>
+																																						<span>
+																																							Student records and
+																																							directory information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3162,8 +3172,8 @@
 																																							>
 																																							</bdt>. Inferences
 																																							drawn from collected
-																																							personal information</span
-																																						>
+																																							personal information
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3172,8 +3182,8 @@
 																																			<div>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>Inferences drawn from
+																																						<span>
+																																							Inferences drawn from
 																																							any of the collected
 																																							personal information
 																																							listed above to create
@@ -3181,8 +3191,8 @@
 																																							about, for example, an
 																																							individual’s
 																																							preferences and
-																																							characteristics</span
-																																						>
+																																							characteristics
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</div>
@@ -3221,8 +3231,8 @@
 																																					class="else-block"
 																																				>
 																																				</bdt>. Sensitive personal
-																																				Information</span
-																																			>
+																																				Information
+																																			</span>
 																																		</td>
 																																		<td>
 																																			<bdt>
@@ -3268,8 +3278,8 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>We may also collect other
+																																			<span>
+																																				We may also collect other
 																																				personal information outside
 																																				of these categories through
 																																				instances where you interact
@@ -3294,11 +3304,10 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>Receiving help through
-																																					our customer support
-																																					channels;</span
-																																				>
+																																				<span>
+																																					Receiving help through our
+																																					customer support channels;
+																																				</span>
 																																				<span>
 																																					<span>
 																																						<span>
@@ -3352,10 +3361,10 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>Participation in customer
-																																					surveys or contests; and</span
-																																				>
+																																				<span>
+																																					Participation in customer
+																																					surveys or contests; and
+																																				</span>
 																																				<span>
 																																					<span>
 																																						<span>
@@ -3409,12 +3418,12 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>Facilitation in the
+																																				<span>
+																																					Facilitation in the
 																																					delivery of our Services
 																																					and to respond to your
-																																					inquiries.</span
-																																				>
+																																					inquiries.
+																																				</span>
 																																				<span>
 																																					<span>
 																																						<span>
@@ -3449,10 +3458,10 @@
 																																	<span>
 																																		<span>
 																																			<span>
-																																				<strong
-																																					>How do we use and share
-																																					your personal information?</strong
-																																				>
+																																				<strong>
+																																					How do we use and share
+																																					your personal information?
+																																				</strong>
 																																			</span>
 																																		</span>
 																																	</span>
@@ -3461,8 +3470,8 @@
 																																	<br />
 																																</div>
 																																<div>
-																																	<span
-																																		>Learn about how we use your
+																																	<span>
+																																		Learn about how we use your
 																																		personal information in the
 																																		section, <bdt> </bdt>"<bdt
 																																			class="statement-end-if-in-editor"
@@ -3470,10 +3479,10 @@
 																																		</bdt>
 																																	</span>
 																																	<a href="#infouse">
-																																		<span
-																																			>HOW DO WE PROCESS YOUR
-																																			INFORMATION?</span
-																																		>
+																																		<span>
+																																			HOW DO WE PROCESS YOUR
+																																			INFORMATION?
+																																		</span>
 																																	</a>
 																																	<span> <bdt> </bdt>"</span>
 																																	<bdt
@@ -3502,10 +3511,10 @@
 																																	<span>
 																																		<span>
 																																			<span>
-																																				<strong
-																																					>Will your information be
-																																					shared with anyone else?</strong
-																																				>
+																																				<strong>
+																																					Will your information be
+																																					shared with anyone else?
+																																				</strong>
 																																			</span>
 																																		</span>
 																																	</span>
@@ -3516,8 +3525,8 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>We may disclose your
+																																			<span>
+																																				We may disclose your
 																																				personal information with
 																																				our service providers
 																																				pursuant to a written
@@ -3535,11 +3544,11 @@
 																																	</span>
 																																	<a href="#whoshare">
 																																		<span>
-																																			<span
-																																				>WHEN AND WITH WHOM DO WE
+																																			<span>
+																																				WHEN AND WITH WHOM DO WE
 																																				SHARE YOUR PERSONAL
-																																				INFORMATION?</span
-																																			>
+																																				INFORMATION?
+																																			</span>
 																																		</span>
 																																	</a>
 																																	<span>
@@ -3559,8 +3568,8 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>We may use your personal
+																																			<span>
+																																				We may use your personal
 																																				information for our own
 																																				business purposes, such as
 																																				for undertaking internal
@@ -3572,8 +3581,7 @@
 																																					class="statement-end-if-in-editor"
 																																				>
 																																				</bdt>
-																																				of your personal information.<span
-																																				>
+																																				of your personal information.<span>
 																																					<span>
 																																						<bdt> </bdt>
 																																					</span>
@@ -3588,19 +3596,19 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>We have not disclosed,
-																																				sold, or shared any personal
+																																			<span>
+																																				We have not disclosed, sold,
+																																				or shared any personal
 																																				information to third parties
 																																				for a business or commercial
 																																				purpose in the preceding
-																																				twelve (12) months. We<span
-																																					>&nbsp;</span
-																																				>will not sell or share
-																																				personal information in the
-																																				future belonging to website
-																																				visitors, users, and other
-																																				consumers.<span>
+																																				twelve (12) months. We<span>
+																																					&nbsp;
+																																				</span>will not sell or
+																																				share personal information
+																																				in the future belonging to
+																																				website visitors, users, and
+																																				other consumers.<span>
 																																					<span>
 																																						<span>
 																																							<span>
@@ -3636,16 +3644,17 @@
 																																	<strong>
 																																		<span
 																																			data-custom-class="heading_2"
-																																			>California Residents</span
 																																		>
+																																			California Residents
+																																		</span>
 																																	</strong>
 																																</div>
 																																<div>
 																																	<br />
 																																</div>
 																																<div>
-																																	<span
-																																		>California Civil Code Section
+																																	<span>
+																																		California Civil Code Section
 																																		1798.83, also known as the
 																																		<bdt> </bdt>"Shine The Light"<bdt
 																																			class="statement-end-if-in-editor"
@@ -3665,8 +3674,8 @@
 																																		would like to make such a request,
 																																		please submit your request in writing
 																																		to us using the contact information
-																																		provided below.</span
-																																	>
+																																		provided below.
+																																	</span>
 																																</div>
 																																<div>
 																																	<span>
@@ -3676,8 +3685,8 @@
 																																	</span>
 																																</div>
 																																<div>
-																																	<span
-																																		>If you are under 18 years of
+																																	<span>
+																																		If you are under 18 years of
 																																		age, reside in California, and
 																																		have a registered account with
 																																		the Services, you have the right
@@ -3700,8 +3709,8 @@
 																																			class="statement-end-if-in-editor"
 																																		>
 																																		</bdt>
-																																		backups, etc.).</span
-																																	>
+																																		backups, etc.).
+																																	</span>
 																																</div>
 																																<div>
 																																	<span>
@@ -3726,13 +3735,13 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>This section applies only to
+																																		<span>
+																																			This section applies only to
 																																			California residents. Under
 																																			the California Consumer
 																																			Privacy Act (CCPA), you have
-																																			the rights listed below.</span
-																																		>
+																																			the rights listed below.
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -3744,15 +3753,15 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>The California Code of
+																																		<span>
+																																			The California Code of
 																																			Regulations defines a
 																																			<bdt> </bdt>"residents"<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			as:</span
-																																		>
+																																			as:
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -3764,24 +3773,24 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>(1) every individual who is
-																																			in the State of California for
+																																		<span>
+																																			(1) every individual who is in
+																																			the State of California for
 																																			other than a temporary or
-																																			transitory purpose and</span
-																																		>
+																																			transitory purpose and
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>(2) every individual who is
+																																		<span>
+																																			(2) every individual who is
 																																			domiciled in the State of
 																																			California who is outside the
 																																			State of California for a
 																																			temporary or transitory
-																																			purpose</span
-																																		>
+																																			purpose
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -3793,8 +3802,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>All other individuals are
+																																		<span>
+																																			All other individuals are
 																																			defined as
 																																			<bdt>
 																																			</bdt>"non-residents."<bdt
@@ -3813,16 +3822,16 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>If this definition of
+																																		<span>
+																																			If this definition of
 																																			<bdt> </bdt>"resident"<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
 																																			applies to you, we must adhere to
 																																			certain rights and obligations regarding
-																																			your personal information.</span
-																																		>
+																																			your personal information.
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -3832,10 +3841,10 @@
 																																	<span>
 																																		<span>
 																																			<span>
-																																				<strong
-																																					>Your rights with respect
-																																					to your personal data</strong
-																																				>
+																																				<strong>
+																																					Your rights with respect
+																																					to your personal data
+																																				</strong>
 																																			</span>
 																																		</span>
 																																	</span>
@@ -3847,11 +3856,11 @@
 																																	<span>
 																																		<span>
 																																			<span>
-																																				<u
-																																					>Right to request deletion
+																																				<u>
+																																					Right to request deletion
 																																					of the data — Request to
-																																					delete</u
-																																				>
+																																					delete
+																																				</u>
 																																			</span>
 																																		</span>
 																																	</span>
@@ -3862,9 +3871,9 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>You can ask for the
-																																				deletion of your personal
+																																			<span>
+																																				You can ask for the deletion
+																																				of your personal
 																																				information. If you ask us
 																																				to delete your personal
 																																				information, we will respect
@@ -3881,22 +3890,7 @@
 																																				obligation, or any
 																																				processing that may be
 																																				required to protect against
-																																				illegal activities.</span
-																																			>
-																																		</span>
-																																	</span>
-																																</div>
-																																<div>
-																																	<br />
-																																</div>
-																																<div>
-																																	<span>
-																																		<span>
-																																			<span>
-																																				<u
-																																					>Right to be informed —
-																																					Request to know</u
-																																				>
+																																				illegal activities.
 																																			</span>
 																																		</span>
 																																	</span>
@@ -3907,8 +3901,23 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>Depending on the
+																																			<span>
+																																				<u>
+																																					Right to be informed —
+																																					Request to know
+																																				</u>
+																																			</span>
+																																		</span>
+																																	</span>
+																																</div>
+																																<div>
+																																	<br />
+																																</div>
+																																<div>
+																																	<span>
+																																		<span>
+																																			<span>
+																																				Depending on the
 																																				circumstances, you have a
 																																				right to know:<span>
 																																					<span>
@@ -3935,10 +3944,9 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>whether we collect and
-																																					use your personal
-																																					information;<span>
+																																				<span>
+																																					whether we collect and use
+																																					your personal information;<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -3988,10 +3996,10 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>the categories of
-																																					personal information that
-																																					we collect;<span>
+																																				<span>
+																																					the categories of personal
+																																					information that we
+																																					collect;<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4041,9 +4049,9 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>the purposes for which
-																																					the collected personal
+																																				<span>
+																																					the purposes for which the
+																																					collected personal
 																																					information is used;<span>
 																																						<span>
 																																							<span>
@@ -4094,8 +4102,8 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>whether we sell or share
+																																				<span>
+																																					whether we sell or share
 																																					personal information to
 																																					third parties;<span>
 																																						<span>
@@ -4147,12 +4155,11 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>the categories of
-																																					personal information that
-																																					we sold, shared, or
-																																					disclosed for a business
-																																					purpose;<span>
+																																				<span>
+																																					the categories of personal
+																																					information that we sold,
+																																					shared, or disclosed for a
+																																					business purpose;<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4202,13 +4209,12 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>the categories of third
+																																				<span>
+																																					the categories of third
 																																					parties to whom the
 																																					personal information was
 																																					sold, shared, or disclosed
-																																					for a business purpose;<span
-																																					>
+																																					for a business purpose;<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4258,12 +4264,11 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>the business or
-																																					commercial purpose for
-																																					collecting, selling, or
-																																					sharing personal
-																																					information; and<span>
+																																				<span>
+																																					the business or commercial
+																																					purpose for collecting,
+																																					selling, or sharing
+																																					personal information; and<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4291,8 +4296,8 @@
 																																</div>
 																																<ul>
 																																	<li>
-																																		<span
-																																			>the specific pieces of
+																																		<span>
+																																			the specific pieces of
 																																			personal information we
 																																			collected about you.<bdt
 																																				class="statement-end-if-in-editor"
@@ -4304,8 +4309,8 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>In accordance with
+																																			<span>
+																																				In accordance with
 																																				applicable law, we are not
 																																				obligated to provide or
 																																				delete consumer information
@@ -4313,24 +4318,7 @@
 																																				response to a consumer
 																																				request or to re-identify
 																																				individual data to verify a
-																																				consumer request.</span
-																																			>
-																																		</span>
-																																	</span>
-																																</div>
-																																<div>
-																																	<br />
-																																</div>
-																																<div>
-																																	<span>
-																																		<span>
-																																			<span>
-																																				<u
-																																					>Right to
-																																					Non-Discrimination for the
-																																					Exercise of a Consumer’s
-																																					Privacy Rights</u
-																																				>
+																																				consumer request.
 																																			</span>
 																																		</span>
 																																	</span>
@@ -4341,11 +4329,28 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>We will not discriminate
+																																			<span>
+																																				<u>
+																																					Right to
+																																					Non-Discrimination for the
+																																					Exercise of a Consumer’s
+																																					Privacy Rights
+																																				</u>
+																																			</span>
+																																		</span>
+																																	</span>
+																																</div>
+																																<div>
+																																	<br />
+																																</div>
+																																<div>
+																																	<span>
+																																		<span>
+																																			<span>
+																																				We will not discriminate
 																																				against you if you exercise
-																																				your privacy rights.</span
-																																			>
+																																				your privacy rights.
+																																			</span>
 																																		</span>
 																																	</span>
 																																</div>
@@ -4355,11 +4360,11 @@
 																																<div>
 																																	<span>
 																																		<u>
-																																			<span
-																																				>Right to Limit Use and
+																																			<span>
+																																				Right to Limit Use and
 																																				Disclosure of Sensitive
-																																				Personal Information</span
-																																			>
+																																				Personal Information
+																																			</span>
 																																		</u>
 																																	</span>
 																																</div>
@@ -4372,10 +4377,10 @@
 																																	<br />
 																																</div>
 																																<div>
-																																	<span
-																																		>We do not process consumer's
-																																		sensitive personal information.</span
-																																	>
+																																	<span>
+																																		We do not process consumer's
+																																		sensitive personal information.
+																																	</span>
 																																</div>
 																																<div>
 																																	<br />
@@ -4402,29 +4407,28 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>Upon receiving your
-																																				request, we will need to
-																																				verify your identity to
-																																				determine you are the same
-																																				person about whom we have
-																																				the information in our
-																																				system. These verification
-																																				efforts require us to ask
-																																				you to provide information
-																																				so that we can match it with
-																																				information you have
-																																				previously provided us. For
-																																				instance, depending on the
-																																				type of request you submit,
-																																				we may ask you to provide
-																																				certain information so that
-																																				we can match the information
-																																				you provide with the
-																																				information we already have
-																																				on file, or we may contact
-																																				you through a communication
-																																				method (e.g.<bdt>
+																																			<span>
+																																				Upon receiving your request,
+																																				we will need to verify your
+																																				identity to determine you
+																																				are the same person about
+																																				whom we have the information
+																																				in our system. These
+																																				verification efforts require
+																																				us to ask you to provide
+																																				information so that we can
+																																				match it with information
+																																				you have previously provided
+																																				us. For instance, depending
+																																				on the type of request you
+																																				submit, we may ask you to
+																																				provide certain information
+																																				so that we can match the
+																																				information you provide with
+																																				the information we already
+																																				have on file, or we may
+																																				contact you through a
+																																				communication method (e.g.<bdt>
 																																				</bdt>,<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
@@ -4432,8 +4436,8 @@
 																																				phone or email) that you have
 																																				previously provided to us. We
 																																				may also use other verification
-																																				methods as the circumstances dictate.</span
-																																			>
+																																				methods as the circumstances dictate.
+																																			</span>
 																																		</span>
 																																	</span>
 																																</div>
@@ -4443,8 +4447,8 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>We will only use personal
+																																			<span>
+																																				We will only use personal
 																																				information provided in your
 																																				request to verify your
 																																				identity or authority to
@@ -4465,8 +4469,8 @@
 																																				purposes. We will delete
 																																				such additionally provided
 																																				information as soon as we
-																																				finish verifying you.</span
-																																			>
+																																				finish verifying you.
+																																			</span>
 																																		</span>
 																																	</span>
 																																</div>
@@ -4511,11 +4515,10 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>You may object to the
+																																				<span>
+																																					You may object to the
 																																					processing of your
-																																					personal information.<span
-																																					>
+																																					personal information.<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4571,12 +4574,11 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>You may request
-																																					correction of your
-																																					personal data if it is
-																																					incorrect or no longer
-																																					relevant, or ask to
+																																				<span>
+																																					You may request correction
+																																					of your personal data if
+																																					it is incorrect or no
+																																					longer relevant, or ask to
 																																					restrict the processing of
 																																					the information.<span>
 																																						<span>
@@ -4634,8 +4636,8 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>You can designate an
+																																				<span>
+																																					You can designate an
 																																					<bdt> </bdt>authorized<bdt
 																																						class="statement-end-if-in-editor"
 																																					>
@@ -4710,9 +4712,9 @@
 																																	<li>
 																																		<span>
 																																			<span>
-																																				<span
-																																					>You may request to opt
-																																					out from future selling or
+																																				<span>
+																																					You may request to opt out
+																																					from future selling or
 																																					sharing of your personal
 																																					information to third
 																																					parties. Upon receiving an
@@ -4721,8 +4723,7 @@
 																																					soon as feasibly possible,
 																																					but no later than fifteen
 																																					(15) days from the date of
-																																					the request submission.<span
-																																					>
+																																					the request submission.<span>
 																																						<span>
 																																							<span>
 																																								<span>
@@ -4757,12 +4758,12 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>To exercise these rights,
+																																			<span>
+																																				To exercise these rights,
 																																				you can contact us
 																																				<bdt> </bdt>by submitting
-																																				a&nbsp;</span
-																																			>
+																																				a&nbsp;
+																																			</span>
 																																		</span>
 																																	</span>
 																																	<a
@@ -4771,9 +4772,9 @@
 																																		target="_blank"
 																																	>
 																																		<span>
-																																			<span
-																																				>data subject access request</span
-																																			>
+																																			<span>
+																																				data subject access request
+																																			</span>
 																																		</span>
 																																	</a>
 																																	<span>
@@ -4785,9 +4786,9 @@
 																																						<span>
 																																							<bdt> </bdt>by email
 																																							at
-																																							<bdt
-																																								>whichrouteisfaster@michaelbonner.dev</bdt
-																																							>,
+																																							<bdt>
+																																								whichrouteisfaster@michaelbonner.dev
+																																							</bdt>,
 																																							<bdt
 																																								class="statement-end-if-in-editor"
 																																							>
@@ -4805,14 +4806,14 @@
 																																			</span>
 																																		</span>
 																																	</span>
-																																	<span
-																																		>or by referring to the contact
+																																	<span>
+																																		or by referring to the contact
 																																		details at the bottom of this
 																																		document. If you have a
 																																		complaint about how we handle
 																																		your data, we would like to hear
-																																		from you.</span
-																																	>
+																																		from you.
+																																	</span>
 																																	<span>
 																																		<span>
 																																			<bdt>
@@ -4836,8 +4837,9 @@
 																																		<strong>
 																																			<span
 																																				data-custom-class="heading_2"
-																																				>Colorado Residents</span
 																																			>
+																																				Colorado Residents
+																																			</span>
 																																		</strong>
 																																	</span>
 																																</div>
@@ -4848,8 +4850,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>This section applies only to
+																																		<span>
+																																			This section applies only to
 																																			Colorado residents. Under the
 																																			Colorado Privacy Act (CPA),
 																																			you have the rights listed
@@ -4857,20 +4859,19 @@
 																																			are not absolute, and in
 																																			certain cases, we may decline
 																																			your request as permitted by
-																																			law.</span
-																																		>
+																																			law.
+																																		</span>
 																																		<bdt> </bdt>
 																																	</span>
 																																</div>
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to be informed
-																																				whether or not we are
-																																				processing your personal
-																																				data</span
-																																			>
+																																			<span>
+																																				Right to be informed whether
+																																				or not we are processing
+																																				your personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -4886,10 +4887,10 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to access your
-																																				personal data</span
-																																			>
+																																			<span>
+																																				Right to access your
+																																				personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -4903,11 +4904,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to correct
+																																			<span>
+																																				Right to correct
 																																				inaccuracies in your
-																																				personal data</span
-																																			>
+																																				personal data
+																																			</span>
 																																		</span>
 																																		<bdt
 																																			class="statement-end-if-in-editor"
@@ -4921,10 +4922,10 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to request deletion
-																																				of your personal data</span
-																																			>
+																																			<span>
+																																				Right to request deletion of
+																																				your personal data
+																																			</span>
 																																		</span>
 																																		<bdt
 																																			class="statement-end-if-in-editor"
@@ -4940,11 +4941,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to obtain a copy of
+																																			<span>
+																																				Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with us</span
-																																			>
+																																				previously shared with us
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -4958,8 +4959,8 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to opt out of the
+																																			<span>
+																																				Right to opt out of the
 																																				processing of your personal
 																																				data if it is used for
 																																				targeted advertising, the
@@ -4971,8 +4972,8 @@
 																																				</bdt>"profiling"<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
-																																				</bdt>)</span
-																																			>
+																																				</bdt>)
+																																			</span>
 																																		</span>
 																																		<bdt
 																																			class="statement-end-if-in-editor"
@@ -4984,22 +4985,22 @@
 																																	<bdt>
 																																		<span> </span>
 																																	</bdt>
-																																	<span
-																																		>To submit a request to exercise</span
-																																	>
+																																	<span>
+																																		To submit a request to exercise
+																																	</span>
 																																	<bdt> </bdt>
 																																	<span>these</span>
 																																	<bdt
 																																		class="statement-end-if-in-editor"
 																																	>
 																																	</bdt>
-																																	<span
-																																		>rights described above, please
-																																		<bdt> </bdt>email</span
-																																	>
-																																	<bdt
-																																		>whichrouteisfaster@michaelbonner.dev</bdt
-																																	>
+																																	<span>
+																																		rights described above, please
+																																		<bdt> </bdt>email
+																																	</span>
+																																	<bdt>
+																																		whichrouteisfaster@michaelbonner.dev
+																																	</bdt>
 																																	<span>&nbsp;or&nbsp;</span>
 																																	<bdt> </bdt>
 																																	<span>submit a&nbsp;</span>
@@ -5009,9 +5010,9 @@
 																																		target="_blank"
 																																	>
 																																		<span>
-																																			<span
-																																				>data subject access request</span
-																																			>
+																																			<span>
+																																				data subject access request
+																																			</span>
 																																		</span>
 																																	</a>
 																																	<bdt> </bdt>
@@ -5024,15 +5025,15 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>If we decline to take action
+																																		<span>
+																																			If we decline to take action
 																																			regarding your request and you
 																																			wish to appeal our decision,
 																																			please email us at
 																																			<bdt> </bdt>
-																																			<bdt
-																																				>whichrouteisfaster@michaelbonner.dev</bdt
-																																			>
+																																			<bdt>
+																																				whichrouteisfaster@michaelbonner.dev
+																																			</bdt>
 																																			<bdt class="else-block">
 																																			</bdt>. Within forty-five (45)
 																																			days of receipt of an appeal,
@@ -5041,8 +5042,8 @@
 																																			taken in response to the
 																																			appeal, including a written
 																																			explanation of the reasons for
-																																			the decisions.</span
-																																		>
+																																			the decisions.
+																																		</span>
 																																		<bdt
 																																			class="statement-end-if-in-editor"
 																																		>
@@ -5060,8 +5061,9 @@
 																																		<span>
 																																			<span
 																																				data-custom-class="heading_2"
-																																				>Connecticut Residents</span
 																																			>
+																																				Connecticut Residents
+																																			</span>
 																																		</span>
 																																	</strong>
 																																</div>
@@ -5072,8 +5074,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>This section applies only to
+																																		<span>
+																																			This section applies only to
 																																			Connecticut residents. Under
 																																			the Connecticut Data Privacy
 																																			Act (CTDPA), you have the
@@ -5081,20 +5083,19 @@
 																																			these rights are not absolute,
 																																			and in certain cases, we may
 																																			decline your request as
-																																			permitted by law.</span
-																																		>
+																																			permitted by law.
+																																		</span>
 																																		<bdt> </bdt>
 																																	</span>
 																																</div>
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to be informed
-																																				whether or not we are
-																																				processing your personal
-																																				data</span
-																																			>
+																																			<span>
+																																				Right to be informed whether
+																																				or not we are processing
+																																				your personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5107,10 +5108,10 @@
 																																</div>
 																																<ul>
 																																	<li>
-																																		<span
-																																			>Right to access your personal
-																																			data</span
-																																		>
+																																		<span>
+																																			Right to access your personal
+																																			data
+																																		</span>
 																																		<bdt
 																																			class="statement-end-if-in-editor"
 																																		>
@@ -5125,11 +5126,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to correct
+																																			<span>
+																																				Right to correct
 																																				inaccuracies in your
-																																				personal data</span
-																																			>
+																																				personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5143,10 +5144,10 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to request deletion
-																																				of your personal data</span
-																																			>
+																																			<span>
+																																				Right to request deletion of
+																																				your personal data
+																																			</span>
 																																		</span>
 																																		<bdt
 																																			class="statement-end-if-in-editor"
@@ -5162,11 +5163,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to obtain a copy of
+																																			<span>
+																																				Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with us</span
-																																			>
+																																				previously shared with us
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5180,8 +5181,8 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to opt out of the
+																																			<span>
+																																				Right to opt out of the
 																																				processing of your personal
 																																				data if it is used for
 																																				targeted advertising, the
@@ -5193,8 +5194,8 @@
 																																				</bdt>"profiling"<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
-																																				</bdt>)</span
-																																			>
+																																				</bdt>)
+																																			</span>
 																																		</span>
 																																		<bdt
 																																			class="statement-end-if-in-editor"
@@ -5215,9 +5216,9 @@
 																																	</bdt>
 																																	rights described above, please
 																																	<bdt> </bdt>email
-																																	<bdt
-																																		>whichrouteisfaster@michaelbonner.dev</bdt
-																																	>
+																																	<bdt>
+																																		whichrouteisfaster@michaelbonner.dev
+																																	</bdt>
 																																	or
 																																	<bdt> </bdt>submit a
 																																	<a
@@ -5226,9 +5227,9 @@
 																																		target="_blank"
 																																	>
 																																		<span>
-																																			<span
-																																				>data subject access request</span
-																																			>
+																																			<span>
+																																				data subject access request
+																																			</span>
 																																		</span>
 																																	</a>
 																																	<bdt> </bdt>.
@@ -5238,15 +5239,15 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>If we decline to take action
+																																		<span>
+																																			If we decline to take action
 																																			regarding your request and you
 																																			wish to appeal our decision,
 																																			please email us at
 																																			<bdt> </bdt>
-																																			<bdt
-																																				>whichrouteisfaster@michaelbonner.dev</bdt
-																																			>
+																																			<bdt>
+																																				whichrouteisfaster@michaelbonner.dev
+																																			</bdt>
 																																			<bdt class="else-block">
 																																			</bdt>. Within sixty (60) days
 																																			of receipt of an appeal, we
@@ -5255,8 +5256,8 @@
 																																			in response to the appeal,
 																																			including a written
 																																			explanation of the reasons for
-																																			the decisions.</span
-																																		>
+																																			the decisions.
+																																		</span>
 																																	</span>
 																																	<bdt
 																																		class="statement-end-if-in-editor"
@@ -5276,8 +5277,9 @@
 																																		<strong>
 																																			<span
 																																				data-custom-class="heading_2"
-																																				>Utah Residents</span
 																																			>
+																																				Utah Residents
+																																			</span>
 																																		</strong>
 																																	</span>
 																																</div>
@@ -5288,8 +5290,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>This section applies only to
+																																		<span>
+																																			This section applies only to
 																																			Utah residents. Under the Utah
 																																			Consumer Privacy Act (UCPA),
 																																			you have the rights listed
@@ -5297,20 +5299,19 @@
 																																			are not absolute, and in
 																																			certain cases, we may decline
 																																			your request as permitted by
-																																			law.</span
-																																		>
+																																			law.
+																																		</span>
 																																		<bdt> </bdt>
 																																	</span>
 																																</div>
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to be informed
-																																				whether or not we are
-																																				processing your personal
-																																				data</span
-																																			>
+																																			<span>
+																																				Right to be informed whether
+																																				or not we are processing
+																																				your personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5326,10 +5327,10 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to access your
-																																				personal data</span
-																																			>
+																																			<span>
+																																				Right to access your
+																																				personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5345,10 +5346,10 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to request deletion
-																																				of your personal data</span
-																																			>
+																																			<span>
+																																				Right to request deletion of
+																																				your personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5364,11 +5365,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to obtain a copy of
+																																			<span>
+																																				Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with us</span
-																																			>
+																																				previously shared with us
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5384,13 +5385,13 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to opt out of the
+																																			<span>
+																																				Right to opt out of the
 																																				processing of your personal
 																																				data if it is used for
 																																				targeted advertising or the
-																																				sale of personal data</span
-																																			>
+																																				sale of personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5408,9 +5409,9 @@
 																																		</bdt>
 																																		rights described above, please
 																																		<bdt> </bdt>email
-																																		<bdt
-																																			>whichrouteisfaster@michaelbonner.dev</bdt
-																																		>
+																																		<bdt>
+																																			whichrouteisfaster@michaelbonner.dev
+																																		</bdt>
 																																		or
 																																		<bdt> </bdt>submit a
 																																		<a
@@ -5418,12 +5419,12 @@
 																																			rel="noopener noreferrer"
 																																			target="_blank"
 																																		>
-																																			<span
-																																				>data subject access request</span
-																																			>
+																																			<span>
+																																				data subject access request
+																																			</span>
 																																		</a>
-																																		<bdt> </bdt>.</span
-																																	>
+																																		<bdt> </bdt>.
+																																	</span>
 																																	<bdt
 																																		class="statement-end-if-in-editor"
 																																	>
@@ -5443,8 +5444,9 @@
 																																		<strong>
 																																			<span
 																																				data-custom-class="heading_2"
-																																				>Virginia Residents</span
 																																			>
+																																				Virginia Residents
+																																			</span>
 																																		</strong>
 																																	</span>
 																																</div>
@@ -5455,10 +5457,10 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>Under the Virginia Consumer
-																																			Data Protection Act (VCDPA):</span
-																																		>
+																																		<span>
+																																			Under the Virginia Consumer
+																																			Data Protection Act (VCDPA):
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -5479,8 +5481,8 @@
 																																		an individual or household context.
 																																		It does not include a natural person
 																																		acting in a commercial or employment
-																																		context.</span
-																																	>
+																																		context.
+																																	</span>
 																																</div>
 																																<div>
 																																	<span>
@@ -5503,8 +5505,8 @@
 																																		>
 																																		</bdt>
 																																		does not include de-identified data
-																																		or publicly available information.</span
-																																	>
+																																		or publicly available information.
+																																	</span>
 																																</div>
 																																<div>
 																																	<span>
@@ -5519,8 +5521,8 @@
 																																		>
 																																		</bdt>
 																																		means the exchange of personal data
-																																		for monetary consideration.</span
-																																	>
+																																		for monetary consideration.
+																																	</span>
 																																</div>
 																																<div>
 																																	<span>
@@ -5529,16 +5531,16 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>If this definition of
+																																		<span>
+																																			If this definition of
 																																			<bdt> </bdt>"consumer"<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
 																																			applies to you, we must adhere to
 																																			certain rights and obligations regarding
-																																			your personal data.</span
-																																		>
+																																			your personal data.
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -5547,10 +5549,10 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<u
-																																				>Your rights with respect to
-																																				your personal data</u
-																																			>
+																																			<u>
+																																				Your rights with respect to
+																																				your personal data
+																																			</u>
 																																		</span>
 																																	</span>
 																																</div>
@@ -5562,12 +5564,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to be informed
-																																				whether or not we are
-																																				processing your personal
-																																				data</span
-																																			>
+																																			<span>
+																																				Right to be informed whether
+																																				or not we are processing
+																																				your personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5583,10 +5584,10 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to access your
-																																				personal data</span
-																																			>
+																																			<span>
+																																				Right to access your
+																																				personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5602,11 +5603,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to correct
+																																			<span>
+																																				Right to correct
 																																				inaccuracies in your
-																																				personal data</span
-																																			>
+																																				personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5622,10 +5623,10 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to request deletion
-																																				of your personal data</span
-																																			>
+																																			<span>
+																																				Right to request deletion of
+																																				your personal data
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5641,11 +5642,11 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to obtain a copy of
+																																			<span>
+																																				Right to obtain a copy of
 																																				the personal data you
-																																				previously shared with us</span
-																																			>
+																																				previously shared with us
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5661,8 +5662,8 @@
 																																<ul>
 																																	<li>
 																																		<span>
-																																			<span
-																																				>Right to opt out of the
+																																			<span>
+																																				Right to opt out of the
 																																				processing of your personal
 																																				data if it is used for
 																																				targeted advertising, the
@@ -5674,8 +5675,8 @@
 																																				</bdt>"profiling"<bdt
 																																					class="statement-end-if-in-editor"
 																																				>
-																																				</bdt>)</span
-																																			>
+																																				</bdt>)
+																																			</span>
 																																			<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5691,11 +5692,11 @@
 																																<div>
 																																	<span>
 																																		<u>
-																																			<span
-																																				>Exercise your rights
+																																			<span>
+																																				Exercise your rights
 																																				provided under the Virginia
-																																				VCDPA</span
-																																			>
+																																				VCDPA
+																																			</span>
 																																		</u>
 																																	</span>
 																																</div>
@@ -5707,12 +5708,12 @@
 																																<div>
 																																	<span>
 																																		<bdt> </bdt>
-																																		<span
-																																			>You may <bdt> </bdt>contact
-																																			us by email at
-																																			<bdt
-																																				>whichrouteisfaster@michaelbonner.dev</bdt
-																																			>
+																																		<span>
+																																			You may <bdt> </bdt>contact us
+																																			by email at
+																																			<bdt>
+																																				whichrouteisfaster@michaelbonner.dev
+																																			</bdt>
 																																			or
 																																			<bdt> </bdt>submit a
 																																			<a
@@ -5721,14 +5722,14 @@
 																																				target="_blank"
 																																			>
 																																				<span>
-																																					<span
-																																						>data subject access
-																																						request</span
-																																					>
+																																					<span>
+																																						data subject access
+																																						request
+																																					</span>
 																																				</span>
 																																			</a>
-																																			<bdt> </bdt>.</span
-																																		>
+																																			<bdt> </bdt>.
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -5738,8 +5739,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>If you are using an
+																																		<span>
+																																			If you are using an
 																																			<bdt> </bdt>authorized<bdt
 																																				class="statement-end-if-in-editor"
 																																			>
@@ -5756,8 +5757,8 @@
 																																				class="statement-end-if-in-editor"
 																																			>
 																																			</bdt>
-																																			to act on your behalf.</span
-																																		>
+																																			to act on your behalf.
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -5766,9 +5767,9 @@
 																																<div>
 																																	<span>
 																																		<u>
-																																			<span
-																																				>Verification process</span
-																																			>
+																																			<span>
+																																				Verification process
+																																			</span>
 																																		</u>
 																																		<br />
 																																	</span>
@@ -5780,8 +5781,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>We may request that you
+																																		<span>
+																																			We may request that you
 																																			provide additional information
 																																			reasonably necessary to verify
 																																			you and your consumer's
@@ -5793,8 +5794,8 @@
 																																			</bdt>
 																																			agent, we may need to collect additional
 																																			information to verify your identity
-																																			before processing your request.</span
-																																		>
+																																			before processing your request.
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -5804,8 +5805,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>Upon receiving your request,
+																																		<span>
+																																			Upon receiving your request,
 																																			we will respond without undue
 																																			delay, but in all cases,
 																																			within forty-five (45) days of
@@ -5817,8 +5818,8 @@
 																																			of any such extension within
 																																			the initial 45-day response
 																																			period, together with the
-																																			reason for the extension.</span
-																																		>
+																																			reason for the extension.
+																																		</span>
 																																	</span>
 																																</div>
 																																<div>
@@ -5838,17 +5839,17 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<span
-																																			>If we decline to take action
+																																		<span>
+																																			If we decline to take action
 																																			regarding your request, we
 																																			will inform you of our
 																																			decision and reasoning behind
 																																			it. If you wish to appeal our
 																																			decision, please email us at
 																																			<bdt> </bdt>
-																																			<bdt
-																																				>whichrouteisfaster@michaelbonner.dev</bdt
-																																			>
+																																			<bdt>
+																																				whichrouteisfaster@michaelbonner.dev
+																																			</bdt>
 																																			<bdt class="else-block">
 																																			</bdt>. Within sixty (60) days
 																																			of receipt of an appeal, we
@@ -5865,13 +5866,13 @@
 																																				target="_blank"
 																																			>
 																																				<span>
-																																					<span
-																																						>Attorney General to
-																																						submit a complaint</span
-																																					>
+																																					<span>
+																																						Attorney General to
+																																						submit a complaint
+																																					</span>
 																																				</span>
-																																			</a>.</span
-																																		>
+																																			</a>.
+																																		</span>
 																																	</span>
 																																	<bdt
 																																		class="statement-end-if-in-editor"
@@ -5894,20 +5895,13 @@
 																																													<span>
 																																														<span>
 																																															<span>
-																																																<span
-																																																>
-																																																	<span
-																																																	>
-																																																		<span
-																																																		>
-																																																			<span
-																																																			>
-																																																				<span
-																																																				>
-																																																					<span
-																																																					>
-																																																						<span
-																																																						>
+																																																<span>
+																																																	<span>
+																																																		<span>
+																																																			<span>
+																																																				<span>
+																																																					<span>
+																																																						<span>
 																																																							<bdt
 																																																								class="statement-end-if-in-editor"
 																																																							>
@@ -5957,10 +5951,11 @@
 																																						<strong>
 																																							<span
 																																								data-custom-class="heading_1"
-																																								>12. DO WE MAKE
-																																								UPDATES TO THIS
-																																								NOTICE?</span
 																																							>
+																																								12. DO WE MAKE
+																																								UPDATES TO THIS
+																																								NOTICE?
+																																							</span>
 																																						</strong>
 																																					</span>
 																																				</span>
@@ -5976,13 +5971,14 @@
 																																		<span>
 																																			<span>
 																																				<em>
-																																					<strong
-																																						>In Short:&nbsp;</strong
-																																					>Yes, we will update this
-																																					notice as necessary to
-																																					stay compliant with
-																																					relevant laws.</em
-																																				>
+																																					<strong>
+																																						In Short:&nbsp;
+																																					</strong>Yes, we will
+																																					update this notice as
+																																					necessary to stay
+																																					compliant with relevant
+																																					laws.
+																																				</em>
 																																			</span>
 																																		</span>
 																																	</span>
@@ -5993,8 +5989,8 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>We may update this privacy
+																																			<span>
+																																				We may update this privacy
 																																				notice from time to time.
 																																				The updated version will be
 																																				indicated by an updated
@@ -6012,8 +6008,8 @@
 																																				We encourage you to review this
 																																				privacy notice frequently to be
 																																				informed of how we are protecting
-																																				your information.</span
-																																			>
+																																				your information.
+																																			</span>
 																																		</span>
 																																	</span>
 																																</div>
@@ -6029,10 +6025,11 @@
 																																						<strong>
 																																							<span
 																																								data-custom-class="heading_1"
-																																								>13. HOW CAN YOU
-																																								CONTACT US ABOUT
-																																								THIS NOTICE?</span
 																																							>
+																																								13. HOW CAN YOU
+																																								CONTACT US ABOUT
+																																								THIS NOTICE?
+																																							</span>
 																																						</strong>
 																																					</span>
 																																				</span>
@@ -6046,8 +6043,8 @@
 																																<div>
 																																	<span>
 																																		<span>
-																																			<span
-																																				>If you have questions or
+																																			<span>
+																																				If you have questions or
 																																				comments about this notice,
 																																				you may
 																																				<span>
@@ -6055,10 +6052,10 @@
 																																						<bdt>
 																																							<bdt> </bdt>
 																																						</bdt>email us at
-																																						<bdt
-																																							>whichrouteisfaster@michaelbonner.dev
-																																							or&nbsp;</bdt
-																																						>
+																																						<bdt>
+																																							whichrouteisfaster@michaelbonner.dev
+																																							or&nbsp;
+																																						</bdt>
 																																						<bdt
 																																							class="statement-end-if-in-editor"
 																																						>
@@ -6068,10 +6065,9 @@
 																																				</span>
 																																				<span>
 																																					<span>
-																																						<span
-																																							>contact us by post
-																																							at:</span
-																																						>
+																																						<span>
+																																							contact us by post at:
+																																						</span>
 																																					</span>
 																																				</span>
 																																			</span>
@@ -6089,9 +6085,9 @@
 																																					<span>
 																																						<span>
 																																							<span>
-																																								<bdt
-																																									>Michael Bonner</bdt
-																																								>
+																																								<bdt>
+																																									Michael Bonner
+																																								</bdt>
 																																							</span>
 																																						</span>
 																																					</span>
@@ -6137,8 +6133,8 @@
 																																</div>
 																																<div>
 																																	<span>
-																																		<bdt
-																																			>United States<span>
+																																		<bdt>
+																																			United States<span>
 																																				<span>
 																																					<span>
 																																						<span>
@@ -6233,11 +6229,12 @@
 																																						<strong>
 																																							<span
 																																								data-custom-class="heading_1"
-																																								>14. HOW CAN YOU
+																																							>
+																																								14. HOW CAN YOU
 																																								REVIEW, UPDATE, OR
 																																								DELETE THE DATA WE
-																																								COLLECT FROM YOU?</span
-																																							>
+																																								COLLECT FROM YOU?
+																																							</span>
 																																						</strong>
 																																					</span>
 																																				</span>
@@ -6265,8 +6262,8 @@
 																																				update, or delete your
 																																				personal information, please
 																																				<bdt> </bdt>fill out and
-																																				submit a&nbsp;</span
-																																			>
+																																				submit a&nbsp;
+																																			</span>
 																																			<span>
 																																				<span>
 																																					<span>
@@ -6274,9 +6271,10 @@
 																																							href="https://app.termly.io/notify/2bb8e76b-792a-47e8-8aad-0b8b86d0f4a9"
 																																							rel="noopener noreferrer"
 																																							target="_blank"
-																																							>data subject access
-																																							request</a
 																																						>
+																																							data subject access
+																																							request
+																																						</a>
 																																					</span>
 																																				</span>
 																																			</span>

@@ -81,13 +81,17 @@
 		<button
 			type="submit"
 			class="rounded-lg bg-slate-900 px-3 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-50"
-			disabled={isSubmitting}>Save</button
+			disabled={isSubmitting}
 		>
+			Save
+		</button>
 		<button
 			type="button"
 			class="rounded-lg px-3 text-sm font-medium text-slate-600 hover:bg-slate-200/60"
-			onclick={cancelEdit}>Cancel</button
+			onclick={cancelEdit}
 		>
+			Cancel
+		</button>
 	</form>
 {/snippet}
 

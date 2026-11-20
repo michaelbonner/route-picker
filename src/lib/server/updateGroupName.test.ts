@@ -23,12 +23,12 @@ import { actions } from '../../routes/+page.server.js';
 
 describe('updateGroupName server action', () => {
 	const mockRequest = { formData: vi.fn() };
-	const mockLocals = { session: null as any };
+	const mockLocals = { session: null as { userId: string | number } | null };
 
 	const mockUpdateChain = () => {
 		const whereMock = vi.fn().mockResolvedValue({ success: true });
 		const setMock = vi.fn().mockReturnValue({ where: whereMock });
-		(db.update as any).mockReturnValue({ set: setMock });
+		(db.update as ReturnType<typeof vi.fn>).mockReturnValue({ set: setMock });
 		return { setMock, whereMock };
 	};
 
@@ -43,7 +43,7 @@ describe('updateGroupName server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 3,
 			userId: 'user-1',
 			name: 'Old Group'
@@ -111,7 +111,7 @@ describe('updateGroupName server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.routeGroup.findFirst as any).mockResolvedValue(null);
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 		await actions.updateGroupName({
 			request: mockRequest as unknown as Request,
@@ -129,7 +129,7 @@ describe('updateGroupName server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 3,
 			userId: 'user-2',
 			name: 'Not Mine'

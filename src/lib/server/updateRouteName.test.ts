@@ -1,6 +1,5 @@
 import { fail } from '@sveltejs/kit';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { eq } from 'drizzle-orm';
 
 // Mock the db import
 vi.mock('#lib/server/db/index.js', () => ({
@@ -38,14 +37,14 @@ describe('updateRouteName server action', () => {
 	};
 
 	const mockLocals = {
-		session: null as any
+		session: null as { userId?: string | number; user?: object } | null
 	};
 
 	// Helper to mock chainable update
 	const mockUpdateChain = () => {
 		const whereMock = vi.fn().mockResolvedValue({ success: true });
 		const setMock = vi.fn().mockReturnValue({ where: whereMock });
-		(db.update as any).mockReturnValue({ set: setMock });
+		(db.update as ReturnType<typeof vi.fn>).mockReturnValue({ set: setMock });
 		return { setMock, whereMock };
 	};
 
@@ -76,7 +75,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
 
 			const mockRoute = {
 				id: 1,
@@ -85,7 +84,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockRoute);
 
 			const { setMock, whereMock } = mockUpdateChain();
 
@@ -122,7 +121,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
 
 			const mockRoute = {
 				id: 1,
@@ -131,9 +130,9 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockRoute);
 
-			const { setMock, whereMock } = mockUpdateChain();
+			const { setMock } = mockUpdateChain();
 
 			// Act
 			const result = await actions.updateRouteName({
@@ -196,7 +195,7 @@ describe('updateRouteName server action', () => {
 
 			const mockSession = { userId: 1 };
 			mockLocals.session = mockSession;
-			(db.query.user.findFirst as any).mockResolvedValue(null);
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 			// Act
 			await actions.updateRouteName({
@@ -226,8 +225,8 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
-			(db.query.route.findFirst as any).mockResolvedValue(null);
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
+			(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 			// Act
 			await actions.updateRouteName({
@@ -257,7 +256,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
 
 			// Route belongs to different user
 			const mockRoute = {
@@ -267,7 +266,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockRoute);
 
 			// Act
 			await actions.updateRouteName({
@@ -396,7 +395,7 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
 
 			const mockRoute = {
 				id: 1,
@@ -405,13 +404,13 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.route.findFirst as any).mockResolvedValue(mockRoute);
+			(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockRoute);
 
 			// Simulate database error
 			const setMock = vi.fn().mockReturnValue({
 				where: vi.fn().mockRejectedValue(new Error('Database connection failed'))
 			});
-			(db.update as any).mockReturnValue({ set: setMock });
+			(db.update as ReturnType<typeof vi.fn>).mockReturnValue({ set: setMock });
 
 			// Act
 			await actions.updateRouteName({
@@ -453,7 +452,9 @@ describe('updateRouteName server action', () => {
 			mockLocals.session = mockSession;
 
 			// Simulate database error during user lookup
-			(db.query.user.findFirst as any).mockRejectedValue(new Error('User lookup failed'));
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockRejectedValue(
+				new Error('User lookup failed')
+			);
 
 			// Act
 			await actions.updateRouteName({
@@ -485,10 +486,12 @@ describe('updateRouteName server action', () => {
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
-			(db.query.user.findFirst as any).mockResolvedValue(mockUser);
+			(db.query.user.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(mockUser);
 
 			// Simulate database error during route lookup
-			(db.query.route.findFirst as any).mockRejectedValue(new Error('Route lookup failed'));
+			(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockRejectedValue(
+				new Error('Route lookup failed')
+			);
 
 			// Act
 			await actions.updateRouteName({
