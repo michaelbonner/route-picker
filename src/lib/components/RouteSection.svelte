@@ -31,13 +31,9 @@
 		actions
 	}: Props = $props();
 
-	let isOpen = $state(true);
+	let isOpen = $derived(!isCollapsed(sectionId));
 	let newRouteName = $state('');
 	let isAddingRoute = $state(false);
-
-	$effect(() => {
-		isOpen = !isCollapsed(sectionId);
-	});
 
 	const toggle = () => {
 		isOpen = !isOpen;
@@ -128,13 +124,15 @@
 								<span
 									class="text-center text-xs font-semibold {i === 0
 										? 'text-emerald-700'
-										: 'text-slate-400'}">{i + 1}</span
+										: 'text-slate-400'}"
 								>
+									{i + 1}
+								</span>
 								<span class="truncate font-medium text-slate-800">{route.name}</span>
 								<span class="text-right tabular-nums">
-									<span class="font-semibold text-slate-900"
-										>{formatDuration(stats.averageSeconds!)}</span
-									>
+									<span class="font-semibold text-slate-900">
+										{formatDuration(stats.averageSeconds!)}
+									</span>
 									{#if i === 0}
 										<span class="ml-1 text-xs font-medium text-emerald-700">fastest</span>
 									{:else}

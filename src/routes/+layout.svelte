@@ -56,9 +56,9 @@
 				href={resolve('/')}
 			>
 				<img class="h-8 shrink-0" src={car} alt="" />
-				<span class="truncate text-base font-bold tracking-tight sm:text-xl"
-					>Which Route Is Faster</span
-				>
+				<span class="truncate text-base font-bold tracking-tight sm:text-xl">
+					Which Route Is Faster
+				</span>
 			</a>
 
 			<SignInOut />
@@ -78,13 +78,15 @@
 				<a
 					class="underline underline-offset-2 hover:text-slate-800"
 					href="https://michaelbonner.dev"
-					target="_blank">Michael Bonner</a
+					target="_blank"
 				>
+					Michael Bonner
+				</a>
 			</p>
 			<p>
-				<a class="underline underline-offset-2 hover:text-slate-800" href={resolve('/policies')}
-					>Policies</a
-				>
+				<a class="underline underline-offset-2 hover:text-slate-800" href={resolve('/policies')}>
+					Policies
+				</a>
 			</p>
 		</div>
 	</footer>

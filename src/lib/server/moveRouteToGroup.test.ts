@@ -24,12 +24,12 @@ import { actions } from '../../routes/+page.server.js';
 
 describe('moveRouteToGroup server action', () => {
 	const mockRequest = { formData: vi.fn() };
-	const mockLocals = { session: null as any };
+	const mockLocals = { session: null as { userId: string | number } | null };
 
 	const mockUpdateChain = () => {
 		const whereMock = vi.fn().mockResolvedValue({ success: true });
 		const setMock = vi.fn().mockReturnValue({ where: whereMock });
-		(db.update as any).mockReturnValue({ set: setMock });
+		(db.update as ReturnType<typeof vi.fn>).mockReturnValue({ set: setMock });
 		return { setMock, whereMock };
 	};
 
@@ -44,12 +44,12 @@ describe('moveRouteToGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.route.findFirst as any).mockResolvedValue({
+		(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 10,
 			userId: 'user-1',
 			name: 'My Route'
 		});
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 5,
 			userId: 'user-1',
 			name: 'My Group'
@@ -75,7 +75,7 @@ describe('moveRouteToGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.route.findFirst as any).mockResolvedValue({
+		(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 10,
 			userId: 'user-1',
 			name: 'My Route'
@@ -123,7 +123,7 @@ describe('moveRouteToGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.route.findFirst as any).mockResolvedValue(null);
+		(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 		await actions.moveRouteToGroup({
 			request: mockRequest as unknown as Request,
@@ -138,7 +138,7 @@ describe('moveRouteToGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.route.findFirst as any).mockResolvedValue({
+		(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 10,
 			userId: 'user-2',
 			name: 'Not My Route'
@@ -160,12 +160,12 @@ describe('moveRouteToGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.route.findFirst as any).mockResolvedValue({
+		(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 10,
 			userId: 'user-1',
 			name: 'My Route'
 		});
-		(db.query.routeGroup.findFirst as any).mockResolvedValue(null);
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue(null);
 
 		await actions.moveRouteToGroup({
 			request: mockRequest as unknown as Request,
@@ -183,12 +183,12 @@ describe('moveRouteToGroup server action', () => {
 		mockRequest.formData.mockResolvedValue(formData);
 		mockLocals.session = { userId: 'user-1' };
 
-		(db.query.route.findFirst as any).mockResolvedValue({
+		(db.query.route.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 10,
 			userId: 'user-1',
 			name: 'My Route'
 		});
-		(db.query.routeGroup.findFirst as any).mockResolvedValue({
+		(db.query.routeGroup.findFirst as ReturnType<typeof vi.fn>).mockResolvedValue({
 			id: 5,
 			userId: 'user-2',
 			name: 'Not My Group'

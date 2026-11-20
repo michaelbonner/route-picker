@@ -14,7 +14,7 @@ describe('deleteRoute server action', () => {
 
 	const mockDeleteChain = () => {
 		const whereMock = vi.fn().mockResolvedValue({ success: true });
-		(db.delete as any).mockReturnValue({ where: whereMock });
+		(db.delete as ReturnType<typeof vi.fn>).mockReturnValue({ where: whereMock });
 		return { whereMock };
 	};
 

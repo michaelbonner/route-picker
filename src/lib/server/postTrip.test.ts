@@ -14,7 +14,7 @@ describe('postTrip server action', () => {
 
 	const mockInsertChain = () => {
 		const valuesMock = vi.fn().mockResolvedValue({ success: true });
-		(db.insert as any).mockReturnValue({ values: valuesMock });
+		(db.insert as ReturnType<typeof vi.fn>).mockReturnValue({ values: valuesMock });
 		return { valuesMock };
 	};
 

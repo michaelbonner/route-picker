@@ -27,13 +27,13 @@ describe('createGroup server action', () => {
 	};
 
 	const mockLocals = {
-		session: null as any
+		session: null as { userId: string | number } | null
 	};
 
 	// Helper to mock chainable insert
 	const mockInsertChain = () => {
 		const valuesMock = vi.fn().mockResolvedValue({ success: true });
-		(db.insert as any).mockReturnValue({ values: valuesMock });
+		(db.insert as ReturnType<typeof vi.fn>).mockReturnValue({ values: valuesMock });
 		return { valuesMock };
 	};
 
